@@ -1,0 +1,2449 @@
+@charset "utf-8";
+
+/* デザイン基本ルール　＆　カラーコード */
+
+:root {
+    --font-base: 'Noto Sans JP', sans-serif;
+    --pc-content-width: 1200px;
+
+    /* カラーコード定期 */
+    --color-main: #7F5539;
+    --color-text: #7F5539;
+    --color-accent: #FFD233;
+    --color-bg-light: #EDE0D4;
+    --color-purple-b3: #B392AC;
+    --color-text-dark: #000000;
+    --color-text-muted: rgba(0, 0, 0, 0.5);
+    --color-gray-d9: #D9D9D9;
+    --color-gray-cc: #CCCCCC;
+    --color-drawer: #7F5539BF;
+
+    /* 4倍のスペース */
+    --space-4: 4px;
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-20: 20px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-40: 40px;
+}
+
+/* 基本設定 */
+body {
+    font-family: var(--font-base);
+    font-size: var(--space-16);
+    color: var(--color-text);
+}
+
+h1, h2, h3 {
+    font-size: var(--space-20);
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    h1, h2, h3 {
+        font-size: var(--space-32); /* PC時の見出し */
+    }
+}
+
+/* レイアウトコンテナ */
+.lContainer {
+    width: 100%;
+    padding-right: var(--space-16);
+    padding-left: var(--space-16);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 1232px) {
+    .lContainer {
+        max-width: var(--pc-content-width);
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+/* ヘッダーコンポーネント */
+.pHeader {
+    width: 100%;
+}
+
+/* ヘッダー上部 */
+.pHeaderMain {
+    background-color: var(--color-bg-light);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+}
+
+.pHeaderMainInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ハンバーガーボタン */
+.pHeaderMenuBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+}
+
+.pHeaderMenuBtn span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-main);
+  border-radius: 2px;
+}
+
+/* ロゴ */
+.pHeaderLogo img {
+  height: 50px;
+  width: auto;
+}
+
+/* ユーザーナビ */
+.pHeaderNavList {
+  display: flex;
+  gap: var(--space-12); /* スマホ版：3つ並ぶため gap を --space-16 から --space-12 に調整するとより綺麗に収まります */
+}
+
+.pHeaderNavItem a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-main);
+  text-decoration: none; /* リンクの下線を削除 */
+}
+
+.pHeaderNavIcon {
+  height: 28px;
+  width: auto;
+  margin-bottom: var(--space-4);
+}
+
+/* PCレイアウト用の調整 */
+@media (min-width: 768px) {
+  .pHeaderNavList {
+    gap: var(--space-24); /* PC版は広めの余白を維持 */
+  }
+}
+
+/* ヘッダー下部（検索バー） */
+.pHeaderSearch {
+  background-color: var(--color-purple-b3);
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.pHeaderSearchForm {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--color-main);
+  background-color: #ffffff;
+}
+
+.pHeaderSearchInput {
+  flex: 1;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--space-16);
+}
+
+.pHeaderSearchBtn {
+  background-color: var(--color-gray-d9);
+  border-right: 1px solid var(--color-main);
+  padding: 0 var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;             /* 【追加】ボタンの横幅を明示的に固定 */
+  height: auto;
+  cursor: pointer;
+}
+
+.pHeaderSearchBtn::before {
+  content: "";             /* 【修正】文字（絵文字）をクリア */
+  display: block;
+  width: 24px;             /* 【追加】アイコンの表示サイズ（幅） */
+  height: 24px;            /* 【追加】アイコンの表示サイズ（高さ） */
+  background-image: url("../images/commonSearchIcon.png"); /* 【修正】添付の画像パスを指定 */
+  background-size: contain;   /* 【追加】枠内に綺麗に収める */
+  background-position: center;/* 【追加】中央配置 */
+  background-repeat: no-repeat;
+}
+
+/* PCレイアウト用の調整 */
+@media (min-width: 768px) {
+  .pHeaderLogo img {
+    height: 64px;
+  }
+  
+  .pHeaderNavList {
+    gap: var(--space-24);
+  }
+
+  .pHeaderSearchInner {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .pHeaderSearchForm {
+    width: 400px;
+  }
+}
+
+/* フッター */
+.pFooter {
+  background-color: var(--color-bg-light);
+  width: 100%;
+}
+
+.pFooterInner {
+  display: flex;
+  flex-direction: column; /* スマホ時は縦並び */
+  align-items: flex-start; /* スマホ時は左寄せ傾向 */
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-40);
+  position: relative;
+}
+
+/* フッターナビ（共通スタイル） */
+.pFooterNavList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.pFooterNavItem {
+  position: relative;
+  padding-left: var(--space-16);
+  font-size: var(--space-16);
+  font-weight: bold;
+}
+
+/* テキスト左側の紫色の縦線 */
+.pFooterNavItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background-color: var(--color-purple-b3);
+}
+
+/* SNSリスト（共通スタイル） */
+.pFooterSnsList {
+  display: flex;
+  gap: var(--space-20);
+  align-items: center;
+}
+
+.pFooterSnsItem img {
+  width: 44px; /* カンプのサイズ感に合わせて調整 */
+  height: auto;
+}
+
+/* ロゴ（共通スタイル） */
+.pFooterLogo img {
+  width: 140px; /* カンプのサイズ感に合わせて調整 */
+  height: auto;
+}
+
+/* --- スマートフォン用の配置調整（個別指定） --- */
+@media (max-width: 767px) {
+  .pFooterInner {
+    gap: var(--space-32);
+  }
+  
+  /* スマホ版では右下にロゴを配置するため、Innerを基準に絶対配置にする */
+  .pFooterLogo {
+    position: absolute;
+    right: var(--space-16);
+    bottom: var(--space-40);
+  }
+}
+
+/* --- PCレイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pFooterInner {
+    flex-direction: column;
+    align-items: center; /* 全体を中央揃えに */
+    gap: var(--space-40);
+    padding-top: var(--space-40);
+    padding-bottom: var(--space-40);
+  }
+
+  /* PC版：ナビを一番上に、横並びに */
+  .pFooterNav {
+    width: 100%;
+    order: 1;
+  }
+
+  .pFooterNavList {
+    flex-direction: row;
+    justify-content: flex-start; /* 左寄せで並べる */
+    gap: var(--space-40);
+  }
+
+  /* PC版：ロゴを中央（2番目）に配置 */
+  .pFooterLogo {
+    order: 2;
+    margin-top: var(--space-12);
+  }
+
+  /* PC版：SNSを一番下（3番目）に配置 */
+  .pFooterSnsList {
+    order: 3;
+    gap: var(--space-32);
+  }
+}
+
+/* コピーライトエリア */
+.pFooterCopyright {
+  width: 100%;
+  text-align: center;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  border-top: 1px solid var(--color-main);
+}
+
+.pFooterCopyright small {
+  font-size: 12px;
+  color: var(--color-main);
+}
+
+/* ドロワーメニュー */
+
+.pDrawerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-drawer); /* 共通変数のブラウン #7F5539 */
+  z-index: 9999;
+  
+  /* アニメーション設定：上から下へ */
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
+  overflow-y: auto;
+}
+
+/* JSでこのクラスがつくと上から下りてくる */
+.pDrawerMenu.isOpen {
+  transform: translateY(0);
+}
+
+.pDrawerMenuInner {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-40);
+}
+
+/* ドロワー上部（ロゴとバツ印） */
+.pDrawerMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-40);
+}
+
+.pDrawerMenuLogo img {
+  height: 50px;
+  width: auto;
+}
+
+/* CSSで作る綺麗なバツ印ボタン */
+.pDrawerMenuCloseBtn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.pDrawerMenuCloseBtn::before,
+.pDrawerMenuCloseBtn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.pDrawerMenuCloseBtn::before {
+  transform: rotate(45deg);
+}
+
+.pDrawerMenuCloseBtn::after {
+  transform: rotate(-45deg);
+}
+
+/* ナビゲーションリスト */
+.pDrawerMenuNavList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.pDrawerMenuNavItem {
+  border-bottom: 1px solid #ffffff;
+}
+
+.pDrawerMenuNavItem a {
+  display: block;
+  padding: var(--space-16) 0;
+  font-size: var(--space-16);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* --- PCレイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pDrawerMenuInner {
+    padding-top: var(--space-24);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* コンテンツを中央寄せに */
+  }
+
+  .pDrawerMenuHeader {
+    justify-content: center; /* ロゴを中央に */
+    position: relative;
+    margin-bottom: var(--space-32);
+  }
+
+  .pDrawerMenuLogo img {
+    height: 64px;
+  }
+
+  /* PCではバツ印を右端に絶対配置 */
+  .pDrawerMenuCloseBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* ナビゲーションを中央揃えのボックスにする */
+  .pDrawerMenuNav {
+    width: 100%;
+    max-width: 500px; /* カンプの横幅感に合わせて調整 */
+  }
+
+  .pDrawerMenuNavItem a {
+    text-align: center;
+    padding: var(--space-12) 0;
+  }
+}
+
+/* ようこそテキスト */
+.pWelcome {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  background-color: #ffffff; /* デザインに合わせて調整 */
+}
+
+.pWelcomeText {
+  font-size: 14px;
+  color: var(--color-text-dark);
+}
+
+.pWelcomeName {
+  font-weight: bold; /* ユーザー名部分を少し強調 */
+}
+
+/* ヒーロービジュアル */
+.pHero {
+  width: 100%;
+  margin-bottom: var(--space-24);
+}
+
+.pHeroInner {
+  /* 左右の余白をリセットして画面一杯に広げる場合は width: 100%; max-width: none; に */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pHeroImage,
+.pHeroImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* バナーセクション */
+.pBannerSection {
+  margin-bottom: var(--space-40);
+}
+
+.pBannerGrid {
+  display: flex;
+  flex-direction: row;      /* 【修正】縦並びから横並びに変更 */
+  flex-wrap: wrap;          /* 【修正】枠からはみ出たら折り返す */
+  justify-content: space-between; /* 【修正】左右に綺麗に分散配置 */
+  gap: var(--space-16) 4%;   /* 【修正】縦の隙間を16px、横の隙間を4%に設定 */
+}
+
+.pBannerItem {
+  width: 48%;               /* 【修正】SP版で横2列に収まるよう幅を48%に設定 */
+}
+
+.pBannerItem img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pBannerItem.pBannerItemFull {
+  width: 100%;              /* 【修正】SP版でも一番下のバナーは横幅100%にする */
+  margin-top: 0;
+}
+
+/* --- PCレイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  /* .pWelcome {
+    display: none; 
+  } */
+  
+  .pHero {
+    margin-bottom: var(--space-40);
+  }
+
+  /* バナーをGridで2列＋1列の形に綺麗に整列 */
+  .pBannerGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-24);
+  }
+
+  /* PC版のアイテム幅のリセットと全幅化設定 */
+  .pBannerItem {
+    width: 100%;            /* Grid制御なので100%に戻す */
+  }
+
+  /* 3つ目の「商品一覧」バナーだけ横いっぱいに広げる */
+  .pBannerItemFull {
+    grid-column: 1 / 3;
+  }
+}
+
+
+/* Philosophy（私たちの信念）スタイル（キャメルケース） */
+
+.pPhilosophy {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--space-40);
+  overflow: hidden;
+}
+
+/* 背景画像エリア */
+.pPhilosophyBg {
+  width: 100%;
+  height: auto;
+}
+
+.pPhilosophyBg img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* 画像が明るすぎて文字が見づらい場合は、以下の記述で少し暗く調整できます */
+  filter: brightness(0.8); 
+}
+
+/* テキストコンテンツエリア（画像の上に絶対配置） */
+.pPhilosophyBody {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: #ffffff; /* 文字はすべて白 */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* 可読性を上げるための薄い影 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 各テキストの微調整 */
+.pPhilosophyTitle {
+  font-size: var(--space-24);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: #ffffff;
+}
+
+.pPhilosophySubTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: var(--space-16);
+}
+
+.pPhilosophyLead {
+  font-size: var(--space-16);
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+}
+
+.pPhilosophyText {
+  font-size: var(--space-16);
+  font-weight: 500;
+}
+
+/* --- PCレイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pPhilosophy {
+    margin-bottom: var(--space-40);
+  }
+
+  /* PC向けにフォントサイズを大きく調整 */
+  .pPhilosophyTitle {
+    font-size: var(--space-40);
+    margin-bottom: var(--space-8);
+  }
+
+  .pPhilosophySubTitle {
+    font-size: var(--space-16);
+    margin-bottom: var(--space-24);
+  }
+
+  .pPhilosophyLead {
+    font-size: var(--space-24);
+    margin-bottom: var(--space-8);
+  }
+
+  .pPhilosophyText {
+    font-size: var(--space-24);
+  }
+}
+
+/* Popular Ranking（人気ランキング）スタイル */
+.pRanking {
+  padding: var(--space-40) 0;
+  margin-bottom: var(--space-40);
+}
+
+/* セクションタイトル（下線付き） */
+.pRankingSectionTitle {
+  font-size: var(--space-20);
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 80px; /* 【修正】中央配置を維持しつつ、下の余白を120pxに */
+  position: relative;
+  display: table;       /* 【修正】要素の幅を「文字の長さぴったり」に縮める */
+}
+
+.pRankingSectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;              /* 【修正】左端から開始 */
+  width: 100%;          /* 【修正】文字の横幅（100%）に完全に合わせる */
+  height: 2px;
+  background-color: #f4c242;
+}
+
+/* ランキンググリッド（SP版：横2列） */
+.pRankingGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-40) 4%;
+}
+
+/* 商品カード基盤 */
+.pRankingCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 48%;
+  margin-top: 30px;
+}
+
+/* 1. ボタンを包むformを横幅100%にして、中身を中央に寄せる */
+.pRankingCard form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-8); /* 必要に応じて価格との間の隙間を微調整 */
+}
+
+/* 2. ボタンの最大横幅を大きく広げる（例: 160px → 200px または 100%） */
+.pRankingCard .pRankingBtn {
+  width: 100%;
+  max-width: 220px; /* ★元の160pxからサイズを大きく広げました */
+  margin: 0 auto;  /* 中央配置の担保 */
+}
+
+/* ランキングバッジ */
+.pRankingBadge {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #e8b7c3;
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* 上位3位のバッジ色 */
+.mRank1 .pRankingBadge { background-color: #f4b93b; }
+.mRank2 .pRankingBadge { background-color: #b8c0c4; }
+.mRank3 .pRankingBadge { background-color: #c76e2e; }
+
+/* 商品画像エリア */
+.pRankingImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: var(--space-12);
+}
+
+.pRankingImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 商品タイトル（左揃え） */
+.pRankingTitle {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333333;
+  margin-bottom: var(--space-8);
+  min-height: 36px;
+  text-align: left;
+  width: 100%;
+}
+
+/* 価格（左揃え） */
+.pRankingPrice {
+  font-size: var(--space-14);
+  font-weight: 700;
+  color: #bf4d4d;
+  margin-bottom: var(--space-12);
+  text-align: left;
+  width: 100%;
+}
+
+/* カートに入れるボタン */
+.pRankingBtn {
+  width: 100%;
+  max-width: 160px;
+  padding: var(--space-8) 0;
+  background-color: #734e31;
+  color: #ffffff;
+  font-size: var(--space-12);
+  font-weight: 500;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center; /* 【修正】カードの左揃えに引っ張られないよう、明示的に中央揃えを指定 */
+}
+
+/* --- PCレイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pRanking {
+    padding: var(--space-60) 0;
+  }
+
+  .pRankingSectionTitle {
+    font-size: var(--space-24);
+    margin: 0 auto 120px; /* 【修正】PC版も共通の余白設定に統一 */
+  }
+
+  .pRankingGrid {
+    gap: 60px 4%;
+  }
+
+  .pRankingCard {
+    width: 29%;
+    margin-top: 40px;
+  }
+  
+  .pRankingBadge {
+    top: -40px;
+  }
+
+  .pRankingImage {
+    margin-top: 20px;
+  }
+
+  .pRankingTitle {
+    font-size: 14px;
+    min-height: 40px;
+  }
+}
+
+/* 商品一覧ページ */
+
+/* --- パンくずリスト --- */
+.pBreadcrumb {
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-main); /* 下側の境界線 */
+}
+
+.pBreadcrumbList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.pBreadcrumbItem {
+  font-size: 12px; /* カンプのサイズ感に合わせて小さめに設定 */
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.pBreadcrumbItem a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.pBreadcrumbItem a:hover {
+  text-decoration: underline;
+}
+
+/* 矢印（＞）の追加設定 */
+.pBreadcrumbItem + .pBreadcrumbItem::before {
+  content: "＞";
+  display: inline-block;
+  margin-left: var(--space-8);
+  margin-right: var(--space-8);
+  color: var(--color-text);
+  font-size: 10px;
+}
+
+/* --- ようこそエリア --- */
+.pWelcome {
+  width: 100%;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-main); /* 下側の境界線 */
+}
+
+.pWelcomeText {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.pWelcomeName {
+  font-weight: bold;
+  margin-right: var(--space-4);
+}
+
+/* --- PCレイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pBreadcrumb {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .pWelcome {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+  
+  .pBreadcrumbItem {
+    font-size: 14px; /* PC版では少しフォントサイズを大きく */
+  }
+}
+
+/* 商品一覧ページ カタログスタイル */
+
+/* ページ全体の余白調整 */
+.pProductPage {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* ページ全体の大見出し（商品一覧） */
+.pProductMainTitle {
+  font-size: 24px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 24px;
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pProductMainTitle::after {
+  content: "";
+  display: block;
+  width: 100%; 
+  height: 4px;
+  background-color: #f7cb4d; /* 見本の黄色いアンダーライン */
+  margin: 8px auto 0;
+}
+
+/* セクションタイトル（メインメニュー） */
+.pProductSectionTitle {
+  font-size: 16px;
+  text-align: center;
+  color: #70513e; /* ブラウン系の文字色 */
+  margin-top: 40px;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+/* --- 商品グリッドレイアウト（SP版: 2列） --- */
+.pProductGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px; /* 縦の隙間24px, 横の隙間16px */
+}
+
+/* 商品カード */
+.pProductCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.pProductCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex-grow: 1;
+}
+
+.pProductCardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.pProductCardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pProductCardName {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #333333;
+  margin-bottom: 6px;
+  font-weight: 500;
+  min-height: 36px; /* 2行分の高さを確保して高さを揃える */
+}
+
+.pProductCardPrice {
+  font-size: 15px;
+  font-weight: 700;
+  color: #bf0000; /* カンプ準拠の赤い価格表示 */
+  margin-bottom: 8px;
+}
+
+.pProductCardPriceLabel {
+  font-size: 10px;
+  font-weight: normal;
+  margin-right: 4px;
+}
+
+/* カートに入れるボタン */
+.pProductCardBtn {
+  display: block;
+  width: 100%;
+  background-color: #70513e; /* メインのブラウン */
+  color: #ffffff;
+  border: none;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pProductCardBtn:hover {
+  background-color: #553d2f;
+}
+
+/* --- PC版レイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pProductPage {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .pProductMainTitle {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .pProductSectionTitle {
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 48px;
+  }
+
+  /* PC版: 3列グリッドに変更 */
+  .pProductGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 32px; /* PC版にあわせて余白を広げる */
+  }
+
+  .pProductCardName {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .pProductCardPrice {
+    font-size: 18px;
+  }
+
+  .pProductCardBtn {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+}
+
+/* セクションタイトル（メインメニュー / バラエティセット 共通） */
+.pProductSectionTitle {
+  font-size: 16px;
+  text-align: center;
+  color: #70513e;
+  margin-top: 56px;    /* 👈 40px から 56px 程度に広げるとセクション間の区切りが明快になります */
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .pProductSectionTitle {
+    font-size: 20px;
+    margin-top: 88px;  /* 👈 PC版も 60px から 88px 程度に広げるとさらに見栄えが良くなります */
+    margin-bottom: 48px;
+  }
+}
+
+/* 商品詳細ページ スタイル */
+
+.pDetail {
+  padding-top: 32px;
+  padding-bottom: 60px;
+}
+
+/* レスポンシブ用のレイアウト土台 */
+.pDetailLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 画像エリア */
+.pDetailImgBlock {
+  width: 100%;
+}
+
+.pDetailImgBlock img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 情報エリア */
+.pDetailInfoBlock {
+  width: 100%;
+}
+
+/* 商品名タイトル */
+.pDetailTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #70513e; /* ブランドブラウン */
+  line-height: 1.4;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2dcd6; /* 下の区切り線 */
+}
+
+/* 商品説明文 */
+.pDetailDescription {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #333333;
+  margin-bottom: 24px; /* 👈 線から下の「価格」までの余白 */
+  
+  /* 👇 追記：商品名と同じ罫線と、文字との間の余白 */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2dcd6;
+}
+
+/* 価格表示 */
+.pDetailPrice {
+  font-size: 20px;
+  font-weight: 700;
+  color: #bf0000; /* ブランドレッド */
+  margin-bottom: 24px;
+}
+
+.pDetailPriceLabel {
+  font-size: 13px;
+  font-weight: normal;
+  color: #bf0000;
+  margin-right: 6px;
+}
+
+/* アクション行（個数・ボタン） */
+.pDetailActionRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 個数入力ボックス */
+.pDetailQuantityWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pDetailInput {
+  width: 50px;
+  height: 40px;
+  border: 1px solid #70513e;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.pDetailUnit {
+  font-size: 14px;
+  color: #333333;
+}
+
+/* カートに入れるボタン */
+.pDetailCartBtn {
+  flex-grow: 1;
+  height: 40px;
+  background-color: #70513e;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  /* ボタンの中身（文字）を上下左右中央に配置する */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* ブラウザ特有の余白をクリアしてズレを防ぐ */
+}
+
+.pDetailCartBtn:hover {
+  background-color: #553d2f;
+}
+
+/* ハートマーク（お気に入り）ボタン */
+.pDetailFavoriteBtn {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #bf0000; /* 見本の赤いハート境界線 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s;
+}
+
+.pDetailFavoriteIcon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #bf0000;
+  stroke-width: 2;
+}
+
+/* --- PC版レイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pDetail {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  /* PCは左右2カラムへ並び替え */
+  .pDetailLayout {
+    flex-direction: row;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .pDetailImgBlock {
+    width: 50%; /* ちょうど半分ずつ */
+  }
+
+  .pDetailInfoBlock {
+    width: 50%;
+  }
+
+  .pDetailTitle {
+    font-size: 24px;
+    margin-bottom: 24px;
+    /* 見本に合わせPC版では線の長さを文字幅にせず、横いっぱいに引いています */
+  }
+
+  .pDetailDescription {
+    font-size: 16px;
+    margin-bottom: 32px;  /* PC版は少し広めに設定 */
+    padding-bottom: 24px; /* PC版の文字と線との間の余白 */
+  }
+
+  .pDetailPrice {
+    font-size: 24px;
+  }
+
+  /* カートに入れるボタンのベース指定 */
+.pDetailCartBtn {
+  width: 100%;
+  min-width: 140px; /* 必要に応じて最小幅を担保 */
+  height: 40px;
+  padding: 0 16px;  /* 左右に余白を確保 */
+  background-color: #70513e;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+/* PC版メディアクエリの調整 */
+@media (min-width: 768px) {
+  .pDetailCartBtn {
+    width: 180px;      /* または 100% */
+    max-width: 240px;
+    flex-grow: 1;
+  }
+}
+}
+
+/* カートページ スタイル */
+
+.pCart {
+  padding-top: 32px;
+  padding-bottom: 60px;
+}
+
+/* 注文合計ボックス（黄色い枠線） */
+.pCartSummaryBox {
+  border: 2px solid #ffd233; /* 変数 --color-accent のゴールド */
+  padding: 24px var(--space-16);
+  text-align: center;
+  margin-bottom: 32px;
+  background-color: #ffffff;
+}
+
+.pCartSummaryCount {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.pCartSummaryTotal {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.pCartSummaryPrice {
+  color: #bf0000; /* 赤字の価格 */
+}
+
+/* 購入確認へ進むボタン */
+.pCartCheckoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
+  background-color: #bf0000; /* カンプ準拠の濃い赤 */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+/* 下部合計ボックス用の追加マージン */
+.pCartSummaryBox.mBottomBox {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+/* 買い物を続けるボタン */
+.pCartContinueBlock {
+  text-align: center;
+}
+
+.pCartContinueBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
+  background-color: #7f5539; /* メインブラウン */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+/* --- 商品リスト（SP版） --- */
+.pCartList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.pCartItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pCartItemImg {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 16px;
+}
+
+.pCartItemImg img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pCartItemInfo {
+  width: 100%;
+}
+
+.pCartItemName {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.pCartItemPrice {
+  font-size: 15px;
+  font-weight: bold;
+  color: #bf0000;
+  margin-bottom: 12px;
+}
+
+/* 数量フォーム周り */
+.pCartItemForm {
+  display: flex;
+  flex-direction: column; /* 数量と再計算ボタンを縦に並べる */
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.pCartItemQtyRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pCartItemLabel,
+.pCartItemUnit {
+  font-size: 14px;
+  color: #333333;
+}
+
+.pCartItemInput {
+  width: 50px;
+  height: 32px;
+  border: 1px solid #7f5539;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* 再計算ボタン */
+.pCartItemRecalcBtn {
+  width: 140px;
+  height: 32px;
+  background-color: #cccccc;
+  color: #333333;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* 削除するリンク */
+.pCartItemDeleteLink {
+  font-size: 13px;
+  color: #333333;
+  text-decoration: underline;
+}
+
+/* --- PC版レイアウト用の調整（ブレイクポイント 768px以上） --- */
+@media (min-width: 768px) {
+  .pCart {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  /* 上下合計ボックスの幅制限 */
+  .pCartSummaryBox {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px var(--space-16);
+  }
+
+  /* 商品アイテム（PC版：左右2カラム化） */
+  .pCartItem {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2dcd6;
+    gap: 32px;
+  }
+  
+  .pCartItemImg {
+    width: 260px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  /* Infoエリア全体は縦並びに戻し、画像と同じ高さになるよう広げる */
+  .pCartItemInfo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px; /* 画像の高さに合わせる */
+  }
+
+  /* 商品名：上部に固定し、下側に細い線を引く */
+  .pCartItemName {
+    font-size: 16px;
+    width: 100%;
+    border-bottom: 1px solid #e2dcd6;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+
+  /* 新設した枠：ここで「価格」と「操作パネル」を左右横並びにする */
+  .pCartItemRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
+
+  /* 価格のスタイル調整 */
+  .pCartItemPrice {
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 8px; /* 数量の文字と高さを合わせる微調整 */
+  }
+
+  /* 右側：操作パネル全体 */
+  .pCartItemControl {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 右寄せ */
+    gap: 16px;
+  }
+
+  /* 数量と再計算ボタンを「縦並び」にする（カンプ通り数量の下にボタンが来ます） */
+  .pCartItemForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .pCartItemDeleteBlock {
+    margin-top: 8px;
+  }
+}
+
+/* ==========================================================================
+   会員登録ページ（SPベース・共通スタイル）
+   ========================================================================== */
+
+/* ページ全体の大見出し（商品一覧ページ等のデザインと共通化） */
+.cPageTitle {
+  font-size: 24px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 40px;
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cPageTitle::after {
+  content: "";
+  display: block;
+  width: 100%; 
+  height: 4px;
+  background-color: var(--color-accent); /* 黄色いアンダーライン */
+  margin: 8px auto 0;
+}
+
+/* フォームのコンテナ（最大幅を設定してPCで広がりすぎないようにする） */
+.pRegisterContainer {
+  width: 100%;
+  max-width: 600px; /* PC版で自然に見える最適な横幅 */
+  margin: 0 auto;
+  padding: 40px var(--space-16) 60px;
+}
+
+/* 各入力項目のグループ */
+.pFormGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-24);
+}
+
+/* ラベル表現 */
+.pFormLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-8);
+}
+
+/* （必須）の赤文字 */
+.cRequired {
+  color: #bf0000;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: var(--space-4);
+}
+
+/* パスワードの注意書きテキスト */
+.pFormLabelNote {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  color: #bf0000;
+  line-height: 1.5;
+  margin-top: var(--space-4);
+}
+
+/* テキスト入力欄の基本コンポーネント */
+.cInputText {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--space-12);
+  border: 1px solid var(--color-text-dark);
+  font-size: var(--space-16);
+  border-radius: 0;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* 郵便番号入力欄のレイアウト（横並び） */
+.pFormInputWrap--zip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.cInputText--zip1 {
+  width: 80px;
+}
+
+.cInputText--zip2 {
+  width: 120px;
+}
+
+/* 送信ボタンのブロック */
+.pFormSubmit {
+  text-align: center;
+  margin-top: var(--space-40);
+}
+
+/* 汎用プライマリボタン（購入確認へ進む等のサイズ感に統一） */
+.cBtnPrimary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 48px;
+  background-color: var(--color-main); /* カンプに合わせたブラウン */
+  color: #ffffff;
+  font-size: var(--space-16);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: opacity 0.2s;
+}
+
+.cBtnPrimary:hover {
+  opacity: 0.85;
+}
+
+
+/* ==========================================================================
+   PC版レイアウト用の調整（ブレイクポイント 768px以上）
+   ========================================================================== */
+@media (min-width: 768px) {
+  .pRegisterContainer {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .cPageTitle {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+
+  /* PC版：ラベルと入力欄を綺麗な2カラムの横並びにする */
+  .pFormGroup {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: var(--space-32);
+  }
+
+  /* 左側：ラベルエリアの幅を固定して綺麗に縦ラインを揃える */
+  .pFormLabel {
+    width: 200px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    padding-top: 10px; /* 入力欄の文字と高さを合わせる微調整 */
+  }
+
+  /* 右側：入力欄エリアをいっぱいに広げる */
+  .pFormInputWrap {
+    flex-grow: 1;
+  }
+}
+
+/* ==========================================================================
+   会員登録確認ページ（SPベース・共通スタイル）
+   ========================================================================== */
+
+/* 確認画面用のフォームグループ調整（ラベルと値の間隔を狭める） */
+.pFormGroup.mConfirmGroup {
+  margin-bottom: var(--space-20);
+}
+
+/* 確認画面の入力値テキストのラッパー */
+.pFormConfirmValue {
+  font-size: var(--space-16);
+  color: var(--color-text-dark);
+  padding-left: var(--space-12);
+  margin-top: var(--space-4);
+  position: relative;
+  line-height: 1.6;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+/* カンプにある「テキスト左側の茶色い縦線」を疑似要素で再現 */
+.pFormConfirmValue::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background-color: var(--color-main); /* テーマカラーのブラウン */
+}
+
+/* ==========================================================================
+   PC版レイアウト用の調整（ブレイクポイント 768px以上）
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* PC版では入力画面と同様、横並び（2カラム）にして縦のラインを揃える */
+  .pFormGroup.mConfirmGroup {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: var(--space-24);
+  }
+
+  .pFormGroup.mConfirmGroup .pFormConfirmValue {
+    margin-top: 0;
+    flex-grow: 1;
+    padding-top: 8px; /* 左側のラベルと文字の高さを合わせる微調整 */
+  }
+}
+
+/* 会員登録完了ページ */
+
+/* 完了画面用のコンテナ幅 */
+.pRegisterContainer.mDoneContainer {
+  max-width: 540px; 
+  margin: 0 auto;
+  padding: 40px var(--space-16) 60px;
+}
+
+/* 薄いピンクのメッセージボックス（囲い罫） */
+.pDoneMessageBox {
+  background-color: #ffffff;
+  border: 1px solid #f2d6d6; /* カンプに合わせた薄い赤・ピンク系の枠線 */
+  padding: 32px var(--space-16);
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+/* メッセージテキスト */
+.pDoneMessageText {
+  font-size: var(--space-15);
+  color: var(--color-text-dark);
+  line-height: 2; /* 行間を広げてカンプのゆったり感を再現 */
+  margin: 0;
+}
+
+/* 右寄せのリンクエリア（開業して縦並びにする設定） */
+.pDoneLinkArea {
+  display: flex;
+  flex-direction: column;   /* リンクを縦に並べる（改行） */
+  align-items: flex-end;     /* 全体を右寄せにする */
+  gap: var(--space-12);     /* リンク同士の縦の隙間 */
+  padding-right: var(--space-16); /* カンプの右側余白に合わせる */
+}
+
+/* 各リンクのスタイル */
+.pDoneLink {
+  font-size: var(--space-15);
+  color: var(--color-text-dark);
+  text-decoration: none;
+}
+
+.pDoneLink:hover {
+  text-decoration: underline;
+}
+
+/* PC版レイアウト用の調整（ブレイクポイント 768px以上） */
+@media (min-width: 768px) {
+  .pDoneMessageBox {
+    padding: 48px var(--space-32);
+    margin-bottom: var(--space-40);
+  }
+
+  .pDoneLinkArea {
+    gap: var(--space-16);
+    padding-right: var(--space-32); /* PC表示の時は少し右の余白を広げる */
+  }
+}
+
+/* ==========================================================================
+   ご購入確認ページ（purchaseConfirm.php）追加・更新スタイル
+   ========================================================================== */
+
+/* コンテナおよびタイトル下のレイアウト調整 */
+.pPurchaseContainer {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 40px var(--space-16) 60px;
+}
+
+/* ご購入確認ページのセクション設定 */
+.pPurchaseSection {
+  margin-bottom: var(--space-32);
+}
+
+.pPurchaseSubTitle {
+  font-size: 15px;
+  color: var(--color-main);
+  text-align: center;
+  margin-bottom: var(--space-16);
+  font-weight: bold;
+}
+
+/* 商品・お届け先・決済情報の各行枠組み */
+.pPurchaseItem,
+.pPurchaseTotal {
+  border-top: 1px solid #e2dcd6;
+  padding: var(--space-12) 0;
+}
+
+.pPurchaseSection .pPurchaseItem:last-of-type {
+  border-bottom: 1px solid #e2dcd6;
+  margin-bottom: var(--space-12);
+}
+
+/* 行（Row）のレイアウト */
+.pPurchaseRow {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+}
+
+.pPurchaseRow:last-child {
+  margin-bottom: 0;
+}
+
+/* 左側：項目ラベル */
+.pPurchaseLabel {
+  width: 90px;
+  font-size: 14px;
+  color: var(--color-text-dark);
+  flex-shrink: 0;
+}
+
+/* 右側：データ表示部分（左側に縦の茶色いアクセント線を配置） */
+.pPurchaseValue {
+  font-size: 14px;
+  color: #000000;
+  padding-left: var(--space-12);
+  position: relative;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.pPurchaseValue::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 1px;
+  background-color: var(--color-main);
+}
+
+/* お支払い方法・クレジットカード表示切替エリア */
+.pPurchaseSection.mPaymentSection {
+  border-bottom: 1px solid #e2dcd6;
+  padding-bottom: var(--space-24);
+}
+
+.pPaymentAction {
+  text-align: center;
+  margin-top: var(--space-24);
+}
+
+.pPaymentNote {
+  font-size: 13px;
+  color: #bf0000; /* 注意書き等を強調表示 */
+  margin-top: var(--space-16);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 注文確定ボタン・戻るボタン等のアクションフォーム */
+.pPurchaseActionForm {
+  margin-top: var(--space-40);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+/* 注文確定ボタン（メインボタン） */
+.pPurchaseSubmitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 48px;
+  background-color: #bf0000; /* 赤ベースの重要ボタン */
+  color: #ffffff;
+  font-size: var(--space-16);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.pPurchaseSubmitBtn:hover {
+  opacity: 0.85;
+}
+
+/* 修正・キャンセル等のサブボタン */
+.pPurchaseBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
+  background-color: var(--color-main);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.pPurchaseBackBtn:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   サブボタン（cBtnSecondary）＋アイコン付きスタイル
+   ========================================================================== */
+
+.cBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);            /* アイコンとテキストの間隔 */
+  padding: 8px 16px;
+  background-color: var(--color-main);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.cBtnSecondary:hover {
+  opacity: 0.85;
+}
+
+/* 丸囲み「＋」アイコンの疑似要素 */
+.cBtnSecondary::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #ffffff;     /* 白い円枠 */
+  border-radius: 50%;             /* 真円にする */
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+  box-sizing: border-box;
+  padding-bottom: 1px;            /* 文字の上下位置微調整 */
+}
+
+/* ==========================================================================
+   PC版レイアウト用の調整（768px以上）
+   ========================================================================== */
+@media (min-width: 768px) {
+  .pPurchaseContainer {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .pPurchaseLabel {
+    width: 120px;
+    font-size: var(--space-16);
+  }
+
+  .pPurchaseValue {
+    font-size: var(--space-16);
+    padding-left: var(--space-16);
+  }
+
+  .pPurchaseSubTitle {
+    font-size: 18px;
+    margin-bottom: var(--space-24);
+  }
+
+  .pPurchaseActionForm {
+    margin-top: 56px;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-24);
+  }
+}
+
+
+
+/* ご購入確認（最終確認）ページ用追加スタイル */
+
+/* 最終確認ボタンエリアの余白調整 */
+.pPurchaseActionForm {
+  margin-top: var(--space-40);
+  text-align: center;
+}
+
+/* PC版での微調整 */
+@media (min-width: 768px) {
+  .pPurchaseActionForm {
+    margin-top: 56px;
+  }
+}
+
+/* ==========================================================================
+   ログインページ（SPベース・共通スタイル）
+   ========================================================================== */
+
+/* ログイン画面用のコンテナ最大幅 */
+.pLoginContainer {
+  width: 100%;
+  max-width: 540px; 
+  margin: 0 auto;
+  padding: 40px var(--space-16) 60px;
+}
+
+/* フォームを囲む薄いピンクのボックス */
+.pLoginBox {
+  background-color: #ffffff;
+  border: 2px solid #f2e3e3; /* 完了画面と共通の薄いピンク・赤系の枠線 */
+  padding: 32px var(--space-20);
+  margin-bottom: var(--space-24);
+}
+
+/* ログイン画面用のフォームグループ調整（ラベルと入力欄の間隔） */
+.pFormGroup.mLoginGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-20);
+}
+
+.pFormGroup.mLoginGroup .pFormLabel {
+  font-size: 14px;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-4);
+  text-align: left;
+}
+
+/* ログインボタンの配置調整 */
+.pFormSubmit.mLoginSubmit {
+  margin-top: var(--space-32);
+  text-align: center;
+}
+
+/* 右寄せのリンクエリア */
+.pLoginLinkArea {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: var(--space-4);
+}
+
+/* リンク単体のスタイル */
+.pLoginLink {
+  font-size: 14px;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.pLoginLink:hover {
+  color: var(--color-main);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   PC版レイアウト用の調整（ブレイクポイント 768px以上）
+   ========================================================================== */
+@media (min-width: 768px) {
+  .pLoginBox {
+    padding: 48px 56px; /* PC版では内部の余白を広げてゆったり見せる */
+    margin-bottom: var(--space-32);
+  }
+
+  .pLoginLinkArea {
+    padding-right: 0;
+  }
+}
+
+/* ==========================================================================
+   クレジットカード情報登録ページ（SPベース・共通スタイル）
+   ========================================================================== */
+
+.pCardRegisterContainer {
+  width: 100%;
+  max-width: 600px; /* フォーム項目が横に伸びすぎない幅 */
+  margin: 0 auto;
+  padding: 40px var(--space-16) 60px;
+}
+
+/* 🚨 【特別ルール】模擬サイト警告アラート */
+.cAlertWarningBox {
+  background-color: #ffffff;
+  border: 3px solid #bf0000; /* 強烈に目を引く太い赤枠 */
+  color: #bf0000; /* 文字も警告用の赤 */
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+  padding: var(--space-16) var(--space-12);
+  margin-bottom: var(--space-32);
+  border-radius: 4px; /* わずかに角を丸めて別パーツ感を強調 */
+}
+
+/* 必須マーカー（赤文字） */
+.cFormRequired {
+  color: #ff0000;
+  font-size: 13px;
+  margin-left: var(--space-4);
+  font-weight: normal;
+}
+
+/* カード会社（ラジオボタンの横並び） */
+.pFormRadioGroup {
+  display: flex;
+  gap: var(--space-20);
+  padding: var(--space-8) 0;
+}
+
+.cFormRadioLabel {
+  font-size: 15px;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* 有効期限のグループレイアウト */
+.pFormExpiryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-top: var(--space-4);
+}
+
+.pFormExpiryInputWrap {
+  display: flex;
+  align-items: center;
+}
+
+/* 月・年用の短い入力欄 */
+.cInputText.mInputShort {
+  width: 80px;
+  text-align: center;
+}
+
+/* 「月」「年」の単位テキスト */
+.pFormExpiryUnit {
+  font-size: 15px;
+  color: var(--color-text-dark);
+  margin-left: var(--space-12);
+}
+
+
+/* ==========================================================================
+   PC版レイアウト用の調整（ブレイクポイント 768px以上）
+   ========================================================================== */
+@media (min-width: 768px) {
+  .cAlertWarningBox {
+    font-size: 18px;
+    padding: var(--space-20);
+  }
+  
+  /* スマホ版での改行をPCでは解除 */
+  .uSpOnly {
+    display: none;
+  }
+
+  /* PC版では有効期限の「月」と「年」を横並びにする */
+  .pFormExpiryGroup {
+    flex-direction: row;
+    gap: var(--space-32);
+  }
+}
+
+/* ==========================================================================
+   クレジットカード情報確認ページ用スタイル
+   ========================================================================== */
+
+.pCardConfirmContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px var(--space-16) 60px;
+}
+
+/* 確認エリア全体の余白（左寄せ・カンプに合わせた配置） */
+.pCardConfirmList {
+  margin-top: var(--space-32);
+}
+
+/* 有効期限の連続する行の調整 */
+.pPurchaseRow.mExpiryRow {
+  margin-bottom: var(--space-12);
+}
+
+/* 「年」の行のラベル（カンプでは非表示、アクセシビリティ・レイアウト維持のため非表示化） */
+.pPurchaseRow .uHiddenLabel {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* 「月」「年」の単位の文字色調整 */
+.pCardConfirmUnit {
+  color: #a67c52; /* カンプの文字色に合わせたマイルドなブラウン・赤系 */
+  margin-left: var(--space-40); /* 数字から少し離して右側に配置 */
+  font-size: 15px;
+}
+
+/* 登録ボタンエリアの余白 */
+.pCardConfirmActionForm {
+  margin-top: var(--space-40);
+  text-align: center;
+}
+
+/* PC版レイアウトでの微調整 */
+@media (min-width: 768px) {
+  .pCardConfirmContainer {
+    padding-top: 56px;
+  }
+  
+  /* PC版で「年」の行のダミーラベルを完全に隠し、位置が崩れないように制御 */
+  .pPurchaseRow .uHiddenLabel {
+    display: block;
+  }
+}
+
+.mCardConfirmList {
+  border-top: none;
+}
+
+/* ==========================================================================
+   クレジットカード情報登録完了ページ用追加スタイル
+   ========================================================================== */
+
+/* 既存の会員登録完了メッセージの幅をカード用にも上書き適用 */
+.pRegisterContainer.mCardDoneContainer {
+  max-width: 540px; 
+  margin: 0 auto;
+}
+
+/* カンプに基づき、右寄せのリンクエリアに配置されたテキストのフォントサイズを微調整 */
+.mCardDoneContainer .pDoneLinkArea {
+  margin-top: var(--space-24);
+}
+
+.mCardDoneContainer .pDoneLink {
+  font-size: var(--space-16);
+  color: var(--color-text-dark);
+  position: relative;
+  text-decoration: none;
+}
+
+.mCardDoneContainer .pDoneLink:hover {
+  text-decoration: underline;
+}
+
+/* お気に入り一覧レイアウト */
+.pFavoContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-24) var(--space-16);
+}
+
+.pFavoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+/* お気に入り一覧専用の商品カード指定（親要素 .pFavoList 内のみに限定） */
+.pFavoList .pProductCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+@media (min-width: 600px) {
+  .pFavoList .pProductCard {
+    flex-direction: row;
+  }
+  .pFavoList .pProductCardImgWrap {
+    width: 240px;
+    flex-shrink: 0;
+  }
+}
+
+.pFavoList .pProductCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pFavoList .pProductCardContent {
+  padding: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pFavoList .pProductCardAction {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   お気に入り一覧（データなし・空の時のスタイル）
+   ========================================================================== */
+
+.pFavoEmptyBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 40px;
+}
+
+/* ピンク枠のメッセージボックス */
+.pFavoEmptyBox {
+  width: 100%;
+  max-width: 340px;
+  border: 1px solid #f2d6d6; /* カンプに合わせた薄いピンクの枠線 */
+  background-color: #ffffff;
+  padding: 32px 16px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.pFavoEmptyText {
+  font-size: 14px;
+  color: var(--color-text-dark, #333333);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 「商品一覧へ」ボタン */
+.pFavoEmptyAction {
+  margin-bottom: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.pFavoBtnProducts {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 48px;
+  background-color: #70513e; /* ブランドブラウン */
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.pFavoBtnProducts:hover {
+  opacity: 0.85;
+}
+
+/* 「TOPページへもどる」右寄せリンク */
+.pFavoEmptyBack {
+  width: 100%;
+  max-width: 340px;
+  text-align: right;
+}
+
+.pFavoLinkTop {
+  font-size: 13px;
+  color: var(--color-text-dark, #333333);
+  text-decoration: none;
+}
+
+.pFavoLinkTop:hover {
+  text-decoration: underline;
+}
+
+/* PC版のサイズ調整 */
+@media (min-width: 768px) {
+  .pFavoEmptyBox {
+    max-width: 480px;
+    padding: 48px 24px;
+  }
+
+  .pFavoEmptyText {
+    font-size: 16px;
+  }
+
+  .pFavoEmptyText br {
+    display: none; /* PCでは途中の改行を解除して1行で綺麗に見せる */
+  }
+
+  .pFavoEmptyBack {
+    max-width: 480px;
+  }
+}
+
+/* --- ハートSVGアイコンの切り替え制御 --- */
+.cBtnIcon--favo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cIconHeart {
+  width: 28px;
+  height: 28px;
+  /* デフォルト：未登録（白抜き・グレー線） */
+  fill: #ffffff;
+  stroke: #888888;
+  stroke-width: 2px;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* ホバー時の挙動 */
+.cBtnIcon--favo:hover .cIconHeart {
+  stroke: #e53935;
+}
+
+/* お気に入り登録状態（.is-active 付与時）：赤塗り */
+.cBtnIcon--favo.is-active .cIconHeart {
+  fill: #e53935;
+  stroke: #e53935;
+}
+

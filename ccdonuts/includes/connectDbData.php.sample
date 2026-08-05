@@ -1,0 +1,6 @@
+<?php
+// DB接続情報（サンプル）
+// 本番環境に合わせて内容を変更し、connectDbData.php として保存してください。
+define('ACCESSDB', 'mysql:host=localhost;dbname=your_dbname;charset=utf8');
+define('DBID', 'your_username');
+define('DBPW', 'your_password');
