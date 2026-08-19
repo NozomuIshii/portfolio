@@ -1,0 +1,1407 @@
+@charset "UTF-8";
+/* ==========================================================================
+   台中ページ スタイル
+   ========================================================================== */
+
+.bodyView {
+  font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+  overflow-x: hidden;
+  background-color: #F4F4F4;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  position: relative;
+  inset: auto;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 18px 20px; 
+  box-sizing: border-box;
+}
+.hdlogo {
+  width: 110px; 
+  height: auto;
+  display: block;
+}
+.topArea {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../images/tcHeroSp.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;  
+  box-sizing: border-box;
+  padding: 20px; 
+}
+
+.heroLogo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 199px;
+  z-index: 5;
+}
+
+.heroLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heroDesc {
+  position: absolute;
+  bottom: 4%;
+  right: 20px;
+  width: 250px;
+  font-size: 11px;
+  color: #fff;
+  text-align: justify;
+  margin: 0;
+  z-index: 10;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0); 
+}
+
+.snsIcon {
+  position: absolute;
+  bottom: 4%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.snsIcon img {
+  height: 32px;
+  min-height: auto;
+}
+
+.breadCrumb {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+
+  /* フォントの設定 */
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  
+  border-bottom: 1px solid #000; 
+}
+
+.sectionTitle {
+  background-image: url("../../common/images/bgHeading.png");
+  background-repeat: no-repeat;
+  background-position: center bottom; 
+  background-size: 220px auto;
+  width: 100%;
+  max-width: 320px;
+  padding-bottom: 12px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.sectionTitle .eng {
+  font-size: 24px;
+  color: #000;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.sectionTitle .ja {
+  font-size: 12px;
+  color: #000;
+  font-weight: normal;
+  line-height: 1.2;
+}
+.sectionSubTitle {
+  font-size: 24px;
+}
+
+#attraction {
+  padding: 28px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attractionItem {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#attraction .sectionSubTitle {
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 0 0 20px;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.title .eng {
+  font-size: 20px;
+  color: #000;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.title .ja {
+  font-size: 12px;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.sectionDivider {
+  width: 100%;
+  max-width: 250px;
+  border: none;
+  border-top: 1px solid #666; 
+  margin: 40px auto;
+}
+
+.imgMain {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 0 24px 0;
+}
+.imgMain img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+
+.disc {
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  background-color: rgba(237, 161, 132, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 24px; 
+  margin: 0 0 24px 0;
+  text-align: justify;
+}
+
+.time {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+
+
+.imgSub {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 0 0 24px 0;
+}
+
+.imgSub img {
+  width: calc(50% - 7.5px);
+  height: auto;
+  display: block;
+}
+.subDisc {
+  font-size: 12px;
+  color: #000;
+  text-align: justify;
+}
+.museumIntro {
+  color: #000;
+  width: 250px;
+  padding: 20px 0px;
+  margin: 0;
+  text-align: justify;
+}
+
+#museum {
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#museum .sectionDivider,
+#museum .museumIntro {
+  width: 100%;
+  max-width: 223px;
+  box-sizing: border-box;
+}
+
+#museum .museumIntro {
+  width: 100%;
+  max-width: 223px;
+  box-sizing: border-box;
+  color: #000;
+  text-align: justify;
+  
+  margin: 30px auto; 
+
+  padding: 12px 0;
+
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.museumItem {
+  width: 100%;
+  max-width: 295px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.museumItem .miniTitle {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  margin: 0 0 10px 0;
+}
+
+
+.museumItem .boldTitle {
+  font-weight: 700; 
+}
+
+
+.museumImg {
+  width: 100%;
+  max-width: 295px;
+  margin-bottom: 12px;
+}
+.museumImg img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+#sweets {
+  width: 100%;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.sweetsWrap {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+#sweets .sectionSubTitle {
+  width: 100%;
+  max-width: 224px;
+  font-weight: 400;
+  color: #000;
+  text-align: center;
+  margin: 0 auto; 
+  border-bottom: 1px solid #000;
+  padding-bottom: 3px; 
+}
+
+.sweetsSTWrap .subDisc {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.sweetsPicWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sweetsPicWrap .imgSmall {
+  margin-bottom: 20px;
+}
+.sweetsPicWrap .imgSmall img {
+  width: 223px;
+  height: 148px;
+  object-fit: cover;
+}
+
+
+#sweets .imgSubSide {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  height: 225px;
+}
+#sweets .imgSubSide img {
+  width: 157.5px;
+  height: 225px;
+}
+#sweets .imgSmall:last-of-type {
+  margin-bottom: 0;
+}
+.timeBtn {
+  display: inline-block;
+  font-size: 12px;
+  color: #000;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-align: center;
+  border: 4px solid rgba(237, 161, 132, 0.2);
+  transition: opacity 0.2s;
+}
+
+.timeBtn:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  background-color: #007AB7;
+  color: #fff;
+  padding: 25px 0 10px;
+}
+
+.footerFlag {
+  width: 32px;         
+  height: auto;         
+  display: block;       
+  margin: 0 auto 15px;  
+}
+
+.footerMain {
+  width: 100%;
+  max-width: 290px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.footerNav {
+  width: 100%;
+}
+
+.footerNav a {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  padding: 5px 4px;
+  border-bottom: 1px solid #fff; 
+}
+
+/* 【新設】SP版でロゴとSNSを横並び・下揃えにする記述 */
+.footerGroup {
+  display: flex;
+  align-items: flex-end; /* 下揃え */
+  justify-content: center;
+  gap: 20px; /* ロゴとSNSの間の隙間 */
+  width: 100%;
+}
+
+.footerLogo {
+  width: 71px; /* ご指定の71ptサイズ */
+  display: block;
+  margin: 0; /* 中央寄せ用のmargin: 0 autoを解除 */
+}
+
+.footerLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footerSns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footerSns img {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.footerCopy {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding-top: 8px;
+  border-top: 1px solid #fff;
+}
+
+/* ========== Museumモーダル ========== */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalOverlay.isOpen {
+  display: flex;
+}
+
+.modalContent {
+  background-color: rgba(0, 122, 183, 0.9);
+  width: 100%;          
+  height: auto; 
+  max-height: 90vh;
+  padding: 20px 20px;
+  border-radius: 0;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 8px;            
+  right: 8px;
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  width: 28px;          
+  height: 28px;         
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalTitle {
+  width: 100%;
+  margin: 20px auto 40px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  flex: none;
+}
+
+.modalImages {
+  width: calc(50% - 10px); 
+  display: block;
+  flex: none;
+}
+
+.modalImages img {
+  width: 100%;    
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.modalText {
+  width: 100%;
+  margin: 40px auto 40px;  
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.8;
+  text-align: left;
+  flex: none;
+}
+
+
+
+
+
+
+
+.hamburgerJs {
+    display: block; 
+    position: fixed; 
+    top: 4px;
+    right: 4px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 99999 !important;
+}
+.hamburgerJs img {
+    width: 48px;
+    height: 48px; 
+    display: block;
+}
+
+.drawerJs {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 225px; 
+    height: 100vh; 
+    background: rgba(0, 122, 183, 0.8); 
+    z-index: 999;
+    padding-top: 80px; 
+    transform: translateX(100%); 
+    transition: transform 0.3s ease; 
+    z-index: 99999 !important;
+}
+
+.drawerJs.isOpen {
+    transform: translateX(0);
+}
+
+.closeBtnJs {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 9999;
+    
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.closeBtnJs img {
+    width: 48px;
+    height: 48px;
+    display: block;
+}
+
+.drawerLogoJs {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 101px;
+    height: auto;
+    display: block;
+    z-index: 9999;
+}
+
+.drawerMenu {
+    font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+    font-weight:600;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin-top: 60px;
+    list-style: none;
+}
+.drawerMenu li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.drawerJs a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+.drawerJs a:hover {
+    color: #007ab7;
+}
+.menu {
+    font-size: 24px;
+    color: #fff;
+}
+.drawerJs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.drawerMenu li:nth-child(2) {
+    margin-top: 50px;
+}
+.drawerMenu li:nth-child(3) {
+    margin-top: 30px;
+}
+.drawerMenu li:nth-child(6) {
+    margin-top: 30px;
+}
+.drawerMenu li:nth-child(7) {
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  
+  /* 1. スマホ版ではPC用のナビゲーションリンクを完全に非表示にする */
+  .header .gnav {
+    display: none !important;
+  }
+
+  /* 2. 親要素の.header自体は消さずに、要素の並びや余白をスマホ用に整える */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+    inset: auto;
+    z-index: 30;
+    margin-bottom: -68px;
+  }
+
+  /* 3. スマホ用ロゴのサイズ調整（お好みのサイズに調整してください） */
+  .header .hdlogo {
+    width: 90px;
+    height: auto;
+    display: block;
+  }
+
+  /* 4. ハンバーガーボタンを適切な位置に配置 */
+  .header .hamburgerJs {
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: 40;
+  }
+}
+
+@media (min-width:769px) {
+
+.hamburgerJs {
+        display: none;
+    }
+    .drawerJs {
+        display: none;
+    }
+    
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 94px;
+    padding: 0 103px;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    margin-bottom: -94px;
+  } 
+
+  .hdlogo {
+    width: 134px;
+    height: auto;
+    display: block;
+  }
+
+  .gnav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .gnav a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1;
+    transition: opacity 0.3s;
+  } 
+
+  .gnav a:hover {
+    opacity: 0.7;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .topArea {
+    background-image: url(../images/tcHeroPc.png);
+    background-position: right center; 
+    min-height: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 103px 0 500px; 
+    box-sizing: border-box;
+  }
+  .heroLogo {
+    position: static;        
+    transform: none;  
+    width: 300px;            
+    max-width: none;         /* スマホ版の制限を解除 */
+    margin-top: 0;
+    margin-bottom: 40px;     /* ロゴと下の説明文の間の余白（微調整可） */
+  }
+  .heroLogo img {
+    width: 300px;
+    height: auto;
+    display: block;
+  }
+  .heroDesc {
+    padding-right: 90px;
+    width: 467px;
+    font-size: 20px;         
+    line-height: 32px;
+    text-shadow: none;  
+    text-align: justify;
+    margin: 0;
+  }
+
+  .snsIcon {
+    left: 100px;            
+    bottom: 4%;             
+  }
+
+
+
+  .sectionTitle .eng {
+    font-size: 48px;
+  }
+  .sectionTitle .ja {
+    font-size: 24px;
+  }
+  .sectionTitle {
+    background-size: 530px auto;
+    background-position: center bottom;
+    max-width: 530px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #attraction {
+    display: block;
+    padding-top: 44px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .sectionSubTitle {
+    font-size: 36px;
+    text-align: start;
+  }
+
+
+  #attraction .btmImage {
+    object-fit: cover;
+  }
+  #attraction .btmImage img {
+    margin-bottom: 0;
+    width: 100%;
+    height: 114px;
+  }
+
+  #attraction .topImage {
+    width: 100%;
+  }
+  #attraction .imgMain {
+    max-width: 100%;
+    margin-bottom: 0;
+    grid-row: 1/2;
+    justify-self: end;
+  }
+  .imgMain img {
+    margin-bottom: 0;
+  }
+
+  .attractionContents {
+    display: grid;
+    grid-template-columns: 55% 40px 45%;
+    margin-bottom: 40px;
+  }
+  .btmAC {
+    height: 114px;
+  }
+  .attractionContents .disc {
+    grid-column: 3/4;
+    width: 100%;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  
+  .attractionContainer {
+    margin-bottom: 80px;
+  }
+
+
+  .sectionDivider {
+    max-width: 480px;
+  }
+
+
+  #museum {
+    width: 100%;
+  }
+  .museumContainer {
+    max-width: 1160px;
+    margin: 0 auto;    
+  }
+  .museumWrap {
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .museumItem {
+    width: 530px;
+    max-width: 100%;
+    margin: 0 0 60px;
+  }
+  .museumItem .miniTitle {
+    font-size: 36px;
+  }
+  .museumImg {
+    max-width: 530px;
+    margin-bottom: 20px;
+  }
+  .museumImg img {
+    border-radius: 5px;
+  }
+  .timeBtn {
+    font-size: 20px;
+    padding: 28px 36px;
+  }
+  #museum .museumIntro {
+    font-size: 18px;
+    max-width: 420px;
+    margin: 0 auto 80px 40px; 
+    padding: 20px 10px 32px;
+  }
+  #museum .sectionDivider {
+    max-width: 480px;
+  }
+
+
+  #sweets {
+    padding: 0 20px;
+    width: 100%;
+  }
+  .sweetsWrap {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  #sweets .sectionSubTitle {
+    max-width: 420px;
+    width: 100%;
+    margin: 0; 
+    padding-bottom: 20px; 
+  }
+  .sweetsSTWrap .subDisc {
+    font-size: 20px;
+  }
+  .sweetsSTWrap {
+    max-width: 420px;
+    margin: 0 auto 60px 0;
+  }
+  .sweetsPicWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+  .sweetsPicWrap .imgSmall {
+    max-width: 560px;
+    margin-bottom: 60px;
+  }
+  #sweets .imgSmall img {
+    width: 560px;
+    height: 346px;
+  }
+  .sweetsPicWrap .subDisc {
+    margin: 0;
+    margin-bottom: 60px;
+    font-size: 20px;
+    max-width: 500px;
+    width: 100%;
+    padding: 58px 40px 64px;
+  }
+  #sweets .imgSubSide {
+    width: 100%;
+    max-width: 960px;
+    height: 600px;
+    margin-bottom: 60px;
+  }
+  #sweets .imgSubSide img {
+    width: 400px;
+    height: 600px;
+  }
+
+    .footerFlag {
+    width: 64px;
+    margin-bottom: 40px;
+  }
+
+  .footerMain {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 60px;
+    padding: 0 103px;
+    box-sizing: border-box;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-end; /* 前回の修正：下揃え */
+    gap: 0;
+  }
+
+  
+  .footerGroup {
+    display: contents; 
+  }
+
+  .footerNav {
+    width: auto;
+    margin-inline: 0;
+  }
+
+  .footerNav a {
+    font-size: 20px;
+  }
+
+  .footerLogo {
+    width: 256px;
+    margin: 0; 
+  }
+
+  .footerSns {
+    gap: 20px;
+  }
+
+  .footerSns img {
+    width: 48px;
+    height: auto;
+  }
+
+  .footerCopy {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
+
+
+
+/* ==========================================
+    ▼▼ 台中 PC版モーダルのCSS ▼▼
+========================================== */
+
+  .modalOverlay {
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .modalContent {
+    width: 100%;
+    max-width: 900px;          
+    height: auto;             
+    max-height: none;         /* 縦幅の制限をなくし、中身に応じて枠が広がるようにします */
+    padding: 20px 40px;      
+    box-sizing: border-box;
+    display: flex;            
+    flex-direction: row;       
+    flex-wrap: wrap;           
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow: visible;        /* はみ出たテキストを隠さずに、そのまま表示させます */
+    transform: scale(0.85);
+  }
+
+  .closeBtn {
+    top: 20px;            
+    right: 20px;
+    width: 36px;          
+    height: 36px;         
+  }                           
+
+  .closeBtn img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .modalTitle {
+    display: block;
+    width: 100%;
+    margin: 0 0 40px 0;       
+    font-size: 36px;          
+    text-align: left;
+    color: #fff;
+    flex: none;
+  }
+
+  .modalImages {
+    width: 380px;             
+    height: 380px;            
+    display: block;   
+    flex: none;               
+    margin: 0;                
+  }
+
+  
+  .modalImages + .modalImages {
+    margin-left: 4%;
+  }
+
+  .modalImages img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .modalText {
+    display: block;
+    width: 100%;
+    margin: 40px 0 40px 0;       
+    font-size: 24px;          
+    text-align: left;
+    color: #fff;
+    line-height: 1.6;
+    flex: none;
+    box-sizing: border-box;
+  }
+
+  }
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   6. 【追加】共通の下地
+   ========================================================================== */
+:root {
+  /* ノートPC（1366px）設計時の「中身の幅」 1366 - 103×2 = 1160px */
+  --contentMax: 1160px;
+  --gutterPc: 103px;
+  --gutterTb: 40px;   /* タブレット〜小型ノート用 */
+}
+
+/* 「営業時間を見る」を div から button に変更したことへの対応。
+   button のブラウザ既定スタイル（背景・フォント）を打ち消す */
+.timeBtn {
+  background: transparent;
+  font-family: inherit;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+/* パンくずリストのリンク */
+.breadCrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadCrumb a:hover {
+  text-decoration: underline;
+}
+
+/* SNSアイコンをリンクにしたことへの対応 */
+.snsIcon a {
+  display: block;
+  line-height: 0;
+  transition: opacity 0.3s;
+}
+
+.snsIcon a:hover {
+  opacity: 0.7;
+}
+
+.snsIcon img {
+  display: block;
+}
+
+.pageTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background-image: url(../../images/topReturnCm.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  /* モーダル(2000)やドロワー(99999)より必ず後ろに来るようにする */
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+.pageTop:hover {
+  opacity: 0.8;
+}
+
+
+/* ==========================================================================
+   7. 【追加】PC：セクションの左右位置を1160pxに統一する
+   ========================================================================== */
+@media (min-width: 769px) {
+
+  /* --- セクション本体：左右paddingで中身の幅を決める --- */
+  .breadCrumb,
+  #attraction,
+  #museum,
+  #sweets {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+    box-sizing: border-box;
+  }
+
+  /* --- 内側のラッパーは幅指定を外し、親のpaddingに任せる --- */
+  .attractionWrap,
+  .museumContainer,
+  .sweetsWrap {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  /* --- フッターも同じ基準に揃える --- */
+  .footerMain {
+    max-width: none;
+    width: 100%;
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+    margin: 0 auto 60px;
+  }
+
+  .pageTop {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-2. Attraction：グリッドの列幅を修正
+     ---------------------------------------------------------------------- */
+  .attractionContents {
+    grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+    column-gap: 40px;
+  }
+
+  .attractionContents .disc {
+    grid-column: 2 / 3;   /* 3列→2列になったので列番号も変更 */
+  }
+
+  /* 高さ固定だと文章が長いとき切れるので、最低の高さに変更 */
+  .btmAC {
+    height: auto;
+    min-height: 114px;
+  }
+
+  #attraction .btmImage img {
+    object-fit: cover;   /* object-fit は picture ではなく img に効く */
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-3. Museum：2カラムをグリッドで組み直す
+     ---------------------------------------------------------------------- */
+  .museumWrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 100px;
+    row-gap: 0;
+  }
+
+  .museumItem {
+    width: auto;
+    max-width: none;
+    margin: 0 0 60px;
+  }
+
+  .museumImg {
+    max-width: none;
+  }
+
+  /* リード文の左端をセクションの左端に揃える（修正前は margin-left:40px） */
+  #museum .museumIntro {
+    margin: 0 0 80px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-4. Sweets：画像と本文をセクションの左右端に揃える
+     ---------------------------------------------------------------------- */
+  .sweetsPicWrap {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  /* 画像は固定pxをやめ、比率を保ったまま伸縮させる */
+  .sweetsPicWrap .imgSmall {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  #sweets .imgSmall img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 560 / 346;
+    object-fit: cover;
+  }
+
+  .sweetsPicWrap .subDisc {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  #sweets .imgSubSide {
+    height: auto;
+    margin-inline: auto;   /* この行だけ1つなので中央に置く */
+  }
+
+  #sweets .imgSubSide picture {
+    width: calc(50% - 10px);
+  }
+
+  #sweets .imgSubSide img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 400 / 600;
+    object-fit: cover;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-5. モーダル：transform: scale() をやめて実寸で組む
+     ---------------------------------------------------------------------- */
+  .modalOverlay {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .modalContent {
+    max-width: 820px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: none;
+  }
+
+  .modalImages {
+    width: calc(50% - 18px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .modalImages + .modalImages {
+    margin-left: 36px;
+  }
+}
+
+
+/* ==========================================================================
+   8. 【追加】タブレット〜小型ノート（769px〜1199px）の調整
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .breadCrumb,
+  #attraction,
+  #museum,
+  #sweets,
+  .footerMain {
+    padding-inline: var(--gutterTb);
+  }
+
+  /* ヒーロー：左padding500px固定だと、769pxでは文章の置き場所が無くなる。
+     clamp(最小, 可変, 最大) で画面幅に応じて詰める */
+  .topArea {
+    padding: 0 var(--gutterTb) 0 clamp(160px, 34vw, 500px);
+  }
+
+  .heroDesc {
+    width: auto;
+    max-width: 467px;
+    padding-right: 0;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .snsIcon {
+    left: var(--gutterTb);
+  }
+
+  /* グローバルナビが折り返さないよう少し縮める */
+  .gnav {
+    gap: 20px;
+  }
+
+  .gnav a {
+    font-size: 18px;
+  }
+
+  /* Museum：2カラムの間隔を詰める */
+  .museumWrap {
+    column-gap: 40px;
+  }
+
+  .museumItem .miniTitle {
+    font-size: 24px;
+  }
+
+  .timeBtn {
+    font-size: 16px;
+    padding: 16px 24px;
+  }
+
+  /* Attraction / Sweets の本文サイズ */
+  .attractionContents .disc,
+  .sweetsSTWrap .subDisc,
+  .sweetsPicWrap .subDisc {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .sweetsPicWrap .subDisc {
+    padding: 32px 24px;
+  }
+
+  .sectionSubTitle {
+    font-size: 28px;
+  }
+}
