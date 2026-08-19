@@ -1,0 +1,1356 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   0. 設計値（CSS変数）
+   ========================================================================== */
+:root {
+  /* ノートPC（1366px）で制作したときの「中身の幅」
+     1366 - 103(左) - 103(右) = 1160px  ← これを上限として固定する */
+  --contentMax: 1160px;
+  --contentMaxSlider: 3000px;
+
+  /* 「台湾基本情報」だけは少し内側に入る設計なので別枠で保持
+     1366 - 163 - 163 = 1040px */
+  --contentMaxInfo: 1040px;
+
+  /* 画面が狭いときに最低限確保したい左右の余白 */
+  --gutterPc: 103px;
+  --gutterInfo: 163px;
+  --gutterTb: 40px;   /* タブレット〜小型ノート用 */
+
+  /* 配色 */
+  --colorMain: #007AB7;
+  --colorText: #000;
+}
+
+
+/* ==========================================================================
+   1. 共通・ヘッダー・ドロワー
+   ========================================================================== */
+.bodyView {
+  font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  position: relative;
+  inset: auto;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 18px 20px;
+}
+
+
+.hamburgerJs {
+    display: block; 
+    position: relative; 
+    top: auto;
+    right: auto;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 40;
+}
+.hamburgerJs img {
+    width: 48px;
+    height: 48px; 
+    display: block;
+}
+
+.drawerJs {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 225px; 
+    height: 100vh; 
+    background: rgba(0, 122, 183, 0.8); 
+    z-index: 999;
+    padding-top: 80px; 
+    transform: translateX(100%); 
+    transition: transform 0.3s ease; 
+    z-index: 99999 !important;
+}
+
+.drawerJs.isOpen {
+    transform: translateX(0);
+}
+
+.closeBtnJs {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 9999;
+    
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.closeBtnJs img {
+    width: 48px;
+    height: 48px;
+    display: block;
+}
+
+.drawerLogoJs {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 101px;
+    height: auto;
+    display: block;
+    z-index: 9999;
+}
+
+.drawerMenu {
+    font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+    font-weight:600;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin-top: 60px;
+    list-style: none;
+}
+.drawerMenu li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.drawerJs a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+.drawerJs a:hover {
+    color: #007ab7;
+}
+.menu {
+    font-size: 24px;
+    color: #fff;
+}
+.drawerJs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.drawerMenu li:nth-child(2) {
+    margin-top: 50px;
+}
+.drawerMenu li:nth-child(3) {
+    margin-top: 30px;
+}
+.drawerMenu li:nth-child(6) {
+    margin-top: 30px;
+}
+.drawerMenu li:nth-child(7) {
+    margin-top: 30px;
+}
+
+
+
+/* ==========================================================================
+   2. 各セクション（SP基準・モバイルファースト）
+   ========================================================================== */
+.topArea {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../images/topHeroSp.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;  
+}
+
+.heroLogo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.heroLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.snsIcon {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.snsIcon a {
+  display: block;
+  line-height: 0;
+  transition: opacity 0.3s;
+}
+
+.snsIcon a:hover {
+  opacity: 0.7;
+}
+
+.snsIcon img {
+  height: 32px;
+  min-height: auto;
+  display: block;
+}
+
+#formosa {
+  width: 100%;
+  background-image:
+    url('../images/topFormosa01BgSp.png'),
+    url('../images/topFormosa02BgSp.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center bottom;
+  background-size: 100% auto, 100% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0px 20px;
+  box-sizing: border-box;
+}
+
+.flagImag {
+  width: 32px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flagImag img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.formosaRow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formosaColText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.title .eng {
+  font-size: 20px;
+  color: #000;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.title .ja {
+  font-size: 12px;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.sectionDivider {
+  width: 250px; 
+  border: none;
+  border-top: 1px solid #000; 
+  margin: 0;
+}
+
+.sectionDividerFormosa {
+  width: 132px; 
+  border: none;
+  border-top: 1px solid #000; 
+  margin: 0;
+}
+
+.imgMain {
+  display: block;
+  width: 335px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.imgMain img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.subDisc {
+  font-size: 12px;
+  line-height: 19.2px;
+  color: #000;
+  width: 250px;
+  padding: 20px 0px;
+  margin: 0;
+  text-align: justify;
+}
+
+#gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 0;
+  background-color: #fff;
+}
+
+.sectionTitle {
+  background-image: url('../common/images/bgHeading.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 220px;
+  width: 100%;
+  max-width: 320px;
+  padding-bottom: 8px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.sectionTitle .eng {
+  font-size: 24px;
+  color: #000;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.sectionTitle .ja {
+  font-size: 12px;
+  color: #000;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+#travel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px;
+  background-color: #fff;
+}
+
+.mapContainer {
+  position: relative;
+  width: 255px;
+  margin: 40px auto;
+}
+
+.baseMap {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 60px;
+}
+
+.baseMap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mapLink {
+  position: absolute;
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.mapLink:hover {
+  opacity: 0.8;
+}
+
+.mapLink img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.linkTaipei {
+  top: 15%;
+  right: -10%;
+  width: 26%;
+}
+
+.linkTaichu {
+  top: 25%;
+  left: -10%;
+  width: 26%;
+}
+
+.linkTainan {
+  bottom: 4%;
+  right: 60%;
+  width: 26%;
+}
+
+#event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.eventTitle {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}
+
+#event .imgMain {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.eventInfo {
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.eventLabel {
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0 0 5px 0;
+}
+
+.eventDate {
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0;
+}
+
+.eventInfo .sectionDivider {
+  width: 100%;        
+  margin: 20px auto;  
+}
+
+.eventDesc {
+  font-size: 12px;
+  line-height: 19.2px;
+  color: #000;
+  width: 100%;
+  margin: 0;
+  text-align: justify;
+}
+
+.eventRow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eventColLeft {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.infoBox {
+  border: 1px solid #000;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.infoTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.infoCols {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.infoList li {
+  font-size: 12px;
+  line-height: 19.2px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.infoList .indent {
+  display: block;
+  padding-left: 1.2em;
+}
+
+.pageTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background-image: url(../images/topReturnCm.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  /* モーダル(2000)やドロワー(99999)より必ず後ろに来るようにする */
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+
+.pageTop:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  background-color: #007AB7;
+  color: #fff;
+  padding: 25px 0 10px;
+}
+
+.footerFlag {
+  width: 32px;         
+  height: auto;         
+  display: block;       
+  margin: 0 auto 15px;  
+}
+
+.footerMain {
+  width: 100%;
+  max-width: 290px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.footerNav {
+  width: 100%;
+}
+
+.footerNav a {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  padding: 5px 4px;
+  border-bottom: 1px solid #fff; 
+}
+
+/* 【新設】SP版でロゴとSNSを横並び・下揃えにする記述 */
+.footerGroup {
+  display: flex;
+  align-items: flex-end; /* 下揃え */
+  justify-content: center;
+  gap: 20px; /* ロゴとSNSの間の隙間 */
+  width: 100%;
+}
+
+.footerLogo {
+  width: 71px; /* ご指定の71ptサイズ */
+  display: block;
+  margin: 0; /* 中央寄せ用のmargin: 0 autoを解除 */
+}
+
+.footerLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footerSns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footerSns img {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.footerCopy {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding-top: 8px;
+  border-top: 1px solid #fff;
+}
+
+/* ==========================================================================
+   3. ギャラリースライダー
+   ========================================================================== */
+.gallerySlider {
+  position: relative;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.SliderWrap {
+  overflow-x: hidden;
+}
+
+.sliderList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.sliderItem {
+  display: flex;
+  flex-basis: auto;
+  padding: 0 10px;
+}
+
+.sliderItem img {
+  width: 295px;
+  height: 467px;
+  display: block; 
+}
+
+/* ドットエリア */
+.sliderDotsWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin-bottom: 12px;
+}
+
+.sliderDots {
+  width: 375px;
+  text-align: center;
+  position: relative;
+}
+
+.dot {
+  display: inline-block;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.5;
+  margin: 0 20px;
+  transition: opacity 0.3s ease;
+}
+
+.dot:first-child {
+  margin-left: 0;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.dot.active {
+  opacity: 1.0;
+}
+
+#pageDotL,
+#pageDotR {
+  cursor: pointer;
+}
+
+#pageDotR {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   4. メディアクエリ：SP／タブレット（768px以下）
+   ========================================================================== */
+@media (max-width: 768px) {
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: -68px;
+    background: transparent;
+  } 
+
+  .header .hdlogo,
+  .header .gnav {
+    display: none !important;
+  }
+    
+  /* スライダーの左右の矢印ボタンを非表示 */
+  #pageDotL,
+  #pageDotR {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   5. メディアクエリ：PC（769px以上）
+   ========================================================================== */
+@media (min-width: 769px) {
+  #pageDotL,
+  #pageDotR {
+    width: 64px;
+    height: 64px;
+  }
+  .hamburgerJs {
+        display: none;
+    }
+    .drawerJs {
+        display: none;
+    }
+  .dot {
+    width: 28px;
+    height: 28px;
+  }
+  .sliderDotsWrap {
+    padding: 60px 0 12px;
+  }
+  .sliderItem {
+    padding: 0 40px;
+  }
+  .gallerySlider {
+    padding-top: 100px;
+  }
+
+  .pageTop {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 94px;
+    padding: 0 103px;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    margin-bottom: -94px;
+  }
+
+  .hdlogo {
+    width: 134px;
+    height: auto;
+    display: block;
+  }
+
+  .gnav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .gnav a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1;
+    transition: opacity 0.3s;
+  }
+
+  .gnav a:hover {
+    opacity: 0.7;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .topArea {
+    background-image: url(../images/topHeroPc.png);
+  }
+
+  .heroLogo {
+    max-width: 780px;
+  }
+
+  #formosa {
+    background-image:
+      url('../images/topFormosa01BgPc.png'),
+      url('../images/topFormosa02BgPc.png');
+    background-size: 100% auto, 100% auto;
+    padding: 100px 103px; 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .formosaRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .formosaRowBottom {
+    margin-bottom: 0;
+    align-items: stretch;
+  }
+
+  .formosaRowBottom .formosaColText {
+    justify-content: space-between;
+  }
+
+  .formosaColText {
+    flex: 0 0 420px;
+    width: 420px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .formosaColImg {
+    flex: 0 0 636px;
+    width: 636px;
+  }
+
+  .flagImag {
+    width: 104px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    align-items: flex-start;
+  }
+
+  .title .eng {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .title .ja {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+
+  .sectionDividerFormosa {
+    width: 361px;
+  }
+
+  .imgMain {
+    width: 100%;
+    margin: 0;
+  }
+
+  .imgMain img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .subDisc {
+    font-size: 20px;
+    line-height: 32px;
+    width: 420px;
+    padding: 30px 0;
+    text-align: justify;
+  }
+
+  .formosaColText .sectionDivider {
+    width: 420px;
+  }
+
+  .formosaRowTop .formosaColText {
+    width: 420px;
+  }
+
+  .formosaRowTop .flagImag {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #gallery {
+    align-items: flex-start;
+    padding: 60px 103px;
+    box-sizing: border-box;
+  }
+
+  #gallery .sectionTitle {
+    background-size: 530px auto;
+    background-position: center bottom;
+    max-width: 530px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #gallery .sectionTitle .eng {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  #gallery .sectionTitle .ja {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .gallerySlider {
+    width: 100%;
+  }
+  
+  #travel {
+    padding: 100px 103px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+
+  #travel .sectionTitle {
+    align-self: flex-end;
+    background-size: 530px auto;
+    background-position: center bottom;
+    max-width: 530px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 80px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #travel .sectionTitle .eng { font-size: 48px; line-height: 1; }
+  #travel .sectionTitle .ja { font-size: 24px; line-height: 1.2; }
+
+  .travelRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .travelColText {
+    flex: 0 0 420px;
+    width: 420px;
+  }
+
+  #travel .subDisc {
+    font-size: 20px;
+    line-height: 32px;
+    padding: 30px 0;
+    text-align: justify;
+    width: 420px;
+    margin: 0;
+  }
+
+  #travel .sectionDivider {
+    width: 420px;
+    margin: 0;
+  }
+
+  .travelColMap {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  #travel .mapContainer {
+    position: relative;
+    width: 225px;
+  }
+
+  #travel .baseMap {
+    width: 225px;
+    margin-bottom: 200px;
+  }
+
+  #travel .mapLink {
+    width: 99px;
+  }
+
+  .linkTaipei { top: 5%; right: -40%; }
+  .linkTaichu { top: 10%; left: -30%; }
+  .linkTainan { bottom: 13%; left: -10%; }
+
+  #event {
+    padding: 100px 103px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+
+  #event .sectionTitle {
+    background-size: 530px auto;
+    background-position: center bottom;
+    max-width: 530px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center; /* タイトルの配置（センター揃えを維持） */
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #event .sectionTitle .eng { font-size: 36px; line-height: 1; }
+  #event .sectionTitle .ja { font-size: 20px; line-height: 1.2; }
+
+  #event .eventRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  #event .eventRow:last-child {
+    margin-bottom: 0;
+  }
+
+  .eventColLeft {
+    flex: 0 0 580px;
+    width: 580px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .eventTitle {
+    font-size: 24px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  #event .imgMain {
+    width: 580px;
+    margin: 0;
+  }
+
+  #event .imgMain img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .eventInfo {
+    flex: 1;
+    max-width: 420px;
+    margin: 0 0 0 auto;
+    text-align: left;
+  }
+
+  .eventLabel {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .eventDate {
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .eventDesc {
+    font-size: 20px;
+    line-height: 32px;
+    text-align: justify;
+  }
+
+  .eventInfo .sectionDivider {
+    width: 100%;
+    margin: 30px 0;
+  }
+    
+  .info {
+    padding: 80px 163px;
+    box-sizing: border-box;
+  }
+
+  .infoTitle {
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .infoBox {
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  #info {
+    padding: 80px 163px;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .infoCols {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .infoList,
+  .infoCol {
+    flex: 0 0 46%; /* 幅を46%に固定して競合を解消 */
+    font-size: 20px;
+  }
+
+  .infoList li {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .infoList .indent {
+    padding-left: 1.2em;
+  }
+
+  .footerFlag {
+    width: 64px;
+    margin-bottom: 40px;
+  }
+
+  .footerMain {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 60px;
+    padding: 0 103px;
+    box-sizing: border-box;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-end; /* 前回の修正：下揃え */
+    gap: 0;
+  }
+
+  
+  .footerGroup {
+    display: contents; 
+  }
+
+  .footerNav {
+    width: auto;
+    margin-inline: 0;
+  }
+
+  .footerNav a {
+    font-size: 20px;
+  }
+
+  .footerLogo {
+    width: 256px;
+    margin: 0; 
+  }
+
+  .footerSns {
+    gap: 20px;
+  }
+
+  .footerSns img {
+    width: 48px;
+    height: auto;
+  }
+
+  .footerCopy {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+}
+
+/* ==========================================================================
+   6. 【追加】ワイドモニタ対応：中身の幅に上限を付ける
+   ========================================================================== */
+@media (min-width: 769px) {
+
+  /* padding-inline = 左右のpaddingだけを指定するプロパティ。
+     上下のpaddingは上のセクションの指定がそのまま残る。
+
+     ※ .header と .topArea（ヒーロー）は意図的にこの対象から外し、
+       画面いっぱいに広がる元の挙動を維持している。 */
+  #formosa,
+  #gallery,
+  #travel,
+  #event {
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+  }
+
+  .info {
+    padding-inline: max(var(--gutterInfo), (100% - var(--contentMaxInfo)) / 2);
+  }
+
+  /* フッターは max-width:1200px + padding:103px で中身が994pxになり、
+     他セクション（1160px）と左右の位置がズレていたので基準を統一する */
+  .footerMain {
+    max-width: none;
+    width: 100%;
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+    margin: 0 auto 60px;
+  }
+
+  /* ------------------------------------------------------------------------
+     6-2. カラム幅を「固定px」から「縮められるpx」へ
+     ---------------------------------------------------------------------- */
+  .formosaRow,
+  .travelRow,
+  #event .eventRow {
+    gap: 60px;                 /* 中央の隙間を「最低60px」として保証 */
+    justify-content: space-between;
+  }
+
+  /* --- Formosa --- */
+  .formosaColText,
+  .formosaRowTop .formosaColText {
+    flex: 0 1 420px;   /* 基準420px／広がらない／狭いときだけ縮む */
+    width: auto;
+    min-width: 0;      /* これが無いと flex は中身より小さくならない */
+  }
+
+  .formosaColImg {
+    flex: 1 1 560px;
+    width: auto;
+    max-width: 636px;  /* デザイン上の最大サイズは超えない */
+    min-width: 0;
+  }
+
+  /* --- Travel --- */
+  .travelColText {
+    flex: 0 1 420px;
+    width: auto;
+    min-width: 0;
+  }
+
+  /* --- Event --- */
+  .eventColLeft {
+    flex: 0 1 580px;
+    width: auto;
+    min-width: 0;
+  }
+
+  #event .imgMain {
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .eventInfo {
+    flex: 0 1 420px;
+    width: auto;
+    max-width: 420px;
+    min-width: 0;
+    margin: 0;         /* margin-left:auto をやめ、間隔は gap で管理する */
+  }
+
+  /* --- 本文と罫線の固定幅を解除し、親カラムに追従させる --- */
+  .subDisc,
+  #travel .subDisc,
+  .formosaColText .sectionDivider,
+  #travel .sectionDivider {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+
+/* ==========================================================================
+   7. 【追加】タブレット〜小型ノート（769px〜1199px）の調整
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .header,
+  #formosa,
+  #gallery,
+  #travel,
+  #event,
+  .info,
+  .footerMain {
+    padding-inline: var(--gutterTb);
+  }
+
+  .snsIcon {
+    left: var(--gutterTb);
+  }
+
+  /* グローバルナビが折り返さないよう少し縮める */
+  .gnav {
+    gap: 20px;
+  }
+
+  .gnav a {
+    font-size: 18px;
+  }
+
+  .formosaRow,
+  .travelRow,
+  #event .eventRow {
+    gap: 32px;
+  }
+
+  .subDisc,
+  #travel .subDisc,
+  #event .eventDesc {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+}
