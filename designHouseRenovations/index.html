@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design House Renovations</title>
+    <link rel="stylesheet" href="common/reset.css">
+    <link rel="icon" href="images/favicon.png" type="image/png"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="topPage">
+    <header>
+        <h1>
+            <img src="images/logo.svg" alt="Design House Renovations">
+        </h1>
+        <nav class="gMenu">
+            <input class="menuBtn" type="checkbox" id="menuBtn">
+            <label class="menuIcon" for="menuBtn">
+                <span class="navicon"></span>
+            </label>
+            <ul class="menu">
+                <li><a href="#conceptArea">コンセプト</a></li>
+                <li><a href="#serviceArea">サービス</a></li>
+                <li><a href="#flowArea">施工の流れ</a></li>
+                <li><a href="#qaArea">よくあるご質問</a></li>
+                <li><a href="#contactArea">お問い合わせ</a></li>
+            </ul>
+        </nav>    
+    </header>
+    <main>
+        <div class="mobileBtnArea">
+            <a href="#contactArea"  class="mobileBtn">
+                <span class="txtBtn">無料<br>お見積もりは<br>こちら</span>
+            </a>
+        </div>    
+        <section id="topArea">
+            <picture>
+                <source srcset="images/heropc.png" media="(min-width: 768px)">
+                <img src="images/hero.png" alt="リノベーションのイメージ">
+            </picture>
+        </section>
+        <section id="conceptArea" class="sectionConcept">
+            <h2 class="sectionTitle"><span class="eng">CONCEPT</span><span class="ja">コンセプト</span></h2>
+            <div class="container">
+                <h3 class="sectionLead">家族が笑顔になれる場所</h3>
+                <p class="sectionText">
+                    家族が集う、温かく居心地の良い空間づくりを目指して、幅広い年代の方に安心して過ごしていただける空間づくりや、お手入れのしやすい素材を使用したリフォームをご提案いたします。
+                </p>
+            </div>
+        </section>
+        <section id="serviceArea">
+            <h2 class="sectionTitle"><span class="eng">SERVICE</span><span class="ja">サービス</span></h2>
+            <div class="serviceWrapper">
+                <!-- 浴室 -->
+                <div class="serviceItem">
+                    <div class=Bnr><a href="#"><img src="images/bathroom.png" alt="浴槽"></a></div>
+                        <h3>浴室</h3>
+                            <p class="serviceText">
+                                ご家族が一緒に入れる広めの浴槽や手すり等、安全性に配慮しています。
+                            </p>
+                    <a href="#" class="moreLink">more</a>
+                </div>
+                <!-- リビング -->
+                <div class="serviceItem">
+                    <div class=Bnr><a href="#"><img src="images/living.png" alt="リビング"></a></div>
+                        <h3>リビング</h3>
+                            <p class="serviceText">
+                                照明や家具の配置等、くつろぎやすい空間づくりを大切にしています。
+                            </p>
+                    <a href="#" class="moreLink">more</a>
+                </div>
+                <!-- キッチン -->
+                <div class="serviceItem">
+                    <div class=Bnr><a href="#"><img src="images/kitchen.png" alt="キッチン"></a></div>
+                        <h3>キッチン</h3>
+                            <p class="serviceText">
+                                機能性だけでなく、デザイン性にもこだわっております。
+                            </p>
+                    <a href="#" class="moreLink">more</a>
+                </div>
+            </div>
+        </section>
+        <section id="flowArea">
+            <h2 class="sectionTitle"><span class="eng">FLOW</span><span class="jaFlow">施工の流れ</span></h2>
+                <div class="container">
+                    <ul class="flowList">
+                        <li>ご相談</li>
+                        <li>現地調査</li>
+                        <li>お見積り</li>
+                        <li>ご契約</li>
+                        <li>施工</li>
+                        <li style="margin-bottom: 16px;">お引渡し</li>
+                    </ul>
+                </div>
+        </section>
+        <section id="qaArea">
+            <h2 class="sectionTitle"><span class="eng">Q&A</span><span class="ja" style="margin-top: 8px;">よくあるご質問</span></h2>
+                <div class="container">
+                    <dl class="qa-list">
+                        <dt>見積りは無料ですか？</dt>
+                        <dd>はい。お見積りは無料で承っております。ホームページよりお気軽にお問い合わせください。</dd><br>
+                        
+                        <dt>普段通り生活をしながらのリフォーム工事は可能ですか？</dt>
+                        <dd>はい。もちろん可能です。工事中の箇所は、何日間か使用できなくなる場合もございますのであらかじめご了承ください。大型リフォームの場合には、仮住まいもお薦めしております。</dd>
+                    </dl>
+                </div>
+        </section>
+        <section id="contactArea">
+            <div class="container">
+                <h2 class="sectionTitle"><span class="eng">CONTACT</span><span class="ja">お問い合わせ</span></h2>
+             
+                <form action="#" method="post" class="contactForm">
+                    <div class="formItem">
+                        <p class="formLabel" style="padding-top: 5px;">お問い合わせ種別<span class="badge-required">必須</span></p>
+                        <div class="formControl">
+                            <div class="radioGroup">
+                                <fieldset class="type">
+                                    <label><input type="radio" name="type" value="資料請求"><span class="radioText">資料請求</span></label>
+                                    <label><input type="radio" name="type" value="ご相談"><span class="radioText">ご相談</span></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formItem">
+                        <label class="formLabel">お名前<span class="badge-required">必須</span></label>
+                        <div class="formControl">
+                            <input type="text" name="name" class="formInput">
+                        </div>
+                    </div>
+                    <div class="formItem">
+                        <label class="formLabel">フリガナ<span class="badge-required">必須</span></label>
+                        <div class="formControl">
+                            <input type="text" name="kana" class="formInput">
+                        </div>
+                    </div>
+                    <div class="formItem">
+                        <label class="formLabel">電話番号<span class="badge-required">必須</span></label>
+                        <div class="formControl">
+                            <input type="tel" name="tel" class="formInput">
+                        </div>
+                    </div>
+                    <div class="formItem">
+                    <label class="formLabel">住所<span class="badge-required">必須</span></label>
+                        <div class="formControl">
+                            <div class="zipWrapper">
+                                <span>〒</span>
+                                    <input type="text" id="zip" name="zip" class="formInput zipInput">
+                            </div>
+                            <input type="text" name="address" class="formInput">
+                        </div>
+                    </div>
+                    <div class="formItem">
+                        <label class="formLabel">メールアドレス<span class="badge-required">必須</span></label>
+                        <div class="formControl">
+                            <input type="email" id="emailAdress" name="userMail" class="formInput formTextArea">
+                        </div>
+                    </div>
+                    <div class="formItem">
+                        <label class="formLabel">メールアドレス(確認用)<span class="badge-required">必須</span></label>
+                        <div class="formControl">
+                            <input type="email" id="emailConfirm" name="userMailConfirm" class="formInput formTextArea">
+                        </div>
+                    </div>
+                    <div class="formItem">
+                        <label class="formAsk">お問い合わせ内容</label>
+                        <div class="formControl">
+                            <textarea id="message" name="message" class="formInput formMessage"></textarea>
+                        </div>
+                    </div>
+                    <div class="btnWrapper">
+                        <button type="submit" class="submitBtn">入力内容を確認する</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <a href="#" class="pageTop"></a>
+    <footer id="footer">
+        <small>&copy; Design House Renovations</small>
+    </footer>
+</body>
+</html>

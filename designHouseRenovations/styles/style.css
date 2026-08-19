@@ -1,0 +1,1038 @@
+    body {
+        position: relative;
+    }    
+    
+    /* 右下のボタン */
+    .mobileBtnArea {
+        display: block; /* 表示する */
+        position: fixed; /* 画面に対して固定 */
+        bottom: 12px;    /* 下から20pxの位置 */
+        right: 12px;     /* 右から12pxの位置 */
+        z-index: 99;   /* 最前面に表示 */
+    }
+
+    .mobileBtn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 110px;   /* ボタンの幅 */
+        height: 110px;  /* ボタンの高さ */
+        background-color: #333; /* 背景色 */
+        border-radius: 50%;        /* 正円にする */
+        text-decoration: none;
+        border: 3px solid #333;
+        box-shadow: 0 0 0 2px #fff; /* 外側の輪 */
+        overflow: hidden;           /* はみ出した背景色を隠す */
+        text-align: center;
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: bold;
+    }
+
+    /* テキスト */
+    .txtBtn {
+        font-family: 'Noto Serif JP', serif;
+        font-weight: 400;
+        color: #fff;
+        width: 100%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+
+    .topPage header {
+        position: relative;
+        height: 53px;
+        background-color: #fff;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+    .topPage header h1 img {
+        display: block;
+        padding: 16px 0 16px 12px;
+    }
+     #topArea img {
+        width: 100%;
+        margin-bottom: 48px;
+    }
+   
+   .gMenu {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+   }
+
+   .gMenu .menuIcon {
+        cursor: pointer;
+        position: absolute;
+        right: 12px;
+        top: 50%; /* 上から50%の位置に配置 */
+        transform: translateY(-50%); /* 自分の高さ半分だけ上にずらして中央に */
+        padding-top: 0px;
+        height: 2px;
+   }
+
+   .gMenu .menuIcon .navicon {
+        background-color: #B71B26;
+        display: block;
+        height: 2px;
+        width: 31px;
+        position: relative;
+        transition: background .4s ease-out;
+   }
+
+   .gMenu .menuIcon .navicon::before,
+   .gMenu .menuIcon .navicon::after {
+        background-color: #B71B26;
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        transition: all .4s ease-out;
+   }
+
+.gMenu .menuIcon .navicon::before {top: -10px;} /* 位置を下にずらしています */
+.gMenu .menuIcon .navicon::after {top: 10px;} /* 位置を上にずらしています */
+/* 表示されるメニューです */
+.gMenu .menu {
+    align-items: center;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: Medium;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 10%;
+    background-color: #ffffffE6;
+    overflow: hidden;
+    height: 0;
+    transition: height .6s; /* 表示されるときのアニメーション */
+    text-align: center;
+}
+
+/* メニュー部分のデザインです */
+.gMenu .menu li:first-of-type {
+  padding-top: 50px;
+}
+
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.gMenu .menu li a:hover {
+  background-color: #fff;
+}
+/* チェックボックスは常に非表示です */
+.gMenu .menuBtn {
+  display: none;
+}
+
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+.gMenu .menuBtn:checked ~ .menu {
+  height: 532px; /* ★チェックボックスがオンの時高さを532pxにして表示させます */
+  transition: height .6s;
+}
+/* メニューボタンの中央の線を非表示に */
+.gMenu .menuBtn:checked ~ .menuIcon .navicon {
+    background: transparent;
+}
+
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+.gMenu .menuBtn:checked ~ .menuIcon .navicon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+.gMenu .menuBtn:checked ~ .menuIcon .navicon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* サイトに合わせてオリジナルカスタマイズ */
+.gMenu .menuIcon {
+  top: 26px;
+}
+.gMenu .menuIcon .navicon,
+.gMenu .menuIcon .navicon::before,
+.gMenu .menuIcon .navicon::after {
+  background: #B71B26;
+}
+
+.container {
+        padding: 0 12px;
+    }
+.serviceWrapper {
+    padding: 12px;
+}
+.sectionTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 10%;
+    overflow: hidden; /* はみ出した線を隠す */ 
+}
+.sectionTitle .ja {
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 8px;
+    letter-spacing: 10%;
+}
+/* 左線 */
+.sectionTitle .ja::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 60.5px;
+    height: 1px;
+    background-color: #333;
+    transform: translate(-100%, -50%);
+}
+
+/* 右線 */
+.sectionTitle .ja::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 60.5px;
+    height: 1px;
+    background-color: #333;
+    transform: translate(100%, -50%);
+}
+
+.sectionLead {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 10%;
+}
+.sectionText {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: justify;
+    margin-bottom: 80px;
+    letter-spacing: 10%;
+    line-height: 28px;
+}
+.serviceItem {
+    margin-bottom: 48px;
+}
+.serviceItem img {
+    width: 100%;
+}
+.Bnr {
+    margin-bottom: 8px;
+    }
+h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 10%;
+}
+.serviceText {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: justify;
+    margin-bottom: 8px;
+    letter-spacing: 10%;
+    line-height: 21px;
+}
+.moreLink {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: #333;
+    letter-spacing: 10%;
+    margin-bottom: 8px;
+    position: relative; /* 三角形の配置基準にする */
+    padding-right: 12px; /* 三角形を表示するスペースを確保 */
+    width: fit-content; /* 右寄せにするため、幅を文字分に絞る */
+    margin-left: auto; /* 右寄せを維持 */
+}
+.moreLink::after {
+    content: "";
+    position: absolute;
+    top: 58%; /* ここで三角形の高さを調整 */
+    right: 0; /* .moreLink の右端に固定 */
+    transform: translateY(-50%);
+    /* ボーダーで三角形を作る */
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+    border-color: transparent transparent transparent #333;
+}
+#flowArea {
+    background-color: rgb(34 62 105 / 0.05);
+    padding-top: 16px;
+}
+.sectionTitle .jaFlow {
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 8px;
+    letter-spacing: 10%;
+    color: #B71B26;
+}
+/* 左線 */
+.sectionTitle .jaFlow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 60.5px;
+    height: 1px;
+    background-color: #B71B26;
+    transform: translate(-100%, -50%);
+}
+
+/* 右線 */
+.sectionTitle .jaFlow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 60.5px;
+    height: 1px;
+    background-color: #B71B26;
+    transform: translate(100%, -50%);
+}
+.flowList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-bottom: 80px;
+}
+.flowList li {
+    background-color: #333;
+    color: #fff;
+    width: 300px;
+    padding: 8px;
+    text-align: center;
+    border-radius: 32px;
+    margin-bottom: 32px;
+    position: relative;
+}
+.flowList li:not(:last-child)::after {
+    content: '▼';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(1.4);
+    display: inline-block;
+    color: #b71b26;
+    font-size: 20px;
+    line-height: 1;
+}
+.flowList li:nth-child(1)::after { opacity: 0.6; }  /* ご相談の後の矢印 */
+.flowList li:nth-child(2)::after { opacity: 0.7; }  /* ご相談の後の矢印 */
+.flowList li:nth-child(3)::after { opacity: 0.8; }  /* ご相談の後の矢印 */
+.flowList li:nth-child(4)::after { opacity: 0.9; }  /* ご相談の後の矢印 */
+.flowList li:nth-child(5)::after { opacity: 1.0; }  /* ご相談の後の矢印 */
+
+/* Q&A */
+.qa-list dt, .qa-list dd {
+    position: relative;
+    padding-left: 45px; /* アイコン＋余白の分だけ左を空ける */
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 23px;
+    display: flex;
+    align-items: flex-start;
+    text-align: justify;
+    } 
+.qa-list dt::before {
+    content: 'Q.';
+    position: absolute;
+    left: 0px;
+    top: -4px; /* 円を上に移動 */
+    background: #333;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0.15em; /* 文字を上に移動 */
+}
+
+.qa-list dd::before {
+    content: 'A.';
+    position: absolute;
+    top: -4px; /* 円を上に移動 */
+    left: 0;
+    background-color: #B71B26;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0.15em; /* 文字を上に移動 */
+}
+#qaArea {
+    margin-bottom: 80px;
+}
+
+/* CONTACT */
+#contactArea {
+    background-color: rgba(34, 62, 105, .15);
+    padding: 16px 0 16px;
+    margin-bottom: 219px;
+}
+.formItem {
+    text-align: center;
+    margin-bottom: 24px;
+    font-family: 'Noto Sans jp', serif;
+    font-weight: bold;
+}
+.formLabel {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.formAsk {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.badge-required {
+    background-color: #B71B26;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 10px;
+    font-weight: normal;
+    padding: 2px 8px; 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 18px;
+    padding: 0;
+    line-height: 1;
+}
+
+.radioGroup {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+/* ラジオボタンのデザイン */
+.type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3em 2em;
+    border: none;
+}
+
+.type label {
+    display: flex;
+    align-items: center;
+    gap: 0 .5em;
+    position: relative;
+    cursor: pointer;
+}
+
+.type label::before,
+.type label:has(:checked)::after {
+    border-radius: 50%;
+    content: '';
+}
+
+.type label::before {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+}
+
+.type label:has(:checked)::after {
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+}
+
+.type input {
+    display: none;
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    gap: 8px;
+}
+
+/* 入力欄（input, textarea） */
+.formInput {
+    width: 100%;
+    border: none;
+    /* height: 30px; */
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 16px;
+    text-align: left;
+    padding: 4px 8px;
+}
+
+.zipWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.zipInput {
+    max-width: 150px;
+}
+
+.zipInput {
+    max-width: 150px;
+}
+
+
+/* 送信ボタン */
+.btnWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.submitBtn {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    max-width: 300px;
+    padding: 16px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Noto serif JP', serif;
+    letter-spacing: 10%;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.3s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transition: .3s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.submitBtn:hover {
+    background: #B71B26;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* 右側の矢印を擬似要素で作る */
+.submitBtn::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 8px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.zipInput {
+    max-width: 150px;
+}
+
+.formTextarea {
+    height: 30px;
+    resize: vertical;
+    margin-bottom: 24px;
+}
+
+.formMessage {
+    height: 120px;
+    resize: vertical;
+    padding: 8px;
+}
+
+.pageTop {
+    position: absolute;
+    right: 12px;
+    width: 46px;
+    height: 46px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom:44px;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    z-index: 998;
+}
+
+.pageTop::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transform: rotate(45deg);
+    margin-top: 15px;
+}
+
+#footer {
+    height: 45px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+@media screen and (min-width: 768px) {
+    /* ヘッダーの高さを変更 */
+    .topPage header {
+        height: 80.85px;
+        display: flex;
+        justify-content: space-between;  /* ロゴとメニューを左右に振る */
+        align-items: center;
+        padding: 0 24px;
+    }
+    .topPage header h1 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+    .topPage header h1 img {
+        width: 400px;
+        padding: 0;
+        display: block;
+    }
+    /* メニュー周りのリセット */
+    .gMenu {
+        position: static; /* 固定解除 */
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+    /* ハンバーガーメニューとチェックボックスを非表示 */
+    .gMenu .menuBtn, 
+    .gMenu .menuIcon {
+        display: none;
+    }
+    /* メニューを横並び */
+    .gMenu .menu {
+        display: flex; /* 横並び */
+        max-height: none; /* スマホ版の制限を解除 */
+        background: none; /* 背景透過 */
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+        
+    }
+    .gMenu .menu li {
+        margin-left: 40px; /* メニューごとの間隔 */
+        padding: 0;
+    }
+    .gMenu .menu li:first-of-type {
+        padding-top: 0; /* スマホ版の余白をリセット */
+    }
+    .gMenu .menu li a {
+        padding: 0; /* 余計なパディングをリセット */
+        font-size: 16px;
+        color:#333;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+
+    }
+    /* マーカーを走らせる */
+        header .menu li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    header .menu li a {
+        display: block;
+        padding: 30px 30px;
+        text-decoration: none;
+        color: #333 !important; /* 強制的に色を適用 */
+        position: relative;
+        z-index: 1; /* 重なりの基準を作る */
+        transition: color .3s;
+    }
+    /* 3. マーカー（aタグの疑似要素にする） */
+    header .menu li a::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        bottom: -10px;
+        right: -10px;
+        background: #B71B26;
+        z-index: -1; /* 文字(a)の後ろに配置 */
+    
+        /* アニメーション設定 */
+        transform: scaleX(0); /* 横方向にのみ縮小 */
+        transform-origin: left top;
+        transition: transform .3s;
+    }
+    /* 4. ホバー時の動き */
+    header .menu li a:hover {
+            color: #fff !important; /* ホバー時に文字を白く */
+    }
+    header .menu li a:hover::before {
+            transform: scaleX(1); /* 横に伸ばす */
+    }
+    /* ページトップボタンの位置調整 */
+    .pageTop {
+        right: 12px; 
+        bottom: 61px;
+    }
+    #topArea img {
+        height: 545px;
+        object-fit: cover;  /* 縦横比を維持したまま、枠いっぱいに広げてはみ出し分をカット */
+        object-position: center; /* 中央を基準にトリミング */ 
+        margin-bottom: 160px;
+    }
+    .sectionText {
+        display: flex;
+        justify-content: center;
+        padding: 0 173px;
+        margin-bottom: 160px;
+        font-size: 16px;
+        letter-spacing: 10%;
+        line-height: 32px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    .serviceWrapper {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-bottom: 160px;
+        padding: 0 173px;
+    }
+    .sectionTitle {
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 0px;
+        overflow: hidden; /* はみ出した線を隠す */
+    }
+    .sectionTitle .eng {
+        margin-bottom: 16px;   
+    }
+
+    .sectionTitle .ja {
+        font-size: 16px;
+        margin-bottom: 48px;
+    }
+    
+    .sectionLead {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .serviceText {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 5%;
+    }
+    .moreLink {
+        font-size: 16px;
+        padding-right: 14px;
+    }
+    .moreLink::after {
+        content: "";
+        position: absolute;
+        top: 48%; /* ここで三角形の高さを調整 */
+        right: 0; /* .moreLink の右端に固定 */
+        transform: translateY(-50%);
+        /* ボーダーで三角形を作る */
+        border-style: solid;
+        border-width: 5px 0 5px 7px;
+        border-color: transparent transparent transparent #333;
+    }
+    .sectionTitle .jaFlow {
+        font-size: 16px;
+        margin-bottom: 48px;
+    }
+   .moreLink {
+        padding-bottom: 5px;
+        position: relative;
+    }
+    .moreLink::before {
+        background: #B71B26;
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform-origin: right top;
+        transform: scale(0, 1);
+        transition: transform .3s;
+    }
+    .moreLink:hover::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+    }
+
+    .mobileBtnArea {
+        display: none;
+    }
+
+
+    /* 画像リンクのブラー効果 */
+    .Bnr {
+        position: relative;
+        overflow: hidden; /* 縮小した時に枠からはみ出るのを防ぐ */
+        background: #fff;
+    }
+    .Bnr img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .6s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    /* 3. マウスオーバー時の画像（縮小 ＋ ブラー +　丸く） */
+    .Bnr:hover img {
+        transform: scale(0.9); /* ここで縮小 */
+        filter: blur(4px);    /* ここでブラー（ボカシ） */
+        opacity: 0.7;         /* 少し暗くする */
+        border-radius: 50%;
+    }
+    /* 4. 重なる背景とテキストの設定 */
+    .Bnr::before,
+    .Bnr::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .6s cubic-bezier(0.33, 1, 0.68, 1);
+        opacity: 0;
+        pointer-events: none; /* 【重要】これがないとクリックを邪魔します */
+        z-index: 2;
+    }
+    /* オーバーレイ */
+    .Bnr::before {
+        background: rgba(255, 255, 255, 0.6);
+    }
+    /* "more" テキスト */
+    .Bnr::after {
+        content: "more";
+        color: #333;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        font-family: 'Noto sans JP', sans;
+    }
+    .Bnr:hover::before, .Bnr:hover::after {
+        opacity: 1;
+    }
+    /* 5. ホバー時に表示 */
+    .Bnr:hover::before,
+    .Bnr:hover::after {
+        opacity: 1;
+    }
+
+    /* FLOW項目のPC版カスタマイズ */
+    #flowArea {
+        padding: 45px 0 48px; /* 上下の余白を調整 */
+    }
+    .flowList {
+        flex-direction: row; /* 縦並びから横並びに変更 */
+        justify-content: center; /* 中央寄せ */
+        gap: 112px; /* 項目間のスペース */
+        margin-bottom: 0;
+    }
+    .flowList li {
+        writing-mode: vertical-rl; /* 縦書きにする */
+        width: 60px; /* 幅を狭めてカプセル型に */
+        height: 280px;  /* 高さを固定 */
+        padding: 0px 0; /* 上下の余白 */
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        font-size: 28px;
+        letter-spacing: 10%;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    /* 矢印の向きと位置を調整 */
+    .flowList li:not(:last-child)::after {
+        content: '▶'; /* 右向き矢印に変更 */
+        top: 50%;
+        bottom: 0;
+        left: 0;
+        right: -80px;
+        font-size: 35px;
+        transform: translateY(-50%) scaleY(1.8); /* 垂直中央に固定 */
+    }
+    #qaArea {
+        margin: 160px 173px;
+    }
+    .qa-list {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .qa-list dt::before {
+        left: 0px;
+        top: -15px; /* 円を上に移動 */
+        width: 52px;
+        height: 52px;
+        font-size: 34px;
+        padding-bottom: 0.15em; /* 文字を上に移動 */
+    }
+
+    .qa-list dd::before {
+        left: 0px;
+        top: -15px; /* 円を上に移動 */
+        width: 52px;
+        height: 52px;
+        font-size: 34px;
+        padding-bottom: 0.15em; /* 文字を上に移動 */
+    }
+
+    .qa-list dt, .qa-list dd {
+    padding-left: 60px; /* アイコン＋余白の分だけ左を空ける */
+    margin-bottom: 41px;
+    } 
+    #contactArea {
+        padding: 0 0 48.36px 0;
+    }    
+    #contactArea .eng {
+        margin-top: 48px;
+    }
+    .contactForm {
+        background-color: #ffffff88;
+        padding: 48px;
+        margin: 0px 173px;
+    }
+    .formItem {
+        display: flex; /* 横並びにする */
+        align-items: flex-start; /* ラベルを上揃え */
+        text-align: left; /* 左揃えにリセット */
+    }
+    .formLabel {
+        flex: 0 0 240px; /* ラベルの幅を固定 */
+        margin-bottom: 0; /* スマホ版の余白を消す */
+        justify-content: flex-end; /* ラベルとバッジを右側に寄せる */
+        padding-top: 15px; /* 入力欄との高さ微調整 */
+        font-size: 16px;
+    }
+    .formAsk {
+        flex: 0 0 240px; /* ラベルの幅を固定 */
+        margin-bottom: 0; /* スマホ版の余白を消す */
+        justify-content: flex-end; /* ラベルとバッジを右側に寄せる */
+        padding-top: 5px; /* 入力欄との高さ微調整 */
+        font-size: 16px;
+    }
+    .formControl, .formInput, .radioGroup, .zipWrapper {
+        flex: 1;
+    }
+    /* ラジオボタンを左寄せに */
+    .radioGroup {
+        justify-content: flex-start;
+        margin-top: 5px; 
+        margin-left: 12px;
+
+    }
+    /* 郵便番号の入力欄を制限 */
+    .formInput {
+        margin-left: 12px;
+        margin-bottom: 0px;
+        height: 50px;
+    }
+    .zipInput {
+        margin-left: 0;
+    }
+    .zipWrapper {
+        margin-left: 12px;
+    }
+    .formAsk {
+        padding-right: 50px;
+    }
+    .formMessage {
+        height: 208px;
+    }
+    #footer {
+        height: 62px;
+    } 
+
+}
+
