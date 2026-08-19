@@ -1,0 +1,1712 @@
+@charset "utf-8";
+/* ==========================================================================
+   台南ページ スタイル
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.bodyView {
+  font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+  overflow-x: hidden;
+}
+
+.header {
+  position: relative;
+  inset: auto;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 18px 20px; 
+  box-sizing: border-box;
+}
+.hdlogo {
+  width: 110px; 
+  height: auto;
+  display: block;
+}
+.topArea {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../images/tnHeroSp.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;  
+  box-sizing: border-box;
+  padding: 20px; 
+}
+
+.heroLogo {
+position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 199px;
+  z-index: 5;
+}
+
+.heroLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heroDesc {
+  position: absolute;
+  bottom: 4%;
+  right: 20px;
+  width: 250px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #fff;
+  text-align: justify;
+  margin: 0;
+  z-index: 10;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0); 
+}
+
+.snsIcon {
+  position: absolute;
+  bottom: 4%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.snsIcon img {
+  height: 32px;
+  min-height: auto;
+}
+
+.breadCrumb {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  /* フォントの設定 */
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  
+  border-bottom: 1px solid #000; 
+}
+
+.sectionTitle {
+  background-image: url("../../common/images/bgHeading.png");
+  background-repeat: no-repeat;
+  background-position: center bottom; 
+  background-size: 220px auto;
+  width: 100%;
+  max-width: 320px;
+  padding-bottom: 12px;
+  margin: 20px auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.sectionTitle .eng {
+  font-size: 24px;
+  color: #000;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.sectionTitle .ja {
+  font-size: 12px;
+  color: #000;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+#attraction {
+  background-color: #F4F4F4;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attractionItem {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionSubTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 30px 0 20px;
+  letter-spacing: 0.05em;
+}
+
+/* 行ごとの設定（SP版は縦に並べる） */
+.attractionRow {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* 画像を包むコンテナ */
+.imageWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* メイン画像とサブ画像との間の縦の隙間 */
+}
+
+.imgMain {
+  width: 100%;
+  margin: 0;
+}
+.imgMain img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* サブ画像を横並びにする箱 */
+.subImages {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* サブ画像同士の間隔 */
+  width: 100%;
+}
+
+.subImages .imgSub {
+  width: calc(50% - 7.5px);
+  margin: 0;
+}
+.subImages .imgSub img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 説明文テキスト */
+.disc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #000;
+  background-color: rgba(100, 201, 155, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 24px; 
+  margin: 15px 0 0 0; /* スマホ版では画像の下に余白 */
+  text-align: justify;
+}
+
+.time {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#gourmet {
+  background-color: #fff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gourmetTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 30px 0 20px 0;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.gourmetItem .gourmetTitle .miniGourmetTitle {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  margin-top: 4px;
+  margin-bottom: -12px;
+}
+
+#gourmet .introText {
+  width: 100%;
+  max-width: 223px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+
+
+.gourmetItem {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.gourmetTextBox {
+  width: 100%;
+  max-width: 223px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+}
+
+
+#gourmet .subDisc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #000;
+  text-align: justify;
+}
+
+
+.gourmetTextBox .subDisc {
+  width: 100%;
+  margin: 0 0 12px 0;
+}
+
+#gourmet .sectionDivider {
+  width: 100%;
+  max-width: 223px;
+  border: none;
+  border-top: 1px solid #000;
+  margin: 20px auto;
+}
+
+
+.modalWrapper {
+  font-size: 11px;
+  color: #000;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  padding: 4px 0;
+}
+
+#pickup {
+  background-color: #F4F4F4;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Pickupのメインタイトル */
+.pickupTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+
+#pickup .sectionDivider,
+#pickup .subDisc,
+#pickup .imgMini,
+#pickup .pickupImgLeft, 
+#pickup .pickupImgLot04,
+#pickup .pickupImgLot05,
+#pickup .pickupIntro,     
+#pickup .pickupDescRight, 
+#pickup .pickupLotText {
+  width: 100%;
+  max-width: calc(100% - 40px);
+  box-sizing: border-box;
+  margin: 15px auto;
+}
+
+#pickup .imgMini img,
+#pickup .pickupImgLeft img,
+#pickup .pickupImgLot04 img,
+#pickup .pickupImgLot05 img {  
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#pickup .imgMiniSmall {
+  max-width: 175px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* テキストの細かい調整 */
+#pickup .subDisc {
+  font-size: 12px;
+  line-height: 19.2px;
+  color: #000;
+  text-align: justify;
+  padding: 0;
+  margin: 15px auto;
+}
+
+/* 通常の1枚画像 */
+#pickup .imgMini {
+  margin: 15px 0;
+}
+#pickup .imgMini img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 区切り線のスタイル */
+#pickup .sectionDivider {
+  border: none;
+  border-top: 1px solid #000;
+  margin: 20px auto;
+}
+
+/* 💡 例外：2枚目・3枚目の画像横並びルール */
+#pickup .imgMiniSubSide {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* 画像と画像の間隔は20px */
+  width: 100%;
+  /* 画面全体の幅から「左右の余白20pxずつ（計40px）」を引いた幅にするための計算 */
+  max-width: calc(100% - 40px); 
+  margin: 15px auto;
+  box-sizing: border-box;
+}
+
+/* 横並びになる画像それぞれのサイズ計算 */
+#pickup .imgMiniSubSide img {
+  /* 親の幅（画面幅-40px）から真ん中のgap(20px)を引いて、2等分にする */
+  width: calc((100% - 20px) / 2);
+  height: auto;
+  display: block;
+}
+
+.footer {
+  background-color: #007AB7;
+  color: #fff;
+  padding: 25px 0 10px;
+}
+
+.footerFlag {
+  width: 32px;         
+  height: auto;         
+  display: block;       
+  margin: 0 auto 15px;  
+}
+
+.footerMain {
+  width: 100%;
+  max-width: 290px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.footerNav {
+  width: 100%;
+}
+
+.footerNav a {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  padding: 5px 4px;
+  border-bottom: 1px solid #fff; 
+}
+
+/* 【新設】SP版でロゴとSNSを横並び・下揃えにする記述 */
+.footerGroup {
+  display: flex;
+  align-items: flex-end; /* 下揃え */
+  justify-content: center;
+  gap: 20px; /* ロゴとSNSの間の隙間 */
+  width: 100%;
+}
+
+.footerLogo {
+  width: 71px; /* ご指定の71ptサイズ */
+  display: block;
+  margin: 0; /* 中央寄せ用のmargin: 0 autoを解除 */
+}
+
+.footerLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footerSns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footerSns img {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.footerCopy {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding-top: 8px;
+  border-top: 1px solid #fff;
+}
+
+/* ページトップボタン */
+.pageTop {
+  width: 48px;
+  height: 48px;
+  background-image: url(../../images/topReturnCm.svg);
+  background-size: contain;
+  opacity: 0.5;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200000;
+
+}
+
+/* ==========================================
+   ▼▼ モーダル  ▼▼
+========================================== */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;          
+  height: 100vh;         
+  display: none;    
+  background-color: rgba(0, 0, 0, 0.7);     
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;         
+}
+
+.modalOverlay.isOpen {
+  display: flex;
+}
+
+.modalContent {
+  background-color: #fff; 
+  width: 100%;
+  
+  
+  max-width: 100%;      
+  
+  aspect-ratio: 1 / 1;    
+  height: auto;
+  padding: 46px;          
+       
+  box-sizing: border-box;
+  position: relative;     
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+
+.closeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modalImage {
+  width: 100%;            
+  aspect-ratio: 1 / 1;    
+  object-fit: cover;
+  display: block;
+  box-shadow: 10px 10px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+.hamburgerJs {
+    display: block; 
+    position: fixed; 
+    top: 10px;        /* 押しやすい位置に少し調整 */
+    right: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 99999 !important; /* 最前面に */
+}
+
+.hamburgerJs img {
+    width: 48px;
+    height: 48px; 
+    display: block;
+}
+
+.drawerJs {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 225px;         /* ドロワーの幅 */
+  height: 100vh;
+  background: rgba(0, 122, 183, 0.9); /* 背景色（お好みに合わせて調整してください） */
+  z-index: 9999;
+  padding-top: 80px;
+  box-sizing: border-box;
+  
+  /* 初期状態は画面の右外側に隠す */
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* 開いたときのクラス */
+.drawerJs.isOpen {
+  transform: translateX(0);
+}
+
+.drawerJs.isOpen .closeBtnJs {
+    z-index: 999999;
+    position: absolute;
+    top: 4px;   /* ハンバーガーボタンと同じ位置に固定 */
+    right: 4px; /* ハンバーガーボタンと同じ位置に固定 */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.drawerJs.isOpen .closeBtnJs img {
+    width: 48px;  /* ハンバーガーボタンと同じサイズにする */
+    height: 48px;
+    display: block;
+}
+
+/* ⚠️重要：ドロワーが開いている間は、後ろに隠れてしまう元のハンバーガーボタンを
+   一時的に非表示（opacity: 0 または pointer-events: none）にしてクリックを邪魔させない */
+.drawerJs.isOpen ~ .hamburgerJs,
+.bodyView:has(.drawerJs.isOpen) .hamburgerJs {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.closeBtnJs {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.closeBtnJs img {
+  width: 32px;
+  height: 32px;
+}
+
+.drawerLogoJs {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 101px;
+    height: auto;
+    display: block;
+    z-index: 9999;
+}
+
+.drawerMenu {
+    font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin-top: 40px;
+    list-style: none;
+}
+
+.drawerMenu li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.drawerJs a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.drawerJs a:hover {
+    color: #ffd700; /* ホバー時は見えやすい色に */
+}
+
+.menu {
+    font-size: 22px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    width: 80%;
+    margin: 0 auto 10px;
+    padding-bottom: 5px;
+}
+.drawerJs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.drawerMenu li:nth-child(2) {
+    margin-top: 50px;
+}
+.drawerMenu li:nth-child(3) {
+    margin-top: 30px;
+}
+.drawerMenu li:nth-child(6) {
+    margin-top: 30px;
+}
+.drawerMenu li:nth-child(7) {
+    margin-top: 30px;
+}
+
+@media (max-width:768px){
+  .header .gnav {
+    display: none !important;
+    }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: -68px;
+  }
+
+  .header .hdlogo {
+    width: 90px;
+    height: auto;
+    display: block;
+  }
+
+  /* ハンバーガーをヘッダー内に収める（広告との重なり回避） */
+  .header .hamburgerJs {
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: 40;
+  }
+}
+
+@media (min-width:769px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 94px;
+    padding: 0 103px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    margin-bottom: -94px;
+  } 
+
+  .hdlogo {
+    width: 134px;
+    height: auto;
+    display: block;
+  }
+
+  .gnav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .gnav a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1;
+    transition: opacity 0.3s;
+  } 
+
+  .gnav a:hover {
+    opacity: 0.7;
+  }
+.hamburger {
+    display: none !important;
+  }
+  .drawerJs {
+    display: none !important;
+  }
+
+  .topArea {
+    background-image: url(../images/tnHeroPc.png);
+    background-position: right center; 
+    min-height: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 103px 0 500px; 
+    box-sizing: border-box;
+  }
+  .heroLogo {
+    position: static;        
+    transform: none;  
+    width: 300px;            
+    max-width: none;         /* スマホ版の制限を解除 */
+    margin-top: 0;
+    margin-bottom: 40px;     /* ロゴと下の説明文の間の余白（微調整可） */
+  }
+  .heroLogo img {
+    width: 300px;
+    height: auto;
+    display: block;
+  }
+  .heroDesc {
+    padding-right: 90px;
+    width: 467px;
+    font-size: 20px;         
+    line-height: 32px;
+    text-shadow: none;  
+    text-align: justify;
+    margin: 0;
+  }
+
+  .snsIcon {
+    left: 100px;            
+    bottom: 4%;             
+  }
+
+#attraction {
+    background-color: #fff;
+    align-items: flex-start;
+    padding: 60px 103px;
+    box-sizing: border-box;
+  }
+
+  #attraction .sectionTitle {
+    background-size: 530px auto;
+    background-position: center bottom;
+    max-width: 530px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #attraction .sectionTitle .eng {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  #attraction .sectionTitle .ja {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .attractionItem {
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .attractionItem .sectionSubTitle {
+    font-size: 36px;
+    letter-spacing: 0.3em;
+    text-align: left;
+    width: 100%;
+    margin: 40px 0 30px 0;
+  }
+
+  /* ★ここがポイント：横並び一行の設定 */
+  .attractionRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch; /* 高さを揃える */
+    width: 100%;
+    margin-bottom: 40px;
+    /* ★画像とdiscの間のスペースを「imgMain」時も「subImages」時も完全に一意に統一 */
+    gap: 40px; 
+  }
+
+  /* 左側の画像エリアの幅を固定。これによりメインもサブも左端が垂直にピタッと揃います */
+  .imageWrapper {
+    width: 500px;
+    max-width: 500px;
+    flex-shrink: 0;
+  }
+
+  .imgMain {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .subImages {
+    width: 100%;
+  }
+  .subImages .imgSub {
+    /* (500pxの親幅 - gap 15px) / 2 = 各242.5px に自動計算されます */
+    width: calc(50% - 7.5px); 
+  }
+
+  /* 右側の説明文エリアの幅を固定 */
+  .disc {
+    width: 500px;
+    max-width: 500px;
+    flex-shrink: 0;
+    padding: 40px;
+    font-size: 12pt;
+    line-height: 28px;
+    margin: 0; /* 上下の不要なマージンをリセット */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sectionDivider {
+    width: 480px;
+    max-width: 480px;
+    margin: 60px auto;
+  }
+
+#gourmet {
+    background-color: #F4F4F4;
+    padding: 60px 103px;
+    box-sizing: border-box;
+    /* 親要素のFlex影響をクリアし、上から順にブロック配置にする */
+    display: block;
+  }
+
+  
+  #gourmet .sectionTitle {
+    background-size: 530px auto;
+    background-position: center bottom;
+    max-width: 530px;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 50px;
+    margin-left: auto; 
+    margin-right: 0;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #gourmet .sectionTitle .eng {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  #gourmet .sectionTitle .ja {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  #gourmet .introText {
+    text-align: justify;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 0 0 0; /* ★ margin-left: 0 で画面左側に配置 */
+    font-size: 16px;    
+    line-height: 32px;
+  }
+
+  #gourmet .sectionDivider {
+    display: block;
+    width: 100%;
+    max-width: 420px; 
+    border: none;
+    border-top: 1px solid #000;
+    margin: 40px 0;
+  }
+
+  /* グルメアイテムを並べるコンテナ */
+  .gourmetGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* ★【変更】gourmetItem：アイテムの下に罫線を復活させる */
+  .gourmetItem {
+    flex-basis: calc(50% - 40px); /* 左右の余白を少し広げて調整 */
+    max-width: 500px;
+    margin: 0 0 60px 0;
+    padding-bottom: 40px;          /* 下線との間の余白 */
+    border-bottom: 1px solid #000; /* 各アイテムの下に罫線を復活 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;       /* すべて左揃え */
+  }
+
+
+
+  /* miniGourmetTitle：改行させずに横並び */
+  .gourmetTitle {
+    text-align: left;
+    width: 100%;
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .gourmetTitle .miniGourmetTitle {
+    display: inline;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .gourmetItem .imgMain {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .gourmetItem .imgMain img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gourmetTextBox {
+    width: 100%;
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
+  #gourmet .gourmetTextBox .subDisc {
+    text-align: left;
+    margin: 0 0 12px 0;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .modalWrapper {
+    text-align: left;
+    font-size: 17px;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  #pickup {
+    background-color: #F4F4F4;
+    padding: 60px 103px;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* セクションタイトルの共通PCスタイル */
+  #pickup .sectionTitle {
+    background-image: url("../../common/images/bgHeading.png");
+    background-repeat: no-repeat;
+    background-size: 530px auto;
+    background-position: center bottom; /* ★背景画像自体はセンター合わせ */
+    max-width: 530px;
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;        /* タイトルエリア自体は左寄せ */
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center; /* ★中の文字を背景のセンターに合わせる */
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  #pickup .sectionTitle .eng {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  #pickup .sectionTitle .ja {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  /* メインタイトル */
+  .pickupTitle {
+    font-size: 36px;
+    text-align: left;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  /* 罫線の長さ */
+  #pickup .sectionDivider {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto; 
+  }
+
+  /* 導入テキスト */
+  #pickup .subDisc.pickupIntro {
+    font-size: 16px;
+    max-width: 420px;
+    width: 100%;
+    margin: 30px 0 60px 0; /* ★中央寄せ用の auto を排除し左詰めに */
+    text-align: justify;
+  }
+
+  /* 共通サブ記述サイズ */
+  #pickup .subDisc {
+    max-width: none;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .pickupHeaderGroup .pickupTitle {
+    font-size: 36px;
+    text-align: left;
+    margin: 0 0 20px 0;
+  }
+
+  .pickupHeaderGroup .sectionDivider {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 0 30px 0; /* 下の導入文との余白 */
+  }
+
+  .pickupHeaderGroup .subDisc.pickupIntro {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     第1ブロック：関仔嶺温泉（左右並び、間隔60px）
+     -------------------------------------------------------------------------- */
+  .pickupBlock01 {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 1040px;
+    margin-left: auto;  /* ★親のflex解除に伴う中央配置の維持 */
+    margin-right: auto; /* ★ */
+    margin-bottom: 80px;
+  }
+
+  .pickupImgLeft {
+    width: 600px;
+    flex-shrink: 0;
+  }
+
+  .pickupImgLeft img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .pickupDescRight {
+    width: 420px !important;
+    max-width: 420px !important;
+    flex-shrink: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* --------------------------------------------------------------------------
+     第2ブロック：画像2枚横並び（間隔60px、画面内側左右103pxは親のpaddingで確保）
+     -------------------------------------------------------------------------- */
+  .pickupBlock02 {
+    width: 1040px; 
+    margin-left: auto;  /* ★ */
+    margin-right: auto; /* ★ */
+    margin-bottom: 80px;
+  }
+
+  #pickup .imgMiniSubSide {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    width: 1040px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  #pickup .imgMiniSubSide img {
+    width: calc((100% - 60px) / 2);
+    height: auto;
+  }
+
+  /* 中央配置されるテキスト、上の写真との縦スペース約80px */
+  #pickup .subDisc.textCenter {
+    text-align: center;
+    font-size: 16px;
+    margin: 80px auto 0 auto;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  /* --------------------------------------------------------------------------
+     第3ブロック：蓮エリア（左右並び、間隔60px、右側は縦組み）
+     -------------------------------------------------------------------------- */
+  .pickupBlock03 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1040px;
+    margin-left: auto;  /* ★ */
+    margin-right: auto; /* ★ */
+    margin-bottom: 60px;
+  }
+
+  .pickupBlock03 .pickupLotText {
+    width: 100%;
+    max-width: 100%;
+    margin: 0; /* 不要なマージンをリセット */
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .pickupLotImagesGroup {
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    gap: 20px; /* テキストと画像（tnPickup05Pc）の間の縦スペース */
+    width: 420px;
+    flex-shrink: 0;
+  }
+
+  /* tnPickup04Pc.png 横幅600px */
+  .pickupImgLot04 {
+    width: 600px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .pickupImgLot04 img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* 右側グループ（テキストが上、画像が下） */
+  .pickupLotRightGroup {
+    width: 420px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* テキストと画像の間隔 */
+    flex-shrink: 0;
+  }
+
+.pickupLotRightGroup .pickupLotText {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    width: 100%;
+    text-align: justify;
+}
+
+
+  /* tnPickup05Pc.png 横幅420px */
+  .pickupImgLot05 {
+    width: 420px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .pickupImgLot05 img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .footerFlag {
+    width: 64px;
+    margin-bottom: 40px;
+  }
+
+  .footerMain {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 60px;
+    padding: 0 103px;
+    box-sizing: border-box;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-end; /* 前回の修正：下揃え */
+    gap: 0;
+  }
+
+  
+  .footerGroup {
+    display: contents; 
+  }
+
+  .footerNav {
+    width: auto;
+    margin-inline: 0;
+  }
+
+  .footerNav a {
+    font-size: 20px;
+  }
+
+  .footerLogo {
+    width: 256px;
+    margin: 0; 
+  }
+
+  .footerSns {
+    gap: 20px;
+  }
+
+  .footerSns img {
+    width: 48px;
+    height: auto;
+  }
+
+  .footerCopy {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+  /* ページトップボタン */
+  .pageTop {
+  width: 100px;
+  height: 100px;
+  }
+
+
+
+  /* ==========================================================
+   💻 モーダル　PC版
+   ========================================================== */
+
+  .modalContent {
+    
+    width: 675px;
+    height: 675px;
+    aspect-ratio: auto;   
+    
+    
+    padding: 60px; 
+  }
+
+  .modalImage {
+    width: 100%;
+    height: 100%; 
+    aspect-ratio: auto;
+  }
+  .closeBtn {
+  
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+}
+
+}
+
+
+
+/* ==========================================================================
+   6. 【追加】共通の下地
+   ========================================================================== */
+:root {
+  /* ノートPC（1366px）設計時の「中身の幅」 1366 - 103×2 = 1160px */
+  --contentMax: 1160px;
+  --gutterPc: 103px;
+  --gutterTb: 40px;   /* タブレット〜小型ノート用 */
+}
+
+/* 「画像を見る」を div から button に変更したことへの対応。
+   button のブラウザ既定スタイル（背景・枠線・フォント）を打ち消す */
+.modalWrapper {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* パンくずリストのリンク */
+.breadCrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadCrumb a:hover {
+  text-decoration: underline;
+}
+
+/* SNSアイコンをリンクにしたことへの対応 */
+.snsIcon a {
+  display: block;
+  line-height: 0;
+  transition: opacity 0.3s;
+}
+
+.snsIcon a:hover {
+  opacity: 0.7;
+}
+
+.snsIcon img {
+  display: block;
+}
+
+/* ページトップボタン
+   z-index が 200000 でモーダル(2000)やドロワー(99999)より前面に出ていたため、
+   それらの下に潜るよう下げる */
+.pageTop {
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+
+.pageTop:hover {
+  opacity: 0.8;
+}
+
+/* モーダル：SPで画面の端いっぱいに広がっていたので左右に余白をつくる */
+.modalContent {
+  max-width: calc(100% - 40px);
+}
+
+
+/* --------------------------------------------------------------------------
+   6-2. SP：テキストだけ幅が狭く「中途半端」だった箇所を揃える
+   --------------------------------------------------------------------------
+   ・#gourmet … 画像が335pxなのに本文と罫線が223pxだった
+   ・#pickup  … max-width:calc(100% - 40px) の 100% は「画面幅」ではなく
+                「padding:20px を差し引いた親の内側の幅」を指すため、
+                意図の倍（左右40pxずつ）内側に入っていた
+   ※ 元の見た目に戻したい場合は、このブロックごと削除してください。
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  #gourmet .introText,
+  #gourmet .sectionDivider,
+  .gourmetTextBox {
+    max-width: none;
+  }
+
+  #pickup .sectionDivider,
+  #pickup .subDisc,
+  #pickup .pickupImgLeft,
+  #pickup .pickupImgLot04,
+  #pickup .pickupImgLot05,
+  #pickup .pickupIntro,
+  #pickup .pickupDescRight,
+  #pickup .pickupLotText,
+  #pickup .imgMiniSubSide {
+    max-width: none;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     6-3. SP：罫線が消えていた箇所を復活させる
+     ---------------------------------------------------------------------- */
+  .sectionDivider {
+    width: 100%;
+    max-width: 335px;   /* .attractionItem と同じ幅に揃える */
+    border: none;
+    border-top: 1px solid #000;
+    margin: 30px auto;
+  }
+
+  .gourmetItem {
+    margin: 0 auto 30px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #000;
+  }
+}
+
+
+/* ==========================================================================
+   7. 【追加】PC：セクションの左右位置を1160pxに統一する
+   ========================================================================== */
+@media (min-width: 769px) {
+
+  /* --- セクション本体：左右paddingで中身の幅を決める --- */
+  .breadCrumb,
+  #attraction,
+  #gourmet,
+  #pickup {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+  }
+
+  /* --- フッターも同じ基準に揃える --- */
+  .footerMain {
+    max-width: none;
+    width: 100%;
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+    margin: 0 auto 60px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-2. Attraction：本文ブロックを見出しと同じ左端に揃える
+     ---------------------------------------------------------------------- */
+  .attractionItem {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .imageWrapper {
+    flex: 1 1 500px;   /* 基準500px／余れば広がる／足りなければ縮む */
+    width: auto;
+    max-width: none;
+    min-width: 0;      /* これが無いと flex は中身より小さくならない */
+  }
+
+  .disc {
+    flex: 1 1 500px;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    font-size: 16px;   /* 12pt を px に統一（12pt = 16px） */
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-3. Gourmet：2カラムをグリッドで組み直す
+     ---------------------------------------------------------------------- */
+  .gourmetGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 80px;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  .gourmetItem {
+    max-width: none;
+    margin: 0 0 60px 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-4. Pickup：固定1040pxをやめ、中の要素を伸縮させる
+     ---------------------------------------------------------------------- */
+  .pickupBlock01,
+  .pickupBlock02,
+  .pickupBlock03,
+  #pickup .imgMiniSubSide {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* 第1ブロック：600 + 60 + 420 = 1080px で、
+     親の1040pxをすでに40pxはみ出していた */
+  .pickupImgLeft {
+    flex: 1 1 600px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .pickupDescRight {
+    flex: 0 1 420px;
+    width: auto !important;      /* 元の指定が !important のため合わせる */
+    max-width: 420px !important;
+    min-width: 0;
+  }
+
+  /* 第2ブロック：中央のテキストだけ中央寄せを維持 */
+  #pickup .subDisc.textCenter {
+    margin-inline: auto;
+  }
+
+  #pickup .pickupHeaderGroup .sectionDivider {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 0 30px 0;
+  }
+
+  /* 第3ブロック */
+  .pickupBlock03 {
+    gap: 60px;
+  }
+
+  .pickupImgLot04 {
+    flex: 1 1 600px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .pickupLotRightGroup {
+    flex: 0 1 420px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .pickupImgLot05 {
+    width: 100%;
+    max-width: 420px;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-5. モーダル：画面からはみ出さないように上限を足す
+     ---------------------------------------------------------------------- */
+  .modalOverlay {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .modalContent {
+    max-width: min(675px, 90vw);
+    max-height: 90vh;
+  }
+}
+
+
+/* ==========================================================================
+   8. 【追加】タブレット〜小型ノート（769px〜1199px）の調整
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .breadCrumb,
+  #attraction,
+  #gourmet,
+  #pickup,
+  .footerMain {
+    padding-inline: var(--gutterTb);
+  }
+
+  /* ヒーロー：左padding500px固定だと、769pxではロゴの置き場所が無くなる。
+     clamp(最小, 可変, 最大) で画面幅に応じて詰める */
+  .topArea {
+    padding: 0 var(--gutterTb) 0 clamp(120px, 32vw, 500px);
+  }
+
+  .heroDesc {
+    width: auto;
+    max-width: 400px;
+    padding-right: 0;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .snsIcon {
+    left: var(--gutterTb);
+  }
+
+  /* グローバルナビが折り返さないよう少し縮める */
+  .gnav {
+    gap: 20px;
+  }
+
+  .gnav a {
+    font-size: 18px;
+  }
+
+  /* Attraction / Gourmet / Pickup の間隔と文字サイズ */
+  .attractionRow {
+    gap: 24px;
+  }
+
+  .disc {
+    padding: 24px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .attractionItem .sectionSubTitle {
+    font-size: 28px;
+    letter-spacing: 0.15em;
+  }
+
+  .gourmetGrid {
+    column-gap: 40px;
+  }
+
+  .gourmetTitle {
+    font-size: 20px;
+  }
+
+  #gourmet .gourmetTextBox .subDisc,
+  .modalWrapper {
+    font-size: 15px;
+  }
+
+  .pickupTitle,
+  .pickupHeaderGroup .pickupTitle {
+    font-size: 28px;
+  }
+
+  .pickupBlock01 {
+    gap: 32px;
+  }
+
+  .pickupBlock03 {
+    gap: 32px;
+  }
+
+  #pickup .imgMiniSubSide {
+    gap: 32px;
+  }
+
+  #pickup .imgMiniSubSide img {
+    width: calc((100% - 32px) / 2);
+  }
+
+  #pickup .subDisc,
+  #pickup .subDisc.pickupIntro {
+    font-size: 15px;
+  }
+}
