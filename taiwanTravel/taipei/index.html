@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="台湾の中心地・台北の観光ガイド。九份や台北101などの観光名所、寧夏夜市をはじめとする夜市、MRTやバスなどの交通手段をご紹介します。">
+    <title>台北｜台湾観光ガイド</title>
+    <link rel="icon" href="../favicon.ico" sizes="32x32">
+    <link rel="icon" href="../common/images/faviconTaiwan.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../common/images/appleTouchIcon.png">
+
+    <link rel="stylesheet" href="../common/CSS/sanitize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../common/CSS/loading.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="bodyView">
+
+    <!-- ローディング演出：body直下の先頭に置く（最初に画面を覆うため） -->
+    <div id="loading">
+        <div class="loadingLogo">
+            <img src="../common/images/topHeroLogoSp.svg" alt="">
+        </div>
+    </div>
+
+    <header class="header">
+        <img class="hdlogo" src="../common/images/headerTaiwanLogo.svg" alt="TAIWAN">
+
+        <nav class="gnav">
+            <a href="../index.html">Top</a>
+            <a href="#" aria-current="page">台北</a>
+            <a href="../taichu/index.html">台中</a>
+            <a href="../tainan/index.html">台南</a>
+            <a href="#">当サイトのポリシー</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
+
+        <!-- ドロワーメニュー（SP用） -->
+        <button type="button" class="hamburgerJs hamburger">
+            <img src="../common/images/openDrawer.svg" alt="メニューを開く">
+        </button>
+
+        <nav class="drawerJs">
+            <button type="button" class="closeBtnJs">
+                <img src="../common/images/closeDrawer.svg" alt="メニューを閉じる">
+            </button>
+
+            <div class="drawerLogoJs">
+                <img src="../common/images/headerTaiwanLogo.svg" alt="TAIWAN">
+            </div>
+
+            <ul class="drawerMenu">
+                <li class="menu">Menu</li>
+                <li><a href="../index.html">TOP</a></li>
+                <li><a href="#" aria-current="page">台北</a></li>
+                <li><a href="../taichu/index.html">台中</a></li>
+                <li><a href="../tainan/index.html">台南</a></li>
+                <li><a href="#">当サイトのポリシー</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ================== ヒーロー ================== -->
+        <section class="topArea">
+            <picture class="heroLogo">
+                <img src="images/tpHeroFontCm.svg" alt="台北">
+            </picture>
+
+            <div class="snsIcon">
+                <a href="#" aria-label="Facebook"><img src="images/iconFacebook.svg" alt=""></a>
+                <a href="#" aria-label="Instagram"><img src="images/iconInstagram.svg" alt=""></a>
+                <a href="#" aria-label="Twitter"><img src="images/iconTwitter.svg" alt=""></a>
+            </div>
+
+            <p class="heroDesc">台北市は台湾の中心地です。活気にあふれる街台北では、さまざまな建物や台北を生きる人々の美しい風景をみることができます。</p>
+        </section>
+
+        <nav class="breadCrumb" aria-label="パンくずリスト">
+            <a href="../index.html">Top</a>＞<a href="../index.html#travel">Travel</a>＞<span aria-current="page">台北</span>
+        </nav>
+
+        <!-- ================== Attraction ================== -->
+        <section id="attraction">
+            <h2 class="sectionTitle">
+                <span class="eng">Attraction</span>
+                <span class="ja">観光名所</span>
+            </h2>
+
+            <div class="attractionItem">
+                <h3 class="sectionSubTitle">九份</h3>
+
+                <div class="attractionRow">
+                    <picture class="imgMain">
+                        <img src="images/tpAttrctionPc01.png" alt="提灯が灯る夕暮れの九份の街並み">
+                    </picture>
+
+                    <p class="disc">細い路地の階段に沿って建つ古い館に、提灯が灯るノスタルジックな風景。1989年、映画「非情城市」の舞台になったことをきっかけに再び注目を集めると共に、日本では、九份の町中にある建物が2001年公開の映画「千と千尋の神隠し」に登場する湯婆婆の湯屋を彷彿させるとして話題に。日本統治時代に建てられた古い建物が残ることから、どこか懐かしい雰囲気が漂う町並みは日本人の琴線に触れ、今や台湾で行きたい観光地ナンバーワンとなりました。</p>
+                </div>
+
+                <div class="attractionRow">
+                    <div class="imgSub">
+                        <picture>
+                            <source media="(min-width: 769px)" srcset="images/tpAttrctionPc02.png">
+                            <img src="images/tpAttrctionPh02.png" alt="九份に吊るされた大きな提灯">
+                        </picture>
+                        <picture>
+                            <source media="(min-width: 769px)" srcset="images/tpAttrctionPc03.png">
+                            <img src="images/tpAttrctionPh03.png" alt="夜の九份に並ぶ茶楼の灯り">
+                        </picture>
+                    </div>
+
+                    <p class="disc discNote">おすすめ観光時間は幻想的な夕暮れがねらい目<span class="time">15:00〜19:00</span></p>
+                </div>
+
+                <hr class="sectionDivider">
+            </div>
+
+            <div class="attractionItem">
+                <h3 class="sectionSubTitle">台北101</h3>
+
+                <div class="attractionRow">
+                    <picture class="imgMain">
+                        <img src="images/tpAttrctionPh04.png" alt="ライトアップされた台北101と夜景">
+                    </picture>
+
+                    <p class="disc">高さは509.2m、地上101階からなり、名前の由来にもなっている。エレベーターは東芝エレベータ製で、毎分1,010メートル（時速60.6キロメートル）の速さで上昇でき、地上1階から展望台のある89階（地上382.2メートル）まで39秒で到達する。展望台、オフィス、レストラン、ショッピングモールなどが入る台湾を代表するランドマークタワー。有名なカウントダウンパーティーをはじめ節目に合わせたライトアップを行っています。</p>
+                </div>
+
+                <div class="attractionRow">
+                    <div class="imgSub">
+                        <picture>
+                            <img src="images/tpAttrctionPh05.png" alt="台北101のショッピングモール内部">
+                        </picture>
+                        <picture>
+                            <img src="images/tpAttrctionPh06.png" alt="台北101の展望台から見た夜景">
+                        </picture>
+                    </div>
+
+                    <p class="disc discNote">おすすめ観光時間は展望台営業時間帯<span class="time">11:00〜19:00</span></p>
+                </div>
+
+                <hr class="sectionDivider">
+            </div>
+        </section>
+
+        <!-- ================== NightMarket ================== -->
+        <section id="nightMarket">
+            <h2 class="sectionTitle">
+                <span class="eng">NightMarket</span>
+                <span class="ja">夜市</span>
+            </h2>
+
+            <div class="nmRow">
+                <div class="nmCol">
+                    <hr class="sectionDivider">
+                    <p class="subNightMarket">台北観光の夜の目玉と言えば、何と言っても夜市（ナイトマーケット）があげられます。毎日市内の各所でひらかれ、夕方から夜遅くまで多くの人々で賑わっています。絶品B級グルメ・小吃からファッション、ゲームといったお店が集まっています。</p>
+                    <hr class="sectionDivider">
+                </div>
+
+                <picture class="imgMini">
+                    <img src="images/tpNightmarketPh01.png" alt="夜市の屋台で焼かれる串焼き">
+                </picture>
+            </div>
+
+            <div class="nmRow">
+                <div class="nmCol">
+                    <div class="selectMarket">
+                        <button type="button" id="btn-market1" class="marketName" aria-haspopup="dialog">寧夏夜市</button>
+                        <button type="button" id="btn-market2" class="marketName" aria-haspopup="dialog">饒河街観光夜市</button>
+                        <button type="button" id="btn-market3" class="marketName" aria-haspopup="dialog">士林夜市</button>
+                        <button type="button" id="btn-market4" class="marketName" aria-haspopup="dialog">通化夜市</button>
+                    </div>
+                </div>
+
+                <picture class="imgMini">
+                    <img src="images/tpNightmarketPh02.png" alt="賑わう夜市の屋台と人々">
+                </picture>
+            </div>
+
+            <hr class="sectionDivider">
+        </section>
+
+        <!-- ================== Access ================== -->
+        <section id="access">
+            <h2 class="sectionTitle">
+                <span class="eng">Access</span>
+                <span class="ja">アクセス</span>
+            </h2>
+
+            <div class="accessIntro">
+                <p class="subDiscTop">各地へのアクセスにご利用ください</p>
+                <hr class="sectionDivider">
+            </div>
+
+            <picture class="imgWide">
+                <img class="accessImg" src="images/tpAccess01.png" alt="台北の街を走るタクシーとバス">
+            </picture>
+
+            <div class="accessGrid">
+                <div class="accessItem">
+                    <h3 class="miniTitle">■MRT<span class="miniSub">　地下鉄：初乗り20元</span></h3>
+                    <p class="subDisc">乗り方は日本の地下鉄とほぼ同じ。改札を通る時には、切符・ICカード共にタッチ。台北MRTは全て各駅停車です。</p>
+                </div>
+
+                <div class="accessItem">
+                    <h3 class="miniTitle">■バス：<span class="miniSub">初乗り15元</span></h3>
+                    <p class="subDisc">バス停は、ポールが立っているだけ、大通りでは車道の真ん中のバスレーン沿いにあります。乗りたい場合、バスに向かって手を挙げます。乗車して、現金で払う場合は運転手に行先を告げて運賃箱にお金を入れます。</p>
+                </div>
+
+                <div class="accessItem">
+                    <h3 class="miniTitle">■タクシー：<span class="miniSub">初乗り70元</span></h3>
+                    <p class="subDisc">市内の移動で気軽に使うことが出来ます。MRTなどが運行しない真夜中や早朝の移動にも便利です。新幹線の駅や有名観光地などにはタクシー乗り場が準備されているので、そこから乗りましょう。ホテルならフロントで呼んでもらいます。</p>
+                </div>
+
+                <div class="accessItem">
+                    <h3 class="miniTitle">■悠遊カード：<span class="miniSub">販売額100元</span></h3>
+                    <p class="subDisc">現金をチャージして使うことが出来る交通系ICカード。台北旅行の際に手に入れておくと便利です。MRT・バス・台湾鉄路などで使用することができ、切符を買う手間がなく、運賃が割引（MRTは二割引き）になります。</p>
+
+                    <picture class="travelCard">
+                        <img src="images/tpEasycardCm.png" alt="悠遊カード">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== 夜市モーダル ================== -->
+        <div id="modalMarket1" class="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle1">
+            <div class="modalContent">
+                <button type="button" class="closeBtn">
+                    <img src="images/modalClose.svg" alt="閉じる">
+                </button>
+                <h3 id="modalTitle1" class="modalTitle">寧夏夜市</h3>
+
+                <div class="modalBody">
+                    <picture class="modalImages">
+                        <source media="(min-width: 769px)" srcset="images/tpModal01Pc.png">
+                        <img src="images/tpModal01Sp.png" alt="寧夏夜市の屋台">
+                    </picture>
+
+                    <div class="modalTextWrapper">
+                        <p class="modalText">寧夏路夜市は台湾伝統の屋台料理やB級グルメがメインの夜市です。特に大同区の圓環付近には懐かしいグルメがたくさん集まっていますので、思う存分味わってください。また、ここの夜市は歩道と車道が分かれているので、食事やショッピングに便利です。食の夜市とも言われる寧夏路夜市には毎日、大勢の人々が訪れています。</p>
+                        <p class="modalTime">営業時間<br>日曜日17:00〜25:00<br>月曜日17:00〜25:00<br>火曜日17:00〜25:00<br>水曜日17:00〜25:00<br>木曜日17:00〜25:00<br>金曜日17:00〜25:00<br>土曜日17:00〜25:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalMarket2" class="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle2">
+            <div class="modalContent">
+                <button type="button" class="closeBtn">
+                    <img src="images/modalClose.svg" alt="閉じる">
+                </button>
+                <h3 id="modalTitle2" class="modalTitle">饒河街観光夜市</h3>
+
+                <div class="modalBody">
+                    <picture class="modalImages">
+                        <source media="(min-width: 769px)" srcset="images/tpModal02Pc.png">
+                        <img src="images/tpModal02Sp.png" alt="饒河街観光夜市の入口">
+                    </picture>
+
+                    <div class="modalTextWrapper">
+                        <p class="modalText">饒河街観光夜市は、屋台料理から雑貨や生活用品も扱う夜市です。その手ごろな値段が魅力的で、多くの人々で賑わいます。最も観光客に人気があるのは「藥燉排骨」「胡椒餅」「水煎包」「蚵仔麵線」など行列ができる人気料理と、「麻辣臭豆腐」「牛肉麵」「天婦羅」など台湾の伝統的な屋台料理も定番です。</p>
+                        <p class="modalTime">営業時間<br>日曜日17:00〜23:00<br>月曜日17:00〜23:00<br>火曜日17:00〜23:00<br>水曜日17:00〜23:00<br>木曜日17:00〜23:00<br>金曜日17:00〜23:00<br>土曜日17:00〜23:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalMarket3" class="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle3">
+            <div class="modalContent">
+                <button type="button" class="closeBtn">
+                    <img src="images/modalClose.svg" alt="閉じる">
+                </button>
+                <h3 id="modalTitle3" class="modalTitle">士林夜市</h3>
+
+                <div class="modalBody">
+                    <picture class="modalImages">
+                        <source media="(min-width: 769px)" srcset="images/tpModal03Pc.png">
+                        <img src="images/tpModal03Sp.png" alt="士林夜市の賑わい">
+                    </picture>
+
+                    <div class="modalTextWrapper">
+                        <p class="modalText">ここは市内で最も規模が大きく知名度の高い夜市で、台湾のおいしい屋台グルメからユニークな雑貨まで、ありとあらゆるものが売られています。その種類の豊富さ、敷地の広さ、歴史、そして夜遊びスポットとしての人気度と、士林夜市の魅力は何から何まで台北ナンバーワン。台北観光では絶対にはずせない魅惑スポットです。</p>
+                        <p class="modalTime">営業時間<br>日曜日16:00〜00:00<br>月曜日16:00〜00:00<br>火曜日16:00〜00:00<br>水曜日16:00〜00:00<br>木曜日16:00〜00:00<br>金曜日16:00〜00:00<br>土曜日16:00〜00:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalMarket4" class="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle4">
+            <div class="modalContent">
+                <button type="button" class="closeBtn">
+                    <img src="images/modalClose.svg" alt="閉じる">
+                </button>
+                <h3 id="modalTitle4" class="modalTitle">通化夜市</h3>
+
+                <div class="modalBody">
+                    <picture class="modalImages">
+                        <source media="(min-width: 769px)" srcset="images/tpModal04Pc.png">
+                        <img src="images/tpModal04Sp.png" alt="通化夜市の屋台">
+                    </picture>
+
+                    <div class="modalTextWrapper">
+                        <p class="modalText">台北の他の夜市と比べると小規模ではあるものの、食べ物においてはどの夜市にも決して劣りません。有名な駱記小炒（炒め物）、裕品元の氷火湯円、平価鉄板焼、通化夜市の揚げサツマイモボールは、ぜひとも賞味したい特色的な伝統軽食です。マッサージ店もたくさんあり、1日の終わりに最適な夜市です。</p>
+                        <p class="modalTime">営業時間<br>日曜日18:00〜24:00<br>月曜日18:00〜24:00<br>火曜日18:00〜24:00<br>水曜日18:00〜24:00<br>木曜日18:00〜24:00<br>金曜日18:00〜24:00<br>土曜日18:00〜24:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="pageTop" aria-label="ページ上部へ戻る"></a>
+    </main>
+
+    <footer class="footer">
+        <img class="footerFlag" src="images/topFlagSp.svg" alt="台湾の国旗">
+
+        <div class="footerMain">
+            <nav class="footerNav">
+                <a href="../index.html">TOPへもどる</a>
+                <a href="../taipei/index.html">台北</a>
+                <a href="../taichu/index.html">台中</a>
+                <a href="../tainan/index.html">台南</a>
+                <a href="#">当サイトのポリシー</a>
+                <a href="#">お問い合わせ</a>
+            </nav>
+
+            <div class="footerGroup">
+                <a href="#" class="footerLogo">
+                    <img src="../common/images/footerTaiwanLogoSp.svg" alt="TAIWAN">
+                </a>
+
+                <div class="footerSns">
+                    <a href="#" aria-label="Facebook"><img src="../common/images/iconFacebook.svg" alt=""></a>
+                    <a href="#" aria-label="Instagram"><img src="../common/images/iconInstagram.svg" alt=""></a>
+                    <a href="#" aria-label="Twitter"><img src="../common/images/iconTwitter.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <small class="footerCopy">Copyright (C) 2023 TAIWAN.traveler.cc</small>
+    </footer>
+
+    <!-- スクリプトは </body> の直前にまとめる -->
+    <script src="../common/scripts/loading.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

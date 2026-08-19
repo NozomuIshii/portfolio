@@ -1,0 +1,1336 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   0. 設計値
+   ========================================================================== */
+:root {
+  --contentMax: 1160px;
+  --gutterPc: 103px;
+  --gutterTb: 40px;
+
+  --colorMain: #007AB7;
+  --colorText: #000;
+  --colorBg: #F4F4F4;
+  --colorDiscBg: #D9E8EF;
+}
+
+
+/* ==========================================================================
+   1. 共通・下地
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+.bodyView {
+  font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+  background-color: var(--colorBg);
+  color: var(--colorText);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* ==========================================================================
+   2. ヘッダー／ドロワー
+   ========================================================================== */
+.header {
+  position: relative;
+  inset: auto;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  box-sizing: border-box;
+}
+
+.hdlogo {
+  width: 111px;
+  height: auto;
+  display: block;
+}
+
+.gnav {
+  display: none;   /* SPではドロワーを使う */
+}
+
+.hamburgerJs {
+  display: block;
+  position: fixed;
+  top: 4px;
+  right: 4px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+.hamburgerJs img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.drawerJs {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 225px;
+  height: 100vh;
+  background: rgba(0, 122, 183, 0.8);
+  padding-top: 80px;
+  box-sizing: border-box;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drawerJs.isOpen {
+  transform: translateX(0);
+}
+
+.closeBtnJs {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 9999;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.closeBtnJs img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.drawerLogoJs {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  width: 101px;
+  height: auto;
+  display: block;
+  z-index: 9999;
+}
+
+.drawerMenu {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  margin-top: 60px;
+  list-style: none;
+}
+
+.drawerMenu li {
+  margin: 10px 0;
+}
+
+.drawerMenu li:nth-child(2),
+.drawerMenu li:nth-child(3),
+.drawerMenu li:nth-child(6),
+.drawerMenu li:nth-child(7) {
+  margin-top: 30px;
+}
+
+.drawerMenu li:nth-child(2) {
+  margin-top: 50px;
+}
+
+.drawerJs a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.drawerJs a:hover {
+  color: #007ab7;
+}
+
+.menu {
+  font-size: 24px;
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   3. ヒーロー
+   ========================================================================== */
+.topArea {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../images/tpHeroPh.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.heroLogo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 199px;
+  z-index: 5;
+}
+
+.heroLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heroDesc {
+  position: absolute;
+  bottom: 4%;
+  right: 20px;
+  width: 250px;
+  margin: 0;
+  z-index: 10;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #fff;
+  text-align: justify;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.snsIcon {
+  position: absolute;
+  bottom: 10%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.snsIcon a {
+  display: block;
+  line-height: 0;
+  transition: opacity 0.3s;
+}
+
+.snsIcon a:hover {
+  opacity: 0.7;
+}
+
+.snsIcon img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+
+/* ==========================================================================
+   4. パンくず
+   ========================================================================== */
+.breadCrumb {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--colorText);
+  border-bottom: 1px solid var(--colorText);
+}
+
+.breadCrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadCrumb a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   5. 共通パーツ
+   ========================================================================== */
+
+/* --- セクション見出し（英字＋日本語＋飾り罫） --- */
+.sectionTitle {
+  background-image: url("../../common/images/bgHeading.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 220px auto;
+  width: 100%;
+  max-width: 320px;
+  padding-bottom: 8px;
+  margin: 40px auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.sectionTitle .eng {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.sectionTitle .ja {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+/* --- 小見出し（九份・台北101） --- */
+.sectionSubTitle {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin: 0 0 20px;
+}
+
+/* --- 区切り罫 --- */
+.sectionDivider {
+  width: 100%;
+  max-width: 250px;
+  border: none;
+  border-top: 1px solid var(--colorText);
+  margin: 40px auto;
+}
+
+/* --- 説明ボックス（淡い水色） --- */
+.disc {
+  background-color: var(--colorDiscBg);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 24px;
+  margin: 15px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* おすすめ観光時間の小さいボックス（中央揃え） */
+.discNote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.time {
+  display: block;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+
+/* ==========================================================================
+   6. Attraction
+   ========================================================================== */
+#attraction {
+  padding: 30px 20px;
+}
+
+.attractionItem {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+}
+
+.attractionRow + .attractionRow {
+  margin-top: 15px;
+}
+
+.imgMain {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.imgMain img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* サブ画像2枚を横並びにする箱 */
+.imgSub {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.imgSub picture {
+  width: calc(50% - 7.5px);
+}
+
+.imgSub img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ==========================================================================
+   7. NightMarket
+   ========================================================================== */
+#nightMarket {
+  padding: 30px 20px;
+}
+
+.nmRow + .nmRow {
+  margin-top: 40px;
+}
+
+.subNightMarket {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 20px 0;
+}
+
+.imgMini {
+  display: block;
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+}
+
+.imgMini img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.selectMarket {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.marketName {
+  background-image: url('../images/tpButtonFrame.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--colorText);
+  width: 150px;
+  /* 枠画像を縦横同じ比率で表示するため、高さは比率で決める。
+     カンプ実測値 209 × 89px ＝ 約 2.35 : 1 */
+  aspect-ratio: 209 / 89;
+  height: auto;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.3s;
+}
+
+.marketName:hover {
+  opacity: 0.7;
+}
+
+
+/* ==========================================================================
+   8. Access
+   ========================================================================== */
+#access {
+  padding: 30px 20px 60px;
+}
+
+.accessIntro {
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.subDiscTop {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 0 13px;
+}
+
+.accessIntro .sectionDivider {
+  max-width: none;
+  margin: 0;
+}
+
+.imgWide {
+  display: block;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.imgWide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.accessGrid {
+  display: grid;
+  gap: 30px;
+}
+
+.accessItem {
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.miniTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  margin: 0 0 12px;
+}
+
+.miniSub {
+  font-weight: normal;
+}
+
+.subDisc {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0;
+}
+
+.travelCard {
+  display: block;
+  width: 95px;
+  margin: 20px auto 0;
+}
+
+.travelCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ==========================================================================
+   9. フッター／ページトップ
+   ========================================================================== */
+.footer {
+  background-color: var(--colorMain);
+  color: #fff;
+  padding: 25px 0 10px;
+}
+
+.footerFlag {
+  width: 32px;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.footerMain {
+  width: 100%;
+  max-width: 290px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.footerNav {
+  width: 100%;
+}
+
+.footerNav a {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  padding: 5px 4px;
+  border-bottom: 1px solid #fff;
+}
+
+.footerGroup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.footerLogo {
+  width: 71px;
+  display: block;
+  margin: 0;
+}
+
+.footerLogo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footerSns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footerSns img {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.footerCopy {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 8px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  border-top: 1px solid #fff;
+}
+
+.pageTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background-image: url(../../images/topReturnCm.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  /* モーダル(2000)やドロワー(99999)より必ず後ろに来るようにする */
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+
+.pageTop:hover {
+  opacity: 0.8;
+}
+
+
+/* ==========================================================================
+   10. モーダル
+   ========================================================================== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modalOverlay.isOpen {
+  display: flex;
+}
+
+.modalContent {
+  position: relative;
+  background-color: rgba(0, 122, 183, 0.9);
+  width: 100%;
+  max-width: 375px;
+  max-height: 90vh;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modalTitle {
+  width: 100%;
+  margin: 10px 0 32px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.modalImages {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.modalImages img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modalText {
+  margin: 0 0 20px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #fff;
+  text-align: justify;
+}
+
+.modalTime {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #fff;
+  text-align: center;
+}
+
+/* ==========================================================================
+   メディアクエリ SP（768px以下）
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  .header {
+    padding: 10px 15px;
+    margin-bottom: -68px;   /* ヘッダー高さ（48px + padding 10px×2）と同じ値 */
+  }
+
+  .hdlogo {
+    width: 90px;
+  }
+
+  /* ハンバーガーをヘッダー内に収める（広告との重なり回避） */
+  .hamburgerJs {
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: 40;
+  }
+}
+
+/* ==========================================================================
+   11. メディアクエリ PC（769px以上）
+   ========================================================================== */
+@media (min-width: 769px) {
+
+  /* --- ヘッダー --- */
+  .header {
+    height: 94px;
+    padding: 0 var(--gutterPc);
+    background-color: rgba(0, 0, 0, 0.25);
+    margin-bottom: -94px;
+  }
+
+  .hdlogo {
+    width: 134px;
+  }
+
+  .gnav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .gnav a {
+    font-size: 24px;   /* 他ページと同じ大きさに合わせる */
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+  }
+
+  .gnav a:hover {
+    opacity: 0.7;
+  }
+
+  .hamburgerJs,
+  .drawerJs {
+    display: none;
+  }
+
+
+  /* --- ヒーロー（カンプ実測：ロゴ左端365px／幅300px） --- */
+  .topArea {
+    background-image: url(../images/tpHeloPc.png);
+    background-position: right center;
+    min-height: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 var(--gutterPc) 0 365px;
+  }
+
+  .heroLogo {
+    position: static;
+    transform: none;
+    width: 300px;
+    max-width: none;
+  }
+
+  .heroDesc {
+    right: var(--gutterPc);
+    bottom: 27px;
+    width: 467px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-shadow: none;
+  }
+
+  /* 台中・台南の下層ページと同じ位置・間隔に揃える */
+  .snsIcon {
+    left: 100px;
+    bottom: 4%;
+    gap: 15px;
+  }
+
+
+  /* --- 各セクションの左右位置を1160pxに統一 --- */
+  .breadCrumb,
+  #attraction,
+  #nightMarket,
+  #access {
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+  }
+
+
+  /* --- 共通パーツ --- */
+  .sectionTitle {
+    max-width: 530px;
+    background-size: 530px auto;
+    padding-bottom: 24px;
+    margin: 0;
+  }
+
+  .sectionTitle .eng {
+    font-size: 48px;
+  }
+
+  .sectionTitle .ja {
+    font-size: 24px;
+  }
+
+  .sectionDivider {
+    max-width: 480px;
+    margin: 80px auto;
+  }
+
+  /* 説明ボックス：内側20px/40px、20px・行間1.6
+     → 本文10行でちょうど画像と同じ高さ360pxになる */
+  .disc {
+    padding: 20px 40px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     6-PC. Attraction ： 画像600 ＋ 間隔60 ＋ 説明500 ＝ 1160
+     ---------------------------------------------------------------------- */
+  #attraction {
+    padding-block: 50px 0;
+  }
+
+  #attraction .sectionTitle {
+    margin: 0 0 60px;
+  }
+
+  .attractionItem {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  #attraction .sectionSubTitle {
+    font-size: 36px;
+    text-align: left;
+    margin: 0 0 16px;
+  }
+
+  .attractionRow {
+    display: flex;
+    align-items: stretch;   /* 画像と説明ボックスの高さを揃える */
+    gap: 60px;
+  }
+
+  .attractionRow + .attractionRow {
+    margin-top: 20px;
+  }
+
+  .attractionRow .imgMain,
+  .attractionRow .imgSub {
+    flex: 0 1 600px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .attractionRow .imgMain img {
+    height: 360px;
+    object-fit: cover;
+  }
+
+  .imgSub {
+    gap: 20px;
+  }
+
+  .imgSub picture {
+    width: calc(50% - 10px);
+  }
+
+  .imgSub img {
+    height: 168px;
+    object-fit: cover;
+  }
+
+  .attractionRow .disc {
+    flex: 0 1 500px;
+    min-width: 0;
+  }
+
+  .attractionRow .discNote {
+    gap: 27px;
+  }
+
+  .discNote .time {
+    margin-top: 0;
+  }
+
+  #attraction .sectionDivider {
+    margin: 80px auto 90px;
+  }
+
+  #attraction .attractionItem:last-of-type .sectionDivider {
+    margin-bottom: 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     7-PC. NightMarket ： 左カラム460（左端から40px内側）／右画像540
+     ---------------------------------------------------------------------- */
+  #nightMarket {
+    padding-block: 137px 0;
+  }
+
+  /* 見出しだけ右寄せ（カンプどおり） */
+  #nightMarket .sectionTitle {
+    margin: 0 0 0 auto;
+  }
+
+  .nmRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 78px;
+  }
+
+  .nmRow + .nmRow {
+    margin-top: 120px;
+  }
+
+  /* 左カラムはカンプどおり左端から40px内側に置く */
+  .nmCol {
+    width: 460px;
+    flex-shrink: 0;
+    margin-left: var(--gutterTb);
+  }
+
+  .nmCol .sectionDivider {
+    width: 420px;
+    max-width: 420px;
+    margin: 0;
+  }
+
+  .subNightMarket {
+    width: 420px;
+    margin: 40px 0;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .nmRow .imgMini {
+    width: 540px;
+    max-width: none;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .nmRow .imgMini img {
+    height: 266px;
+    object-fit: cover;
+  }
+
+  .selectMarket {
+    grid-template-columns: repeat(2, 209px);
+    justify-content: start;
+    gap: 40px;
+    margin: 0;
+  }
+
+  .marketName {
+    width: 209px;   /* 高さは aspect-ratio により89pxになる */
+    font-size: 16px;
+  }
+
+  /* セクション末尾の罫線だけを対象にする。
+     子孫セレクタのままだと .nmCol 内の罫線（class 2つ）より
+     #nightMarket .sectionDivider（id + class）の方が詳細度が高く、
+     420pxの指定を打ち消してしまうため > で直下の子に限定する。 */
+  #nightMarket > .sectionDivider {
+    margin: 79px auto 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     8-PC. Access ： 400px × 2カラム、間隔160px（合計960pxを中央に）
+     ---------------------------------------------------------------------- */
+  #access {
+    padding-block: 146px 79px;
+  }
+
+  #access .sectionTitle {
+    margin: 0 0 60px;
+  }
+
+  /* 導入文は見出し(530px)の中央に420pxで置く → 左端は 103 + 55 = 158px */
+  .accessIntro {
+    width: 420px;
+    max-width: none;
+    margin: 0 0 0 55px;
+  }
+
+  .accessIntro .sectionDivider {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .subDiscTop {
+    font-size: 24px;
+    margin: 0 0 30px;
+  }
+
+  .imgWide {
+    margin: 79px 0 0;
+  }
+
+  .imgWide img {
+    height: 342px;
+    object-fit: cover;
+  }
+
+  .accessGrid {
+    grid-template-columns: repeat(2, 400px);
+    justify-content: center;
+    column-gap: 160px;
+    row-gap: 104px;
+    margin-top: 118px;
+  }
+
+  .accessItem {
+    max-width: none;
+    margin: 0;
+  }
+
+  .miniTitle {
+    font-size: 24px;
+    text-align: center;
+    margin: 0 0 36px;
+  }
+
+  .subDisc {
+    font-size: 24px;
+    line-height: 1.6;
+  }
+
+  /* 悠遊カードの画像は右カラムの中央に置く（カンプどおり） */
+  .travelCard {
+    width: 247px;
+    margin: 79px auto 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     10-PC. モーダル
+     ---------------------------------------------------------------------- */
+  .modalContent {
+    width: 100%;
+    max-width: var(--contentMax);
+    height: 550px;
+    max-height: 90vh;
+    padding: 40px 60px;
+  }
+
+  .modalTitle {
+    margin: 0 0 24px;
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .modalBody {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 40px;
+    width: 100%;
+    height: calc(100% - 60px);
+  }
+
+  .modalImages {
+    flex: 1 1 48%;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+  }
+
+  .modalImages img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modalTextWrapper {
+    flex: 1 1 48%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .modalText {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .modalTime {
+    margin: 0;
+    padding: 20px 0 0;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .closeBtn {
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+  }
+
+  /* --- フッター --- */
+  .footerFlag {
+    width: 64px;
+    margin-bottom: 40px;
+  }
+
+  .footerMain {
+    max-width: none;
+    width: 100%;
+    padding-inline: max(var(--gutterPc), (100% - var(--contentMax)) / 2);
+    box-sizing: border-box;
+    margin: 0 auto 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  .footerGroup {
+    display: contents;
+  }
+
+  .footerNav {
+    width: auto;
+  }
+
+  .footerNav a {
+    font-size: 20px;
+  }
+
+  .footerLogo {
+    width: 256px;
+  }
+
+  .footerSns {
+    gap: 20px;
+  }
+
+  .footerSns img {
+    width: 48px;
+  }
+
+  .footerCopy {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
+  .pageTop {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+/* ==========================================================================
+   12. メディアクエリ タブレット〜小型ノート（769px〜1199px）
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .breadCrumb,
+  #attraction,
+  #nightMarket,
+  #access,
+  .footerMain {
+    padding-inline: var(--gutterTb);
+  }
+
+  /* ヒーロー：左padding365px固定だと769pxではロゴが収まらない */
+  .topArea {
+    padding: 0 var(--gutterTb) 0 clamp(120px, 26vw, 365px);
+  }
+
+  .heroDesc {
+    right: var(--gutterTb);
+    width: auto;
+    max-width: 420px;
+    font-size: 18px;
+  }
+
+  .snsIcon {
+    left: var(--gutterTb);
+  }
+
+  .gnav {
+    gap: 20px;
+  }
+
+  .gnav a {
+    font-size: 18px;
+  }
+
+  /* Attraction */
+  .attractionRow {
+    gap: 32px;
+  }
+
+  .disc {
+    padding: 20px 24px;
+    font-size: 16px;
+  }
+
+  #attraction .sectionSubTitle {
+    font-size: 28px;
+  }
+
+  /* NightMarket */
+  .nmCol {
+    width: auto;
+    flex: 1 1 420px;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .nmCol .sectionDivider,
+  .subNightMarket {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .subNightMarket {
+    font-size: 16px;
+  }
+
+  .nmRow .imgMini {
+    flex: 0 1 460px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .selectMarket {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .marketName {
+    width: 100%;
+    max-width: 209px;   /* 高さは aspect-ratio が保つ */
+  }
+
+  /* Access */
+  .accessIntro {
+    margin-left: 0;
+  }
+
+  .subDiscTop {
+    font-size: 20px;
+  }
+
+  .accessGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 60px;
+    row-gap: 60px;
+  }
+
+  .miniTitle {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .subDisc {
+    font-size: 16px;
+  }
+
+  .modalContent {
+    padding: 30px 40px;
+  }
+}
