@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotels | TRIP JAPAN</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon/favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta name="theme-color" content="#FB6868">
+
+  <!-- 1. リセットCSS -->
+  <link rel="stylesheet" href="common/reset.css">
+  
+  <!-- 2. メインスタイルシート -->
+  <link rel="stylesheet" href="style/style.css">
+
+  <!-- 3. JS有効判定（フェードイン初期状態をJS有効時のみ適用するため） -->
+  <script>document.documentElement.classList.add('jsEnabled');</script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </a>
+      </h1>
+      <button class="header__menuBtn jsDrawerToggle" type="button" aria-label="メニューを開く">
+        <img src="image/menu.png" alt="MENU">
+      </button>
+    </div>
+  </header>
+
+  <!-- 全画面ドロワーメニュー -->
+  <div class="drawer jsDrawer" aria-hidden="true">
+    <div class="drawer__inner">
+      <div class="drawer__header">
+        <div class="drawer__logo">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </div>
+        <button class="drawer__closeBtn jsDrawerToggle" type="button" aria-label="メニューを閉じる">
+          <svg class="drawer__closeIcon" viewBox="0 0 40 40" width="32" height="32">
+            <line x1="8" y1="8" x2="32" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="32" y1="8" x2="8" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- メインナビゲーション -->
+      <nav class="drawer__nav">
+        <ul class="drawer__menu">
+          <li class="drawer__item">
+            <a href="index.html" class="drawer__link">
+              <span class="drawer__linkText">トップ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="activities.html" class="drawer__link">
+              <span class="drawer__linkText">アクティビティ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="foods.html" class="drawer__link">
+              <span class="drawer__linkText">沖縄絶品料理</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <!-- 現在表示中のページには isActive を付与 -->
+          <li class="drawer__item isActive">
+            <a href="hotels.html" class="drawer__link">
+              <span class="drawer__linkText">宿泊施設</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="drawer__sns">
+        <a href="#" aria-label="Instagram" class="drawer__snsLink">
+          <img src="image/instagramIcon2.png" alt="Instagram">
+        </a>
+        <a href="#" aria-label="Twitter" class="drawer__snsLink">
+          <img src="image/twitterIcon2.png" alt="Twitter">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="mainContent">
+
+<!-- ヒーロー＆タイトル領域 -->
+<section class="pageHero">
+  <div class="pageHero__imgWrap">
+    <img src="image/hotelHeader.png" alt="Foods" class="pageHero__img">
+  </div>
+  
+  <div class="pageHero__content">
+    <div class="pageHero__inner">
+      <!-- パンくずリスト -->
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="index.html">Top</a></li>
+          <li class="breadcrumb__item">Hotels</li>
+        </ol>
+      </nav>
+
+      <!-- ページタイトル（右寄せ・画像跨ぎ） -->
+      <div class="pageHero__titleWrap">
+        <h1 class="pageHero__title">Hotels</h1>
+        <span class="pageHero__subTitle">宿泊施設</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- コンセプトセクション -->
+<section class="concept">
+  <div class="concept__inner">
+    <!-- 右側：メイン画像エリア -->
+    <div class="concept__imgWrap fadeRight">
+      <img src="image/Hotelhero.png" alt="南国気分を味わえる最高の宿" class="concept__img">
+    </div>
+
+    <!-- 左側：重なるテキストコンテンツエリア -->
+    <div class="concept__content fadeLeft fadeDelay1">
+      <h2 class="concept__title">南国気分を味わえる最高の宿</h2>
+      <p class="concept__desc">
+        日本の中で海外のリゾート気分を満喫できる沖縄の宿。高級宿からリーズナブルな民宿まで、日本らしくない独自の居心地を感じることができる宿がたくさんあります。ぜひ非日常を味わいに足を運んでみてください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Room / Bath セクション -->
+<section class="roomBath">
+  <div class="roomBath__inner">
+
+    <!-- 右上：Bath -->
+    <div class="roomBath__bath fadeDown">
+      <span class="roomBath__label roomBath__label--bath">Bath</span>
+      <img src="image/hotelSpa.png" alt="花を浮かべたバスタブ" class="roomBath__img">
+    </div>
+
+    <!-- 左：Room -->
+    <div class="roomBath__room fadeLeft fadeDelay1">
+      <span class="roomBath__label roomBath__label--room">Room</span>
+      <img src="image/hotelIntro.png" alt="プールサイドでくつろぐ客室" class="roomBath__img">
+    </div>
+
+    <!-- 右下：テキスト -->
+    <div class="roomBath__content fadeRight fadeDelay1">
+      <h2 class="roomBath__title">旅の疲れを癒しに変える</h2>
+      <p class="roomBath__desc">
+        たっぷりと遊んで疲れた体を癒してくれる沖縄のリゾートホテル。南国を連想させるその景観とおもてなしは充実感をももたらしてくれます。美味美食を味わいながら、旅を思い出に変える一時をお楽しみください。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- View セクション -->
+<section class="view">
+  <div class="view__inner fadeRight">
+    <div class="view__imgWrap">
+      <span class="view__label">View</span>
+      <img src="image/hotelView.png" alt="満天の星空が広がる夜の海辺" class="view__img">
+    </div>
+  </div>
+</section>
+
+<!-- PICK UP セクション -->
+<section class="pickup">
+  <div class="pickup__head fadeUp">
+    <h2 class="pickup__title">沖縄のおすすめ宿</h2>
+    <p class="pickup__sub">PICK UP</p>
+  </div>
+
+  <ul class="pickup__list">
+
+    <li class="pickup__item fadeIn">
+      <div class="pickup__inner fadeUp fadeDelay1">
+        <div class="pickup__imgWrap">
+          <img src="image/recommendedHotels1.png" alt="ハレクラニ沖縄" class="pickup__img">
+        </div>
+        <div class="pickup__body">
+          <h3 class="pickup__name">ハレクラニ沖縄</h3>
+          <p class="pickup__desc">「天国にふさわしい館」でお迎えしているハレクラニ。恩納村にある沖縄海岸国定公園内の海岸線に納得できるラグジュアリーが備わっております。</p>
+          <p class="pickup__price">予算目安：￥54,081〜 / 2名</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="pickup__item fadeIn">
+      <div class="pickup__inner fadeUp fadeDelay1">
+        <div class="pickup__imgWrap">
+          <img src="image/recommendedHotels2.png" alt="ザ・ブセナテラス" class="pickup__img">
+        </div>
+        <div class="pickup__body">
+          <h3 class="pickup__name">ザ・ブセナテラス</h3>
+          <p class="pickup__desc">青く輝く海、亜熱帯の緑、色鮮やかな花々に囲まれたザ・ブセナテラス。季節の美味美食と高品質なもてなしでお迎えします。</p>
+          <p class="pickup__price">予算目安：￥42,925〜 / 2名</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="pickup__item fadeIn">
+      <div class="pickup__inner fadeUp fadeDelay1">
+        <div class="pickup__imgWrap">
+          <img src="image/recommendedHotels3.png" alt="ザ・ムーンビーチ ミュージアムリゾート" class="pickup__img">
+        </div>
+        <div class="pickup__body">
+          <h3 class="pickup__name">ザ・ムーンビーチ ミュージアムリゾート</h3>
+          <p class="pickup__desc">三日月型のプライベートビーチを囲むように佇むリゾート。まるで海外のリゾートホテルのような独特の雰囲気をお楽しみ下さい。</p>
+          <p class="pickup__price">予算目安：￥24,320〜 / 2名</p>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+    <!-- SENSES SECTION -->
+    <section class="senses">
+      <div class="senses__inner">
+        <div class="senses__heading fadeUp">
+          <h2 class="senses__title">五感で楽しめる場所が<br>ここにある。</h2>
+        </div>
+        <div class="senses__sliderWrapper fadeUp fadeDelay1">
+          <div class="senses__frame"></div>
+          <div class="senses__slider">
+            <div class="senses__slide senses__slide--2">
+              <img src="image/commonSlideImg2.png" alt="五感で楽しめる場所2">
+            </div>
+            <div class="senses__slide senses__slide--1">
+              <img src="image/commonSlideImg1.png" alt="五感で楽しめる場所1">
+            </div>
+            <div class="senses__slide senses__slide--3">
+              <img src="image/commonSlideImg3.png" alt="五感で楽しめる場所3">
+            </div>
+          </div>
+        </div>
+        <div class="senses__touch">
+          <div class="senses__touchHeader fadeUp">
+            <span class="senses__touchLabel">GET IN TOUCH</span>
+          </div>
+          <div class="senses__touchBody fadeUp fadeDelay1">
+            <h3 class="senses__touchTitle">
+              TRIP JAPANは、"ここにしかない"日本観光を応援します。
+            </h3>
+            <p class="senses__touchText">
+              トリップジャパンは、ユニークな日本の魅力を発信していきます。お問い合わせは法人企業および自治体のみ受け付けております。掲載ご希望等については<a href="index.html#contact" class="senses__touchLink">お問い合わせフォーム</a>よりお申込み下さい。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <nav class="footer__nav">
+        <ul class="footer__navList">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="activities.html">ACTIVITIES</a></li>
+          <li><a href="foods.html">FOODS</a></li>
+          <li><a href="hotels.html">HOTELS</a></li>
+        </ul>
+      </nav>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <div class="footer__logo">
+            <img src="image/logo.png" alt="TRIP JAPAN">
+          </div>
+          <div class="footer__sns">
+            <a href="#" aria-label="Instagram">
+              <img src="image/instagramIcon.png" alt="Instagram">
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src="image/twitterIcon.png" alt="Twitter">
+            </a>
+          </div>
+          <p class="footer__copyright">TRIP JAPANおよび当サイトは架空です</p>
+        </div>
+        <a href="#" class="footer__pagetop" aria-label="ページトップへ戻る">
+          <img src="image/arrowIcon.png" alt="Top">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIP JAPAN</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon/favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta name="theme-color" content="#FB6868">
+
+  <!-- 1. リセットCSS（先頭で読み込み） -->
+  <link rel="stylesheet" href="common/reset.css">
+  
+  <!-- 2. メインスタイルシート -->
+  <link rel="stylesheet" href="style/style.css">
+
+  <!-- 3. JS有効判定（フェードイン初期状態をJS有効時のみ適用するため） -->
+  <script>document.documentElement.classList.add('jsEnabled');</script>
+</head>
+<body>
+
+  <!-- ヘッダー（背景は透明・スクロールしても固定表示） -->
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="#">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </a>
+      </h1>
+      <!-- ドロワーメニューの開閉ボタン（jsDrawerToggle が JavaScript の対象） -->
+      <button class="header__menuBtn jsDrawerToggle" type="button" aria-label="メニューを開く">
+        <img src="image/menu.png" alt="MENU">
+      </button>
+    </div>
+  </header>
+
+  <!-- 全画面ドロワーメニュー -->
+  <div class="drawer jsDrawer" aria-hidden="true">
+    <div class="drawer__inner">
+    
+      <!-- ドロワーヘッダー（ロゴ ＆ 閉じるボタン） -->
+      <div class="drawer__header">
+        <div class="drawer__logo">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </div>
+        <button class="drawer__closeBtn jsDrawerToggle" type="button" aria-label="メニューを閉じる">
+          <svg class="drawer__closeIcon" viewBox="0 0 40 40" width="32" height="32">
+            <line x1="8" y1="8" x2="32" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="32" y1="8" x2="8" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- メインナビゲーション -->
+      <nav class="drawer__nav">
+        <ul class="drawer__menu">
+          <!-- 現在表示中のページには isActive を付与 -->
+          <li class="drawer__item isActive">
+            <a href="index.html" class="drawer__link">
+              <span class="drawer__linkText">トップ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="activities.html" class="drawer__link">
+              <span class="drawer__linkText">アクティビティ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="foods.html" class="drawer__link">
+              <span class="drawer__linkText">沖縄絶品料理</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="hotels.html" class="drawer__link">
+              <span class="drawer__linkText">宿泊施設</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- SNSアイコン -->
+      <div class="drawer__sns">
+        <a href="#" aria-label="Instagram" class="drawer__snsLink">
+          <img src="image/instagramIcon2.png" alt="Instagram">
+        </a>
+        <a href="#" aria-label="Twitter" class="drawer__snsLink">
+          <img src="image/twitterIcon2.png" alt="Twitter">
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <main class="mainContent">
+    <!-- HEROエリア -->
+    <section class="hero">
+    <!-- スライド1 -->
+    <div class="hero__slide hero__slide--1">
+        <div class="hero__inner">
+        <div class="hero__imgBox hero__imgBox--left">
+            <img src="image/frontHero1.png" alt="広がる青の世界">
+        </div>
+        <div class="hero__imgBox hero__imgBox--right">
+            <img src="image/frontHero1.png" alt="広がる青の世界">
+        </div>
+        <p class="hero__subText">広がる青の世界</p>
+        </div>
+    </div>
+
+    <!-- スライド2 -->
+    <div class="hero__slide hero__slide--2">
+        <div class="hero__inner">
+        <div class="hero__imgBox hero__imgBox--left">
+            <img src="image/frontHero2.png" alt="絶品郷土料理">
+        </div>
+        <div class="hero__imgBox hero__imgBox--right">
+            <img src="image/frontHero2.png" alt="絶品郷土料理">
+        </div>
+        <p class="hero__subText">絶品郷土料理</p>
+        </div>
+    </div>
+
+    <!-- スライド3 -->
+    <div class="hero__slide hero__slide--3">
+        <div class="hero__inner">
+        <div class="hero__imgBox hero__imgBox--left">
+            <img src="image/frontHero3.png" alt="異国のような宿">
+        </div>
+        <div class="hero__imgBox hero__imgBox--right">
+            <img src="image/frontHero3.png" alt="異国のような宿">
+        </div>
+        <p class="hero__subText">異国のような宿</p>
+        </div>
+    </div>
+
+    <!-- 中央キャッチコピー（固定表示） -->
+    <div class="hero__catchWrapper">
+        <h2 class="hero__catchBox hero__catchBox--right">
+        沖縄の味わい
+        </h2>
+        <h2 class="hero__catchBox hero__catchBox--left">
+        五感で感じる
+        </h2>
+    </div>
+    </section>
+
+    <!-- WHAT'S NEW エリア -->
+    <section class="news">
+    <div class="news__inner">
+        <h2 class="news__title fadeUp">WHAT'S NEW</h2>
+        <dl class="news__list fadeUp fadeDelay1">
+        <div class="news__item">
+            <dt class="news__date">2023.07.25</dt>
+            <dd class="news__text"><a href="#">サイトリニューアルいたしました。</a></dd>
+        </div>
+        <div class="news__item">
+            <dt class="news__date">2022.07.01</dt>
+            <dd class="news__text"><a href="#">沖縄特集ポータルサイトを開設しました。</a></dd>
+        </div>
+        </dl>
+    </div>
+    </section>
+
+    <!-- OVERVIEW エリア -->
+    <section class="overview">
+    <div class="overview__inner">
+        <!-- 左側〜上部に広がる背景画像 -->
+        <div class="overview__imgBox fadeLeft">
+        <img src="image/fpOverviewImg.png" alt="美しい沖縄の海">
+        </div>
+
+        <!-- 右下に重なる白背景テキストエリア -->
+        <div class="overview__content fadeRight fadeDelay1">
+        <div class="overview__header">
+            <span class="overview__num">01</span>
+            <h2 class="overview__title">OVERVIEW</h2>
+        </div>
+
+        <h3 class="overview__catch">きっと見つかる、わたしの居場所</h3>
+
+        <p class="overview__description">
+            ゆったりとした自然が広がる場所、沖縄。海をはじめとする景色やアクティビティ、ユニークな食べ物、そして穏やかな人々が非日常を演出します。沖縄だからこそ味わえる、記憶に残るリゾート気分を満喫できます。
+        </p>
+        </div>
+    </div>
+    </section>
+
+    <!-- ACTIVITIES（遊ぶ）エリア -->
+    <section class="activities">
+    <div class="activities__inner">
+        <!-- グレーの背景枠エリア -->
+        <div class="activities__bgBox fadeIn">
+        <!-- 水滴モチーフ装飾 -->
+        <div class="activities__deco">
+            <img src="image/hanabi.png" alt="">
+        </div>
+
+        <!-- 縦書きタイポグラフィ -->
+        <div class="activities__verticalText">遊ぶ</div>
+
+        <!-- メイン画像（ダイビング） -->
+        <div class="activities__mainImg fadeDown fadeDelay2">
+            <img src="image/activitiesPracticeImg3.png" alt="ダイビング風景">
+        </div>
+
+        <!-- サブ画像1（SUP：中央右） -->
+        <div class="activities__subImg activities__subImg--sup fadeDown fadeDelay1">
+            <img src="image/activitiesPracticeImg2.png" alt="SUPアクティビティ">
+        </div>
+
+        <!-- サブ画像2（パラセーリング：右上飛び出し） -->
+        <div class="activities__subImg activities__subImg--para fadeDown">
+            <img src="image/activitiesPracticeImg1.png" alt="パラセーリング">
+        </div>
+        </div>
+
+        <!-- 下部に重なる白背景テキストボックス -->
+        <div class="activities__content fadeUp">
+        <div class="activities__header">
+            <span class="activities__num">02</span>
+            <h2 class="activities__title">ACTIVITIES</h2>
+        </div>
+
+        <h3 class="activities__catch">幻想的な空と海の青き世界</h3>
+
+        <p class="activities__description">
+            ダイビング、シュノーケリング、バナナボートをはじめとするマリンアクティビティや、パラセーリングで空中散歩など、青の世界に包まれながら日常では味わえない遊びが堪能できます。
+        </p>
+
+        <a href="activities.html" class="activities__link">
+            <span>詳しく見る</span>
+            <img src="image/arrowIconRight.png" alt="">
+        </a>
+        </div>
+    </div>
+    </section>
+
+<!-- FOODS（食べる）エリア -->
+<section class="foods">
+  <div class="foods__inner">
+    <div class="foods__bgBox fadeLeft">
+      <div class="foods__verticalText">食べる</div>
+      <div class="foods__deco">
+        <img src="image/hybiscas.png" alt="">
+      </div>
+
+      <!-- メイン画像（4枚を重ねて配置） -->
+      <div class="foods__mainImg">
+        <img src="image/fpFoodsImg1.png" alt="ソーキそば" class="foods__mainItem isActive">
+        <img src="image/fpFoodsImg2.png" alt="アグー豚のしゃぶしゃぶ" class="foods__mainItem">
+        <img src="image/fpFoodsImg3.png" alt="トロピカルドリンク" class="foods__mainItem">
+        <img src="image/fpFoodsImg4.png" alt="泡盛とグラス" class="foods__mainItem">
+      </div>
+
+      <!-- サブ画像ギャラリー（4連サムネイル） -->
+      <ul class="foods__thumbList">
+        <li class="foods__thumbItem isActive" data-index="0">
+          <img src="image/fpFoodsImgThum1.png" alt="ソーキそば">
+        </li>
+        <li class="foods__thumbItem" data-index="1">
+          <img src="image/fpFoodsImgThum2.png" alt="アグー豚のしゃぶしゃぶ">
+        </li>
+        <li class="foods__thumbItem" data-index="2">
+          <img src="image/fpFoodsImgThum3.png" alt="トロピカルドリンク">
+        </li>
+        <li class="foods__thumbItem" data-index="3">
+          <img src="image/fpFoodsImgThum4.png" alt="泡盛とグラス">
+        </li>
+      </ul>
+    </div>
+
+        <!-- 右下に重なる白背景テキストボックス -->
+        <div class="foods__content fadeRight fadeDelay1">
+          <div class="foods__header">
+            <span class="foods__num">03</span>
+            <h2 class="foods__title">FOODS</h2>
+          </div>
+
+          <h3 class="foods__catch">ユニークな絶品料理に舌鼓</h3>
+
+          <p class="foods__description">
+            ソーキそば、アグー豚、泡盛など、沖縄にはユニークでおいしい郷土料理がたくさんあります。昼はおしゃれなカフェでランチ、夜はお酒を飲みながら郷土料理ディナー。目から舌から美味しい時間を堪能できます。
+          </p>
+
+          <a href="foods.html" class="foods__link">
+            <span>詳しく見る</span>
+            <img src="image/arrowIconRight.png" alt="">
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- HOTELS（泊まる）エリア -->
+<section class="hotels">
+  <div class="hotels__inner">
+    <!-- グレーの下地（右寄せ） -->
+    <div class="hotels__bgBox fadeLeft">
+      <!-- 縦書きテキスト「泊まる」 -->
+      <div class="hotels__verticalText">泊まる</div>
+
+      <!-- スライダー（3枚自動切り替え） -->
+      <div class="hotels__slider">
+        <div class="hotels__slide hotels__slide--2">
+          <img src="image/hotelSlider2.png" alt="リゾートホテルのプール">
+        </div>
+        <div class="hotels__slide hotels__slide--3">
+          <img src="image/hotelSlider3.png" alt="プライベートプール">
+        </div>
+        <div class="hotels__slide hotels__slide--1">
+          <img src="image/hotelSlider1.png" alt="夕景のリゾート">
+        </div>
+      </div>
+    </div>
+
+    <!-- 重なる白背景テキストボックス（左下配置） -->
+    <div class="hotels__content fadeLeft fadeDelay1">
+      <div class="hotels__header">
+        <span class="hotels__num">04</span>
+        <h2 class="hotels__title">HOTELS</h2>
+      </div>
+
+      <h3 class="hotels__catch">ゆったりとくつろげる厳選の宿</h3>
+
+      <p class="hotels__description">
+        沖縄には異国のようなリゾートホテルが豊富にご用意されています。その非日常的な空間は、楽しい観光やアクティビティの疲れを癒してくれます。ホテルでゆっくりリゾート気分を味わうのもおすすめです。
+      </p>
+
+      <a href="hotels.html" class="hotels__link">
+        <span>詳しく見る</span>
+        <img src="image/arrowIconRight.png" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- SENSES（五感）セクション -->
+  <section class="senses">
+    <div class="senses__inner">
+      
+      <!-- 左上見出しエリア -->
+      <div class="senses__heading fadeUp">
+        <h2 class="senses__title">五感で楽しめる場所が<br>ここにある。</h2>
+      </div>
+
+      <!-- カルーセルスライダーエリア -->
+      <div class="senses__sliderWrapper fadeUp fadeDelay1">
+        <!-- 前面の四角い大きな罫線枠（3枚画像にまたがるフレーム） -->
+        <div class="senses__frame"></div>
+
+        <div class="senses__slider">
+          <!-- スライド画像（2 -> 1 -> 3 の順序で右方向連続ループ） -->
+          <div class="senses__slide senses__slide--2">
+            <img src="image/commonSlideImg2.png" alt="五感で楽しめる場所2">
+          </div>
+          <div class="senses__slide senses__slide--1">
+            <img src="image/commonSlideImg1.png" alt="五感で楽しめる場所1">
+          </div>
+          <div class="senses__slide senses__slide--3">
+            <img src="image/commonSlideImg3.png" alt="五感で楽しめる場所3">
+          </div>
+        </div>
+      </div>
+      
+      <!-- GET IN TOUCH エリア -->
+    <div class="senses__touch">
+      <div class="senses__touchHeader fadeUp">
+        <span class="senses__touchLabel">GET IN TOUCH</span>
+      </div>
+
+      <div class="senses__touchBody fadeUp fadeDelay1">
+        <h3 class="senses__touchTitle">
+          TRIP JAPANは、"ここにしかない"日本観光を応援します。
+        </h3>
+        <p class="senses__touchText">
+          トリップジャパンは、ユニークな日本の魅力を発信していきます。お問い合わせは法人企業および自治体のみ受け付けて<br>おります。掲載ご希望等については<a href="index.html#contact" class="senses__touchLink">お問い合わせフォーム</a>よりお申込み下さい。
+        </p>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- お問い合わせフォームセクション -->
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <h1 class="contact__title fadeUp">お問い合わせ</h1>
+
+    <form class="contact__form fadeUp fadeDelay1" action="#" method="post">
+      
+      <!-- 貴社名 -->
+      <div class="contact__item">
+        <label for="company" class="contact__label">
+          貴社名<span class="contact__badge">必須</span>
+        </label>
+        <div class="contact__inputWrap">
+          <input type="text" id="company" name="company" class="contact__input" required>
+        </div>
+      </div>
+
+      <!-- お名前 -->
+      <div class="contact__item">
+        <label for="name" class="contact__label">
+          お名前<span class="contact__badge">必須</span>
+        </label>
+        <div class="contact__inputWrap">
+          <input type="text" id="name" name="name" class="contact__input" required>
+        </div>
+      </div>
+
+      <!-- 部署名 -->
+      <div class="contact__item">
+        <label for="department" class="contact__label">
+          部署名
+        </label>
+        <div class="contact__inputWrap">
+          <input type="text" id="department" name="department" class="contact__input">
+        </div>
+      </div>
+
+      <!-- 電話番号 -->
+      <div class="contact__item">
+        <label for="tel" class="contact__label">
+          電話番号<span class="contact__badge">必須</span>
+        </label>
+        <div class="contact__inputWrap">
+          <input type="tel" id="tel" name="tel" class="contact__input" required>
+        </div>
+      </div>
+
+      <!-- メールアドレス -->
+      <div class="contact__item">
+        <label for="email" class="contact__label">
+          メールアドレス<span class="contact__badge">必須</span>
+        </label>
+        <div class="contact__inputWrap">
+          <input type="email" id="email" name="email" class="contact__input" required>
+        </div>
+      </div>
+
+      <!-- お問い合わせ内容 -->
+      <div class="contact__item contact__item--textarea">
+        <label for="message" class="contact__label">
+          お問い合わせ内容<span class="contact__badge">必須</span>
+        </label>
+        <div class="contact__inputWrap">
+          <textarea id="message" name="message" class="contact__textarea" required></textarea>
+        </div>
+      </div>
+
+      <!-- 同意テキスト -->
+      <div class="contact__agree">
+        <a href="#" class="contact__policyLink">弊社個人情報保護方針</a>に同意します
+      </div>
+
+      <!-- 送信ボタン -->
+      <div class="contact__submitWrap">
+        <button type="submit" class="contact__submitBtn">確認画面へ</button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <!-- 右側：ナビゲーション -->
+      <nav class="footer__nav">
+        <ul class="footer__navList">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="activities.html">ACTIVITIES</a></li>
+          <li><a href="foods.html">FOODS</a></li>
+          <li><a href="hotels.html">HOTELS</a></li>
+        </ul>
+      </nav>
+
+      <!-- 左側：ロゴ & SNSアイコン -->
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <div class="footer__logo">
+            <img src="image/logo.png" alt="TRIP JAPAN">
+          </div>
+          <div class="footer__sns">
+            <a href="#" aria-label="Instagram">
+              <img src="image/instagramIcon.png" alt="Instagram">
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src="image/twitterIcon.png" alt="Twitter">
+            </a>
+          </div>
+          <p class="footer__copyright">TRIP JAPANおよび当サイトは架空です</p>
+        </div>
+
+        <!-- ページトップへ戻るボタン -->
+        <a href="#" class="footer__pagetop" aria-label="ページトップへ戻る">
+          <img src="image/arrowIcon.png" alt="Top">
+        </a>
+      </div>
+    </div>
+  </footer>
+<script src="scripts/main.js"></script>
+</body>
+</html>

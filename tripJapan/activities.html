@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities | TRIP JAPAN</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- 1. リセットCSS -->
+  <link rel="stylesheet" href="common/reset.css">
+  
+  <!-- 2. メインスタイルシート -->
+  <link rel="stylesheet" href="style/style.css">
+
+  <!-- 3. JS有効判定（フェードイン初期状態をJS有効時のみ適用するため） -->
+  <script>document.documentElement.classList.add('jsEnabled');</script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </a>
+      </h1>
+      <button class="header__menuBtn jsDrawerToggle" type="button" aria-label="メニューを開く">
+        <img src="image/menu.png" alt="MENU">
+      </button>
+    </div>
+  </header>
+
+  <!-- 全画面ドロワーメニュー -->
+  <div class="drawer jsDrawer" aria-hidden="true">
+    <div class="drawer__inner">
+      <div class="drawer__header">
+        <div class="drawer__logo">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </div>
+        <button class="drawer__closeBtn jsDrawerToggle" type="button" aria-label="メニューを閉じる">
+          <svg class="drawer__closeIcon" viewBox="0 0 40 40" width="32" height="32">
+            <line x1="8" y1="8" x2="32" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="32" y1="8" x2="8" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- メインナビゲーション -->
+      <nav class="drawer__nav">
+        <ul class="drawer__menu">
+          <li class="drawer__item">
+            <a href="index.html" class="drawer__link">
+              <span class="drawer__linkText">トップ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <!-- 現在表示中のページには isActive を付与 -->
+          <li class="drawer__item isActive">
+            <a href="activities.html" class="drawer__link">
+              <span class="drawer__linkText">アクティビティ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="foods.html" class="drawer__link">
+              <span class="drawer__linkText">沖縄絶品料理</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="hotels.html" class="drawer__link">
+              <span class="drawer__linkText">宿泊施設</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="drawer__sns">
+        <a href="#" aria-label="Instagram" class="drawer__snsLink">
+          <img src="image/instagramIcon2.png" alt="Instagram">
+        </a>
+        <a href="#" aria-label="Twitter" class="drawer__snsLink">
+          <img src="image/twitterIcon2.png" alt="Twitter">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="mainContent">
+
+<!-- ヒーロー＆タイトル領域 -->
+<section class="pageHero">
+  <div class="pageHero__imgWrap">
+    <img src="image/actitivitiesHeader.png" alt="Activities" class="pageHero__img">
+  </div>
+  
+  <div class="pageHero__content">
+    <div class="pageHero__inner">
+      <!-- パンくずリスト -->
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="index.html">Top</a></li>
+          <li class="breadcrumb__item">Activities</li>
+        </ol>
+      </nav>
+
+      <!-- ページタイトル（右寄せ・画像跨ぎ） -->
+      <div class="pageHero__titleWrap">
+        <h1 class="pageHero__title">Activities</h1>
+        <span class="pageHero__subTitle">アクティビティ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO SECTION -->
+<section class="actIntro">
+  <div class="actIntro__inner">
+    
+    <!-- 左側：テキストコンテンツ -->
+    <div class="actIntro__content fadeUp">
+      <h2 class="actIntro__title">
+        青く無垢な大自然を堪能する
+      </h2>
+      <p class="actIntro__desc">
+        沖縄の本島・離島には海をはじめとする自然を活かしたアクティビティが豊富にあります。水上・水中・空中を使った遊びは日常では味わえない沖縄ならではのもの。「ここにしかない」遊びをご紹介します。
+      </p>
+    </div>
+
+    <!-- 右側：メイン画像（パラセーリング） -->
+    <div class="actIntro__imgWrap fadeDown">
+      <img src="image/activitesHero.png" alt="パラセーリングで青空を飛ぶ様子" class="actIntro__img">
+    </div>
+
+  </div>
+</section>
+
+<!-- TAB ACTIVITIES SECTION -->
+<section class="actTabs">
+  <div class="actTabs__inner">
+    
+    <!-- タブボタンナビゲーション -->
+    <ul class="actTabs__nav fadeLeft">
+      <li class="actTabs__navItem isActive" data-tab="diving">DIVING</li>
+      <li class="actTabs__navItem" data-tab="kayak">SEA KAYAK</li>
+      <li class="actTabs__navItem" data-tab="parasailing">PARASAILING</li>
+    </ul>
+
+    <!-- タブコンテンツ領域 -->
+    <div class="actTabs__contentWrap">
+      
+      <!-- 01. DIVING -->
+      <div class="actTabs__panel isActive" id="tab-diving">
+ <div class="actTabs__card">
+  <div class="actTabs__imgBox fadeLeft fadeDelay1">
+    <div class="actTabs__mainImg">
+      <img src="image/actitivitiesTabImg1.png" alt="ダイビング">
+    </div>
+  </div>
+
+          <!-- 右下：重ね配置のテキストボックス -->
+          <div class="actTabs__info fadeRight fadeDelay2">
+            <h3 class="actTabs__title">水中の世界</h3>
+            <p class="actTabs__desc">
+              沖縄の海と言えば「ダイビング」。透き通った海水から織りなす青色はまさに幻想的。時間に包まれながら癒される空間を味わえます。
+            </p>
+            <div class="actTabs__price">
+              費用相場：￥13,200〜￥26,400
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02. SEA KAYAK -->
+      <div class="actTabs__panel" id="tab-kayak">
+        <div class="actTabs__card">
+          <div class="actTabs__imgBox fadeLeft fadeDelay1">
+            <div class="actTabs__mainImg">
+              <img src="image/actitivitiesTabImg2.png" alt="シーカヤックを楽しむ様子">
+            </div>
+          </div>
+
+          <div class="actTabs__info fadeRight fadeDelay2">
+            <h3 class="actTabs__title">水上リフレッシュ</h3>
+            <p class="actTabs__desc">
+              水上でのアクティビティはサーフィンやバナナボートだけでなく、シーカヤックも人気です。潮騒を聞きながら適度な運動で心地いい体験ができます。
+            </p>
+            <div class="actTabs__price">
+              費用相場：￥1,500〜￥3,500
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03. PARASAILING -->
+      <div class="actTabs__panel" id="tab-parasailing">
+        <div class="actTabs__card">
+          <div class="actTabs__imgBox fadeLeft fadeDelay1">
+            <div class="actTabs__mainImg">
+              <img src="image/actitivitiesTabImg3.png" alt="パラセーリングで空中散歩">
+            </div>
+          </div>
+
+          <div class="actTabs__info fadeRight fadeDelay2">
+            <h3 class="actTabs__title">空中散歩</h3>
+            <p class="actTabs__desc">
+              沖縄は海だけじゃない！空もある！上を見れば青い空、下を見れば青い海。青に包まれる沖縄のパラセーリングで絶景体験ができます。
+            </p>
+            <div class="actTabs__price">
+              費用相場：￥6,000〜￥15,000
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <section class="actInfoSection fadeLeft">
+  <div class="actInfoSection__inner">
+    
+    <!-- Price エリア -->
+    <div class="actCard actCard--price">
+      <!-- 見出し画像 (#Price) -->
+      <div class="actCard__titleImg fadeLeft">
+        <img src="image/price.png" alt="#Price">
+      </div>
+
+      <!-- メイン画像 -->
+      <div class="actCard__imgBox fadeLeft fadeDelay1">
+        <img src="image/actitivitiesPriceImg.png" alt="カヤック">
+      </div>
+
+      <!-- 情報カード（白枠） -->
+      <div class="actCard__content fadeRight fadeDelay2">
+        <span class="actCard__category">料金</span>
+        
+        <div class="actCard__item">
+          <h3 class="actCard__itemTitle">ダイビング</h3>
+          <dl class="actPriceList">
+            <div class="actPriceList__row">
+              <dt>初心者コース（20分）</dt>
+              <dd>¥13,200-</dd>
+            </div>
+            <div class="actPriceList__row">
+              <dt>上級者コース（40分）</dt>
+              <dd>¥26,200-</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="actCard__item">
+          <h3 class="actCard__itemTitle">シーカヤック</h3>
+          <dl class="actPriceList">
+            <div class="actPriceList__row">
+              <dt>初心者コース（20分）</dt>
+              <dd>¥1,500-</dd>
+            </div>
+            <div class="actPriceList__row">
+              <dt>上級者コース（40分）</dt>
+              <dd>¥3,500-</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="actCard__item">
+          <h3 class="actCard__itemTitle">パラセーリング</h3>
+          <dl class="actPriceList">
+            <div class="actPriceList__row">
+              <dt>初心者コース（10分）</dt>
+              <dd>¥6,000-</dd>
+            </div>
+            <div class="actPriceList__row">
+              <dt>上級者コース（15分）</dt>
+              <dd>¥15,000-</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location エリア -->
+    <div class="actCard actCard--location">
+      <!-- 見出し画像 (#location) -->
+      <div class="actCard__titleImg fadeLeft">
+        <img src="image/location.png" alt="#location">
+      </div>
+
+      <!-- マップ画像 -->
+      <div class="actCard__imgBox fadeLeft fadeDelay1">
+        <img src="image/activitiesMapImg.png" alt="エリアマップ">
+      </div>
+
+      <!-- 情報カード（白枠） -->
+      <div class="actCard__content fadeRight fadeDelay2">
+        <span class="actCard__category">おすすめエリア</span>
+        
+        <div class="actCard__item">
+          <h3 class="actCard__itemTitle">ダイビング</h3>
+          <p class="actCard__text">慶良間諸島 / 北谷 / 恩納村</p>
+        </div>
+
+        <div class="actCard__item">
+          <h3 class="actCard__itemTitle">シーカヤック</h3>
+          <p class="actCard__text">恩納村 / 読谷村 / 瀬底島</p>
+        </div>
+
+        <div class="actCard__item">
+          <h3 class="actCard__itemTitle">パラセーリング</h3>
+          <p class="actCard__text">那覇 / 名護 / 与野湾</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- SENSES SECTION -->
+    <section class="senses">
+      <div class="senses__inner">
+        <div class="senses__heading fadeUp">
+          <h2 class="senses__title">五感で楽しめる場所が<br>ここにある。</h2>
+        </div>
+        <div class="senses__sliderWrapper fadeUp fadeDelay1">
+          <div class="senses__frame"></div>
+          <div class="senses__slider">
+            <div class="senses__slide senses__slide--2">
+              <img src="image/commonSlideImg2.png" alt="五感で楽しめる場所2">
+            </div>
+            <div class="senses__slide senses__slide--1">
+              <img src="image/commonSlideImg1.png" alt="五感で楽しめる場所1">
+            </div>
+            <div class="senses__slide senses__slide--3">
+              <img src="image/commonSlideImg3.png" alt="五感で楽しめる場所3">
+            </div>
+          </div>
+        </div>
+        <div class="senses__touch">
+          <div class="senses__touchHeader fadeUp">
+            <span class="senses__touchLabel">GET IN TOUCH</span>
+          </div>
+          <div class="senses__touchBody fadeUp fadeDelay1">
+            <h3 class="senses__touchTitle">
+              TRIP JAPANは、"ここにしかない"日本観光を応援します。
+            </h3>
+            <p class="senses__touchText">
+              トリップジャパンは、ユニークな日本の魅力を発信していきます。お問い合わせは法人企業および自治体のみ受け付けております。掲載ご希望等については<a href="index.html#contact" class="senses__touchLink">お問い合わせフォーム</a>よりお申込み下さい。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <nav class="footer__nav">
+        <ul class="footer__navList">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="activities.html">ACTIVITIES</a></li>
+          <li><a href="foods.html">FOODS</a></li>
+          <li><a href="hotels.html">HOTELS</a></li>
+        </ul>
+      </nav>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <div class="footer__logo">
+            <img src="image/logo.png" alt="TRIP JAPAN">
+          </div>
+          <div class="footer__sns">
+            <a href="#" aria-label="Instagram">
+              <img src="image/instagramIcon.png" alt="Instagram">
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src="image/twitterIcon.png" alt="Twitter">
+            </a>
+          </div>
+          <p class="footer__copyright">TRIP JAPANおよび当サイトは架空です</p>
+        </div>
+        <a href="#" class="footer__pagetop" aria-label="ページトップへ戻る">
+          <img src="image/arrowIcon.png" alt="Top">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

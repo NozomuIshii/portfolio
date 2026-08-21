@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foods | TRIP JAPAN</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="icon" href="favicon/favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta name="theme-color" content="#FB6868">
+
+  <!-- 1. リセットCSS -->
+  <link rel="stylesheet" href="common/reset.css">
+  
+  <!-- 2. メインスタイルシート -->
+  <link rel="stylesheet" href="style/style.css">
+
+  <!-- 3. JS有効判定（フェードイン初期状態をJS有効時のみ適用するため） -->
+  <script>document.documentElement.classList.add('jsEnabled');</script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </a>
+      </h1>
+      <button class="header__menuBtn jsDrawerToggle" type="button" aria-label="メニューを開く">
+        <img src="image/menu.png" alt="MENU">
+      </button>
+    </div>
+  </header>
+
+  <!-- 全画面ドロワーメニュー -->
+  <div class="drawer jsDrawer" aria-hidden="true">
+    <div class="drawer__inner">
+      <div class="drawer__header">
+        <div class="drawer__logo">
+          <img src="image/logo.png" alt="TRIP JAPAN">
+        </div>
+        <button class="drawer__closeBtn jsDrawerToggle" type="button" aria-label="メニューを閉じる">
+          <svg class="drawer__closeIcon" viewBox="0 0 40 40" width="32" height="32">
+            <line x1="8" y1="8" x2="32" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="32" y1="8" x2="8" y2="32" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- メインナビゲーション -->
+      <nav class="drawer__nav">
+        <ul class="drawer__menu">
+          <li class="drawer__item">
+            <a href="index.html" class="drawer__link">
+              <span class="drawer__linkText">トップ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="activities.html" class="drawer__link">
+              <span class="drawer__linkText">アクティビティ</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <!-- 現在表示中のページには isActive を付与 -->
+          <li class="drawer__item isActive">
+            <a href="foods.html" class="drawer__link">
+              <span class="drawer__linkText">沖縄絶品料理</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="hotels.html" class="drawer__link">
+              <span class="drawer__linkText">宿泊施設</span>
+              <span class="drawer__arrow"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="drawer__sns">
+        <a href="#" aria-label="Instagram" class="drawer__snsLink">
+          <img src="image/instagramIcon2.png" alt="Instagram">
+        </a>
+        <a href="#" aria-label="Twitter" class="drawer__snsLink">
+          <img src="image/twitterIcon2.png" alt="Twitter">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="mainContent">
+
+<!-- ヒーロー＆タイトル領域 -->
+<section class="pageHero">
+  <div class="pageHero__imgWrap">
+    <img src="image/foodHeader.png" alt="Foods" class="pageHero__img">
+  </div>
+  
+  <div class="pageHero__content">
+    <div class="pageHero__inner">
+      <!-- パンくずリスト -->
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="index.html">Top</a></li>
+          <li class="breadcrumb__item">Foods</li>
+        </ol>
+      </nav>
+
+      <!-- ページタイトル（右寄せ・画像跨ぎ） -->
+      <div class="pageHero__titleWrap">
+        <h1 class="pageHero__title">Foods</h1>
+        <span class="pageHero__subTitle">沖縄絶品料理</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL FOOD / 地産地消のおもてなし領域 -->
+<section class="localFood">
+  <div class="localFood__inner">
+    
+    <!-- 左側：コラージュ画像 -->
+    <div class="localFood__imgWrap fadeRight">
+      <img src="image/foodsHero.png" alt="沖縄の地産地消料理一覧" class="localFood__img">
+    </div>
+
+    <!-- 右側：テキストコンテンツ（画像の右下に重なる配置） -->
+    <div class="localFood__content fadeLeft fadeDelay1">
+      <div class="localFood__header">
+        <h2 class="localFood__title">地産地消の食材でおもてなし</h2>
+      </div>
+      <p class="localFood__desc">
+        沖縄では地元食材をふんだんに使った料理があります。味はもちろん、馴染みのない美味しい料理を味わえます。中でもアグー豚は新鮮で臭みがなく、焼きものからしゃぶしゃぶまで美味しくいただけます。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- RECOMMEND FOODS SECTION (沖縄のおすすめ料理) -->
+<section class="recommendFoods">
+  <div class="recommendFoods__inner">
+
+    <!-- セクションタイトル -->
+    <div class="recommendFoods__header">
+      <h2 class="recommendFoods__title fadeDown">沖縄のおすすめ料理</h2>
+      <span class="recommendFoods__subTitle fadeDown fadeDelay1">PICK UP</span>
+    </div>
+
+    <!-- 料理グリッド（3列×2行） -->
+    <div class="recommendFoods__grid">
+
+      <!-- 01. ソーキそば -->
+      <article class="foodCard fadeDown">
+        <div class="foodCard__imgWrap jsModalOpen" data-modal-src="image/FoodsImg1.png">
+          <img src="image/foodsRecommend1.png" alt="ソーキそば" class="foodCard__img">
+        </div>
+        <div class="foodCard__body">
+          <h3 class="foodCard__title">ソーキそば</h3>
+          <p class="foodCard__desc">
+            沖縄料理と言ったらまずはこれ！という名物料理。いたるところにお店があるので、食べ比べしても...
+          </p>
+        </div>
+      </article>
+
+      <!-- 02. アグー豚 -->
+      <article class="foodCard fadeDown fadeDelay1">
+        <div class="foodCard__imgWrap jsModalOpen" data-modal-src="image/FoodsImg2.png">
+          <img src="image/foodsRecommend2.png" alt="アグー豚" class="foodCard__img">
+        </div>
+        <div class="foodCard__body">
+          <h3 class="foodCard__title">アグー豚</h3>
+          <p class="foodCard__desc">
+            豚肉の中でも最高級の琉球黒豚。臭みがなく、焼き肉もしゃぶしゃぶは絶品です。
+          </p>
+        </div>
+      </article>
+
+      <!-- 03. ゴーヤチャンプルー -->
+      <article class="foodCard fadeDown fadeDelay2">
+        <div class="foodCard__imgWrap jsModalOpen" data-modal-src="image/FoodsImg3.png">
+          <img src="image/foodsRecommend3.png" alt="ゴーヤチャンプルー" class="foodCard__img">
+        </div>
+        <div class="foodCard__body">
+          <h3 class="foodCard__title">ゴーヤチャンプルー</h3>
+          <p class="foodCard__desc">
+            今やご家庭でも簡単に作れる料理ですが、地元のお店で作るものは全然違う？！
+          </p>
+        </div>
+      </article>
+
+      <!-- 04. タコライス -->
+      <article class="foodCard fadeDown">
+        <div class="foodCard__imgWrap jsModalOpen" data-modal-src="image/FoodsImg4.png">
+          <img src="image/foodsRecommend4.png" alt="タコライス" class="foodCard__img">
+        </div>
+        <div class="foodCard__body">
+          <h3 class="foodCard__title">タコライス</h3>
+          <p class="foodCard__desc">
+            沖縄グルメと言ったらこれも外せない！という人気料理。ご飯の上にタコスミートやチーズ、レタス…
+          </p>
+        </div>
+      </article>
+
+      <!-- 05. ティビチ -->
+      <article class="foodCard fadeDown fadeDelay1">
+        <div class="foodCard__imgWrap jsModalOpen" data-modal-src="image/FoodsImg5.png">
+          <img src="image/foodsRecommend5.png" alt="ティビチ" class="foodCard__img">
+        </div>
+        <div class="foodCard__body">
+          <h3 class="foodCard__title">ティビチ</h3>
+          <p class="foodCard__desc">
+            豚足を大根や昆布などと一緒に煮込んだ料理です。え？！って思いますが食べたら納得の味です。
+          </p>
+        </div>
+      </article>
+
+      <!-- 06. 泡盛 -->
+      <article class="foodCard fadeDown fadeDelay2">
+        <div class="foodCard__imgWrap jsModalOpen" data-modal-src="image/FoodsImg6.png">
+          <img src="image/foodsRecommend6.png" alt="泡盛" class="foodCard__img">
+        </div>
+        <div class="foodCard__body">
+          <h3 class="foodCard__title">泡盛</h3>
+          <p class="foodCard__desc">
+            沖縄のお酒はやっぱり泡盛！お店によっては飲み比べメニューもあります。
+          </p>
+        </div>
+      </article>
+
+    </div><!-- /.recommendFoods__grid -->
+  </div><!-- /.recommendFoods__inner -->
+</section>
+
+
+<!-- RESTAURANT SECTION (沖縄の人気店) -->
+<section class="popularRestaurants">
+  <div class="popularRestaurants__bg fadeUp">
+    <img src="image/foodMenuBg.png" alt="" class="popularRestaurants__bgImg">
+  </div>
+  
+  <div class="popularRestaurants__inner">
+    <!-- セクションタイトル -->
+    <div class="popularRestaurants__header fadeUp fadeDelay1">
+      <h2 class="popularRestaurants__title">沖縄の人気店</h2>
+      <span class="popularRestaurants__subTitle">RESTAURANT</span>
+    </div>
+
+    <!-- リストコンテンツ領域 -->
+    <div class="popularRestaurants__content fadeUp fadeDelay2">
+      <!-- テーブルヘッダー -->
+      <div class="popularRestaurants__tableHeader">
+        <span class="popularRestaurants__colName">店名</span>
+        <span class="popularRestaurants__colBudget">予算目安</span>
+      </div>
+
+      <!-- 店舗リスト -->
+      <ul class="popularRestaurants__list">
+        <li class="popularRestaurants__item">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="popularRestaurants__link">
+            <span class="popularRestaurants__name">
+              こてっぺん
+              <svg class="popularRestaurants__icon" viewBox="0 0 24 24" width="14" height="14">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </span>
+            <span class="popularRestaurants__budget">¥4,000～¥4,999</span>
+          </a>
+        </li>
+
+        <li class="popularRestaurants__item">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="popularRestaurants__link">
+            <span class="popularRestaurants__name">
+              あじまー商店
+              <svg class="popularRestaurants__icon" viewBox="0 0 24 24" width="14" height="14">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </span>
+            <span class="popularRestaurants__budget">¥5,000～¥5,999</span>
+          </a>
+        </li>
+
+        <li class="popularRestaurants__item">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="popularRestaurants__link">
+            <span class="popularRestaurants__name">
+              じまんや那覇店
+              <svg class="popularRestaurants__icon" viewBox="0 0 24 24" width="14" height="14">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </span>
+            <span class="popularRestaurants__budget">¥5,000～¥5,999</span>
+          </a>
+        </li>
+
+        <li class="popularRestaurants__item">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="popularRestaurants__link">
+            <span class="popularRestaurants__name">
+              居酒屋めーめー
+              <svg class="popularRestaurants__icon" viewBox="0 0 24 24" width="14" height="14">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </span>
+            <span class="popularRestaurants__budget">¥4,000～¥4,999</span>
+          </a>
+        </li>
+
+        <li class="popularRestaurants__item">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="popularRestaurants__link">
+            <span class="popularRestaurants__name">
+              琉球ダイニング ふぁいみーる
+              <svg class="popularRestaurants__icon" viewBox="0 0 24 24" width="14" height="14">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </span>
+            <span class="popularRestaurants__budget">¥5,000～¥5,999</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+    <!-- SENSES SECTION -->
+    <section class="senses">
+      <div class="senses__inner">
+        <div class="senses__heading fadeUp">
+          <h2 class="senses__title">五感で楽しめる場所が<br>ここにある。</h2>
+        </div>
+        <div class="senses__sliderWrapper fadeUp fadeDelay1">
+          <div class="senses__frame"></div>
+          <div class="senses__slider">
+            <div class="senses__slide senses__slide--2">
+              <img src="image/commonSlideImg2.png" alt="五感で楽しめる場所2">
+            </div>
+            <div class="senses__slide senses__slide--1">
+              <img src="image/commonSlideImg1.png" alt="五感で楽しめる場所1">
+            </div>
+            <div class="senses__slide senses__slide--3">
+              <img src="image/commonSlideImg3.png" alt="五感で楽しめる場所3">
+            </div>
+          </div>
+        </div>
+        <div class="senses__touch">
+          <div class="senses__touchHeader fadeUp">
+            <span class="senses__touchLabel">GET IN TOUCH</span>
+          </div>
+          <div class="senses__touchBody fadeUp fadeDelay1">
+            <h3 class="senses__touchTitle">
+              TRIP JAPANは、"ここにしかない"日本観光を応援します。
+            </h3>
+            <p class="senses__touchText">
+              トリップジャパンは、ユニークな日本の魅力を発信していきます。お問い合わせは法人企業および自治体のみ受け付けております。掲載ご希望等については<a href="index.html#contact" class="senses__touchLink">お問い合わせフォーム</a>よりお申込み下さい。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- 画像モーダル -->
+  <div class="modal jsModal" aria-hidden="true">
+    <div class="modal__overlay jsModalClose"></div>
+
+    <div class="modal__content">
+      <button class="modal__close jsModalClose" type="button" aria-label="閉じる">
+        <svg viewBox="0 0 40 40" width="40" height="40">
+          <line x1="8" y1="8" x2="32" y2="32" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="32" y1="8" x2="8" y2="32" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+      <img src="" alt="" class="modal__img jsModalImg">
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <nav class="footer__nav">
+        <ul class="footer__navList">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="activities.html">ACTIVITIES</a></li>
+          <li><a href="foods.html">FOODS</a></li>
+          <li><a href="hotels.html">HOTELS</a></li>
+        </ul>
+      </nav>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <div class="footer__logo">
+            <img src="image/logo.png" alt="TRIP JAPAN">
+          </div>
+          <div class="footer__sns">
+            <a href="#" aria-label="Instagram">
+              <img src="image/instagramIcon.png" alt="Instagram">
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src="image/twitterIcon.png" alt="Twitter">
+            </a>
+          </div>
+          <p class="footer__copyright">TRIP JAPANおよび当サイトは架空です</p>
+        </div>
+        <a href="#" class="footer__pagetop" aria-label="ページトップへ戻る">
+          <img src="image/arrowIcon.png" alt="Top">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

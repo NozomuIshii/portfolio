@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="TRIP JAPAN">
+  <rect width="512" height="512" rx="100" fill="#FB6868"/>
+  <g fill="#FFFFFF" transform="translate(71.68 82.11) scale(1.15925)">
+    <rect x="0" y="0" width="176" height="64"/>
+    <rect x="56" y="0" width="64" height="300"/>
+    <rect x="254" y="0" width="64" height="212"/>
+    <path d="M142,212 A88,88 0 0 0 318,212 L254,212 A24,24 0 0 1 206,212 Z"/>
+  </g>
+</svg>
