@@ -1,0 +1,2368 @@
+@charset "utf-8";
+
+/* ============================================================
+   Cafe de Lumière — style.css
+   目次
+     01. カスタムプロパティ（デザイントークン）
+     02. ベーススタイル
+     03. レイアウト（container / section）
+     04. 共通パーツ：ヘッダー
+     05. 共通パーツ：ハンバーガー・ドロワー
+     06. 共通パーツ：ボタン・テキストリンク
+     07. 共通パーツ：セクションタイトル・装飾
+     08. 共通パーツ：フッター・ページトップ
+     09. アニメーション（フェードイン）
+     10. HOME：ヒーロー
+     11. HOME：ABOUT
+     12. HOME：おすすめメニュー
+     13. HOME：コンセプト
+     14. HOME：こだわり
+     15. HOME：ギャラリー
+     16. HOME：メッセージ
+     17. 下層ページ共通：ページヘッダー
+     18. MENU：カテゴリータブ
+     19. MENU：カテゴリー見出し・品目リスト
+     20. MENU：COFFEE
+     21. MENU：FOOD
+     22. MENU：SWEETS / DRINK
+     23. MENU：季節限定メニュー
+     24. ACCESS：店舗情報
+     25. ACCESS：イラスト地図
+     26. ACCESS：アクセス方法
+     27. ACCESS：周辺の雰囲気
+     28. CONTACT：全体レイアウト・見出し
+     29. CONTACT：フォーム
+     30. CONTACT：電話・店舗情報
+     31. CONTACT：ご予約について
+     32. パララックス
+   ============================================================ */
+
+
+/* ============================================================
+   01. カスタムプロパティ（デザイントークン）
+   ここに無い値は使わない。追加したい時はまずここに定義する。
+   ============================================================ */
+:root {
+  /* --- 色：ブランド --- */
+  --colorMain:        #3A2C24;
+  --colorSub:         #5A4638;
+  --colorAccent:      #B08A5A;
+  --colorAccentDark:  #7C5B31; /* アクセント色を「文字」に使う時はこちら */
+  --colorAccentLight: #D2B98B;
+
+  /* --- 色：背景 --- */
+  --colorBg:      #F1ECE2;
+  --colorBgLight: #F8F5EF;
+  --colorBeige:   #E4DACA;
+
+  /* --- 色：テキスト --- */
+  --colorText:       #3A2C24;
+  --colorTextMuted:  #665C54;
+  --colorTextOnDark: #F8F5EF;
+
+  /* --- 色：差し色（季節限定バッジ／フォーカスリングのみ） --- */
+  --colorForest:     #3F4A3C;
+  --colorForestRing: rgba(63, 74, 60, 0.2);
+
+  /* --- 色：線・その他 --- */
+  --colorBorder:   #D8D0C5;
+  --colorOverlay:  rgba(30, 22, 18, 0.45);
+  --colorHeaderBase: rgba(0, 0, 0, 0.2);   /* 写真に重なっている時の下地（全ページ共通） */
+  --colorHeaderBg:   rgba(58, 44, 36, 0.95); /* スクロール後の背景 */
+  --shadowCard:    0 4px 16px rgba(58, 44, 36, 0.08);
+
+  /* --- フォント --- */
+  --fontSerif:   'Noto Serif JP', serif;
+  --fontSans:    'Noto Sans JP', sans-serif;
+  --fontDisplay: 'Cormorant Garamond', 'Noto Serif JP', serif;
+
+  /* --- フォントサイズ（すべて4の倍数 / 1rem = 10px） --- */
+  --fs12: 1.2rem;
+  --fs16: 1.6rem;
+  --fs20: 2.0rem;
+  --fs24: 2.4rem;
+  --fs32: 3.2rem;
+  --fs40: 4.0rem;
+  --fs48: 4.8rem;
+  --fs56: 5.6rem;
+  --fs72: 7.2rem;
+
+  /* --- 余白（すべて4の倍数） --- */
+  --space4:   0.4rem;
+  --space8:   0.8rem;
+  --space12:  1.2rem;
+  --space16:  1.6rem;
+  --space24:  2.4rem;
+  --space32:  3.2rem;
+  --space40:  4.0rem;
+  --space48:  4.8rem;
+  --space64:  6.4rem;
+  --space80:  8.0rem;
+  --space96:  9.6rem;
+  --space120: 12.0rem;
+  --space160: 16.0rem;
+
+  /* --- レイアウト --- */
+  --containerWidth:       112.0rem;
+  --containerWidthNarrow:  88.0rem;
+  --containerWidthWide:   128.0rem;
+  --containerPadding:       1.6rem; /* SP。768px 以上で 2.4rem に切り替え */
+  --headerHeight:           6.4rem; /* SP。1024px 以上で 8.0rem に切り替え */
+  --sectionPadding:       var(--space64);
+
+  /* --- アニメーション --- */
+  --transitionBase: 0.3s ease;
+  --transitionSlow: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- z-index --- */
+  --zHeader:  100;
+  --zDrawer:   90;
+  --zPageTop:  80;
+  --zOverlay:  70;
+  --zBase:      1;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --containerPadding: var(--space24);
+    --sectionPadding:   var(--space96);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --headerHeight:   8.0rem;
+    --sectionPadding: var(--space120);
+  }
+}
+
+
+/* ============================================================
+   02. ベーススタイル
+   ============================================================ */
+
+/* 62.5% にすることで 1rem = 10px。--fs16（1.6rem）= 16px となる */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fontSans);
+  font-size: var(--fs16);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: var(--colorText);
+  background-color: var(--colorBg);
+}
+
+/* ドロワーを開いている間、背後のページがスクロールしないようにする */
+body.isNavOpen {
+  overflow: hidden;
+}
+
+/* 固定ヘッダーの下にアンカー先が潜り込まないようにする */
+[id] {
+  scroll-margin-top: var(--headerHeight);
+}
+
+/* キーボード操作時だけフォーカスリングを出す（マウスクリックでは出さない） */
+:focus-visible {
+  outline: 2px solid var(--colorForest);
+  outline-offset: 2px;
+}
+
+/* 画面には出さないがスクリーンリーダーには読ませるテキスト */
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* SP でのみ改行させたい箇所に付ける（PC では改行しない） */
+.brSp {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .brSp {
+    display: none;
+  }
+}
+
+/* PC でのみ改行させたい箇所に付ける（SP では自然に折り返す） */
+.brPc {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .brPc {
+    display: inline;
+  }
+}
+
+
+/* ============================================================
+   03. レイアウト（container / section）
+   ============================================================ */
+
+/* 中央寄せの内側コンテナ。幅は --containerWidth を上書きして切り替える */
+.container {
+  width: min(100%, calc(var(--containerWidth) + var(--containerPadding) * 2));
+  margin-inline: auto;
+  padding-inline: var(--containerPadding);
+}
+
+.containerNarrow {
+  --containerWidth: var(--containerWidthNarrow);
+}
+
+.containerWide {
+  --containerWidth: var(--containerWidthWide);
+}
+
+/* セクションの上下余白。セクション間に margin は付けず、padding だけで間隔を作る */
+.section {
+  padding-block: var(--sectionPadding);
+}
+
+.sectionBgLight {
+  background-color: var(--colorBgLight);
+}
+
+.sectionBgBeige {
+  background-color: var(--colorBeige);
+}
+
+
+/* ============================================================
+   04. 共通パーツ：ヘッダー
+   ============================================================ */
+.siteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--headerHeight);
+  z-index: var(--zHeader);
+  color: var(--colorTextOnDark);
+  /* ヒーロー写真の上でもメニューが読めるよう、常に黒20%の下地を敷く */
+  background-color: var(--colorHeaderBase);
+  transition: background-color var(--transitionBase);
+}
+
+/* スクロールすると濃茶の背景に切り替わる（全ページ共通の挙動） */
+.siteHeader.isFixed {
+  background-color: var(--colorHeaderBg);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-inline: var(--containerPadding);
+}
+
+@media (min-width: 1024px) {
+  .headerInner {
+    padding-inline: var(--space40);
+  }
+}
+
+/* --- ロゴ（白抜きのPNGを使用） --- */
+.siteLogo {
+  display: block;
+  line-height: 0; /* img 下の余分な隙間を消す */
+}
+
+.siteLogoImage {
+  width: auto;
+  height: 3.2rem;
+}
+
+@media (min-width: 1024px) {
+  .siteLogoImage {
+    height: 4.0rem;
+  }
+}
+
+/* --- グローバルナビ（1024px 以上でのみ表示） --- */
+.globalNav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .globalNav {
+    display: block;
+  }
+}
+
+.globalNavList {
+  display: flex;
+  align-items: center;
+  gap: var(--space32);
+}
+
+.globalNavLink {
+  position: relative;
+  display: block;
+  padding-bottom: var(--space4);
+  font-size: var(--fs16);
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+/* 下線を左から伸ばすホバー。現在地（.isActive）は最初から表示 */
+.globalNavLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width var(--transitionBase);
+}
+
+.globalNavLink:hover::after,
+.globalNavLink:focus-visible::after,
+.globalNavLink.isActive::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   05. 共通パーツ：ハンバーガー・ドロワー
+   ============================================================ */
+.hamburgerBtn {
+  position: relative;
+  width: 2.4rem;
+  height: 1.8rem;
+  color: var(--colorTextOnDark);
+}
+
+@media (min-width: 1024px) {
+  .hamburgerBtn {
+    display: none;
+  }
+}
+
+/* 3本線。上から 0 / 8px / 16px の位置に置く（線 2px + 間隔 6px） */
+.hamburgerBtnLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform var(--transitionBase), opacity var(--transitionBase);
+}
+
+.hamburgerBtnLine:nth-child(1) { top: 0; }
+.hamburgerBtnLine:nth-child(2) { top: 8px; }
+.hamburgerBtnLine:nth-child(3) { top: 16px; }
+
+/* 開いている時は上下の線を中央に寄せて交差させ、真ん中の線を消す */
+.hamburgerBtn.isOpen .hamburgerBtnLine:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburgerBtn.isOpen .hamburgerBtnLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerBtn.isOpen .hamburgerBtnLine:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- ドロワー本体（右からスライドイン） --- */
+.drawerMenu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--zDrawer);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--headerHeight) var(--space32) var(--space32);
+  background-color: var(--colorMain);
+  color: var(--colorTextOnDark);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s;
+}
+
+.drawerMenu.isOpen {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+@media (min-width: 1024px) {
+  .drawerMenu {
+    display: none;
+  }
+}
+
+.drawerNavList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space32);
+}
+
+.drawerNavLink {
+  display: inline-block;
+  font-size: var(--fs20);
+  line-height: 1;
+  letter-spacing: 0.2em;
+}
+
+.drawerSnsList {
+  display: flex;
+  gap: var(--space24);
+  margin-top: var(--space64);
+}
+
+.drawerSnsLink {
+  display: grid;
+  place-items: center;
+  width: 4.0rem;
+  height: 4.0rem;
+  border: 1px solid rgba(248, 245, 239, 0.4);
+  border-radius: 50%;
+  transition: background-color var(--transitionBase), color var(--transitionBase);
+}
+
+.drawerSnsLink:hover {
+  background-color: var(--colorAccent);
+  border-color: var(--colorAccent);
+}
+
+.drawerSnsIcon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+
+/* ============================================================
+   06. 共通パーツ：ボタン・テキストリンク
+   ============================================================ */
+
+/* 2種のボタンで共通する土台。HTML には btnPrimary / btnOutline のどちらか一方だけ付ける */
+.btnPrimary,
+.btnOutline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20.0rem;
+  height: 4.8rem;
+  padding-inline: var(--space32);
+  font-size: var(--fs16);
+  line-height: 1;
+  letter-spacing: 0.1em;
+  border-radius: 0;
+  transition: background-color var(--transitionBase), color var(--transitionBase), border-color var(--transitionBase);
+}
+
+@media (min-width: 1024px) {
+  .btnPrimary,
+  .btnOutline {
+    height: 5.6rem;
+  }
+}
+
+.btnPrimary {
+  background-color: var(--colorMain);
+  color: var(--colorTextOnDark);
+}
+
+.btnPrimary:hover {
+  background-color: var(--colorAccent);
+}
+
+.btnOutline {
+  border: 1px solid var(--colorMain);
+  color: var(--colorMain);
+}
+
+.btnOutline:hover {
+  background-color: var(--colorMain);
+  color: var(--colorTextOnDark);
+}
+
+/* ボタン内の矢印。右端から 16px の位置に絶対配置し、ホバーで右へ動かす */
+.btnArrow {
+  position: absolute;
+  right: var(--space16);
+  display: block;
+  line-height: 1;
+  transition: transform var(--transitionBase);
+}
+
+.btnPrimary:hover .btnArrow,
+.btnOutline:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+/* --- テキストリンク（VIEW MORE など） --- */
+.textLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space8);
+  padding-bottom: var(--space4);
+  font-size: var(--fs12);
+  line-height: 1;
+  letter-spacing: 0.2em;
+  transition: color var(--transitionBase);
+}
+
+.textLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width var(--transitionBase);
+}
+
+.textLink:hover {
+  color: var(--colorAccentDark);
+}
+
+.textLink:hover::after,
+.textLink:focus-visible::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   07. 共通パーツ：セクションタイトル・装飾
+   ============================================================ */
+.sectionTitleWrap {
+  margin-bottom: var(--space32);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sectionTitleWrap {
+    margin-bottom: var(--space48);
+  }
+}
+
+/* 左寄せで使うセクション（ABOUT・コンセプト）用 */
+.sectionTitleWrapLeft {
+  text-align: left;
+}
+
+.sectionLabel {
+  margin-bottom: var(--space8);
+  font-size: var(--fs12);
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  color: var(--colorTextMuted);
+}
+
+.sectionTitle {
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs24);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: var(--fs32);
+  }
+}
+
+/* 見出し下の短い区切り線 */
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 4.0rem;
+  height: 1px;
+  margin: var(--space16) auto 0;
+  background-color: var(--colorAccent);
+}
+
+.sectionTitleWrapLeft .sectionTitle::after {
+  margin-inline: 0;
+}
+
+/* 英字の大見出し（ヒーロー・下層ページのタイトル） */
+.displayTitle {
+  font-family: var(--fontDisplay);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
+
+
+/* ============================================================
+   08. 共通パーツ：フッター・ページトップ
+   ============================================================ */
+.siteFooter {
+  padding-block: var(--space64) var(--space24);
+  background-color: var(--colorMain);
+  color: var(--colorTextOnDark);
+}
+
+.footerInner {
+  display: grid;
+  gap: var(--space48);
+}
+
+@media (min-width: 1024px) {
+  .footerInner {
+    grid-template-columns: 1fr auto;
+    gap: var(--space96);
+  }
+}
+
+.footerLogo {
+  display: block;
+  line-height: 0;
+  margin-bottom: var(--space24);
+}
+
+.footerLogoImage {
+  width: auto;
+  height: 4.0rem;
+}
+
+.footerInfo {
+  font-size: var(--fs12);
+  line-height: 2;
+}
+
+.footerSnsList {
+  display: flex;
+  gap: var(--space16);
+  margin-top: var(--space24);
+}
+
+.footerSnsLink {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  transition: color var(--transitionBase);
+}
+
+.footerSnsLink:hover {
+  color: var(--colorAccentLight);
+}
+
+.footerSnsIcon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.footerNavTitle {
+  margin-bottom: var(--space16);
+  font-size: var(--fs12);
+  letter-spacing: 0.2em;
+  color: var(--colorAccentLight);
+}
+
+.footerNavList {
+  display: grid;
+  gap: var(--space12);
+  font-size: var(--fs12);
+  letter-spacing: 0.1em;
+}
+
+.footerNavLink {
+  transition: color var(--transitionBase);
+}
+
+.footerNavLink:hover {
+  color: var(--colorAccentLight);
+}
+
+/* ロゴと住所の間に置く注記 */
+.footerNote {
+  margin-bottom: var(--space16);
+  font-size: var(--fs12);
+  line-height: 1.8;
+  color: var(--colorAccentLight);
+}
+
+.footerCopy {
+  margin-top: var(--space48);
+  padding-top: var(--space24);
+  border-top: 1px solid rgba(248, 245, 239, 0.15);
+  font-size: var(--fs12);
+  text-align: center;
+}
+
+/* --- ページトップボタン --- */
+.pageTopBtn {
+  position: fixed;
+  right: var(--space16);
+  bottom: var(--space16);
+  z-index: var(--zPageTop);
+  display: grid;
+  place-items: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  border: 1px solid var(--colorBorder);
+  border-radius: 50%;
+  background-color: var(--colorBgLight);
+  color: var(--colorMain);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transitionBase), visibility var(--transitionBase),
+              background-color var(--transitionBase), color var(--transitionBase);
+}
+
+.pageTopBtn.isVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pageTopBtn:hover {
+  background-color: var(--colorMain);
+  color: var(--colorTextOnDark);
+}
+
+@media (min-width: 768px) {
+  .pageTopBtn {
+    right: var(--space24);
+    bottom: var(--space24);
+  }
+}
+
+
+/* ============================================================
+   09. アニメーション（フェードイン）
+   ============================================================ */
+
+/* JS が .fadeIn を監視し、画面に入ったら .isVisible を付ける。
+   隠すのは .isJsEnabled が付いている時だけ。JSが読み込めなかった場合に
+   ページ全体が opacity:0 のまま真っ白になるのを防ぐための保険。 */
+.fadeIn {
+  transition: opacity var(--transitionSlow), transform var(--transitionSlow);
+}
+
+.isJsEnabled .fadeIn {
+  opacity: 0;
+  transform: translateY(2.4rem);
+}
+
+.isJsEnabled .fadeIn.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 横並びの要素は 0.1 秒ずつ遅らせて順番に出す（最大4つまで） */
+.fadeInDelay1 { transition-delay: 0.1s; }
+.fadeInDelay2 { transition-delay: 0.2s; }
+.fadeInDelay3 { transition-delay: 0.3s; }
+
+/* 動きを減らす設定の人には、アニメーションを止める */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .isJsEnabled .fadeIn {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ============================================================
+   10. HOME：ヒーロー
+   ============================================================ */
+.heroSection {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 56.0rem;
+  height: 100svh;
+  max-height: 80.0rem;
+  overflow: hidden;
+  color: var(--colorTextOnDark);
+  text-align: center;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 写真の上に敷く暗幕。文字のコントラストを確保するために必須 */
+.heroImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--colorOverlay);
+}
+
+.heroInner {
+  position: relative;
+  z-index: var(--zBase);
+  padding-inline: var(--containerPadding);
+}
+
+.heroTitle {
+  font-size: var(--fs40);
+  /* 字間を広めから通常へ詰めながら現れる。このページ唯一の"見せ場" */
+  animation: heroTitleIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.heroLead {
+  margin-top: var(--space16);
+  font-size: var(--fs16);
+  letter-spacing: 0.1em;
+  animation: heroFadeIn 1.2s ease 0.4s both;
+}
+
+.heroBtnWrap {
+  margin-top: var(--space32);
+  animation: heroFadeIn 1.2s ease 0.7s both;
+}
+
+/* ヒーロー内のアウトラインボタンは写真の上に乗るため白に反転させる */
+.btnOutline.heroBtn {
+  border-color: var(--colorTextOnDark);
+  color: var(--colorTextOnDark);
+}
+
+.btnOutline.heroBtn:hover {
+  background-color: var(--colorTextOnDark);
+  color: var(--colorMain);
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: var(--fs72);
+  }
+
+  .heroLead {
+    margin-top: var(--space24);
+  }
+
+  .heroBtnWrap {
+    margin-top: var(--space40);
+  }
+}
+
+.heroScroll {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space24);
+  transform: translateX(-50%);
+  color: var(--colorTextOnDark);
+  animation: scrollArrow 2s ease-in-out infinite;
+}
+
+.heroScrollIcon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    letter-spacing: 0.16em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.08em;
+  }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(1.6rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollArrow {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 8px); }
+}
+
+
+/* ============================================================
+   11. HOME：ABOUT
+   ============================================================ */
+.aboutInner {
+  display: grid;
+  gap: var(--space32);
+}
+
+@media (min-width: 1024px) {
+  .aboutInner {
+    /* 写真をやや小さく、本文側を広く。カンプの比率に合わせている */
+    grid-template-columns: 1fr 1.15fr;
+    gap: var(--space64);
+    align-items: center;
+  }
+}
+
+.aboutImage {
+  aspect-ratio: 3 / 2;
+}
+
+.aboutImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aboutText {
+  font-size: var(--fs16);
+  line-height: 2;
+}
+
+
+/* ============================================================
+   12. HOME：おすすめメニュー
+   ============================================================ */
+.menuCardList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space24);
+}
+
+@media (min-width: 768px) {
+  .menuCardList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .menuCardList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space32);
+  }
+}
+
+.menuCard {
+  overflow: hidden;
+  background-color: var(--colorBgLight);
+  border: 1px solid var(--colorBorder);
+  border-radius: 2px;
+  transition: box-shadow var(--transitionBase);
+}
+
+.menuCard:hover {
+  box-shadow: var(--shadowCard);
+}
+
+.menuCardImageWrap {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.menuCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.menuCard:hover .menuCardImage {
+  transform: scale(1.05);
+}
+
+.menuCardBody {
+  padding: var(--space16);
+}
+
+@media (min-width: 768px) {
+  .menuCardBody {
+    padding: var(--space24);
+  }
+}
+
+.menuCardTitle {
+  font-family: var(--fontSerif);
+  font-weight: 600;
+  font-size: var(--fs16);
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+.menuCardPrice {
+  margin-top: var(--space4);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  color: var(--colorAccentDark);
+}
+
+.menuCardText {
+  margin-top: var(--space12);
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--colorText);
+}
+
+.menuBtnWrap {
+  margin-top: var(--space48);
+  text-align: center;
+}
+
+
+/* ============================================================
+   13. HOME：コンセプト
+   ============================================================ */
+.conceptInner {
+  display: grid;
+  gap: var(--space32);
+}
+
+@media (min-width: 1024px) {
+  .conceptInner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space64);
+    align-items: center;
+  }
+}
+
+.conceptTextWrap .sectionTitle {
+  /* このセクションだけ見出しが長いので、区切り線は見出しの下に左寄せで置く */
+  font-size: var(--fs24);
+}
+
+@media (min-width: 768px) {
+  .conceptTextWrap .sectionTitle {
+    font-size: var(--fs32);
+  }
+}
+
+.conceptText + .conceptText {
+  margin-top: var(--space24);
+}
+
+.conceptImage {
+  aspect-ratio: 3 / 2;
+}
+
+.conceptImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   14. HOME：こだわり
+   ============================================================ */
+.featureList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space32);
+}
+
+@media (min-width: 768px) {
+  .featureList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featureImage {
+  aspect-ratio: 3 / 2;
+  margin-bottom: var(--space24);
+  overflow: hidden;
+}
+
+.featureImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.featureItem:hover .featureImage img {
+  transform: scale(1.05);
+}
+
+.featureTitle {
+  margin-bottom: var(--space16);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.featureText {
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--colorText);
+}
+
+
+/* ============================================================
+   15. HOME：ギャラリー
+   ============================================================ */
+.galleryMain {
+  aspect-ratio: 3 / 2;
+  max-width: 64.0rem;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.galleryMainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transitionBase);
+}
+
+/* 画像を差し替える瞬間だけ透明にして、切り替えを滑らかに見せる */
+.galleryMainImage.isSwitching {
+  opacity: 0;
+}
+
+.galleryThumbList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space8);
+  margin-top: var(--space24);
+}
+
+@media (min-width: 768px) {
+  .galleryThumbList {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space16);
+    margin-top: var(--space32);
+  }
+}
+
+.galleryThumbBtn {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  opacity: 0.55;
+  transition: opacity var(--transitionBase);
+}
+
+.galleryThumbBtn:hover,
+.galleryThumbBtn.isActive {
+  opacity: 1;
+}
+
+.galleryThumbBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   16. HOME：メッセージ
+   写真を全幅の背景に敷き、その上に暗幕を重ねて白文字を載せる
+   ============================================================ */
+.messageSection {
+  position: relative;
+  overflow: hidden;
+  color: var(--colorTextOnDark);
+}
+
+.messageImage {
+  position: absolute;
+  inset: 0;
+}
+
+.messageImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 右寄りに置いて、左半分に文字を載せる余白を作る */
+  object-position: 70% center;
+}
+
+/* SP は文字の下が写真の明るい部分に重なるため、全面を均一に暗くする */
+.messageImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(30, 22, 18, 0.78);
+}
+
+/* PC は左を濃く、右へ向かって薄くして被写体を見せる */
+@media (min-width: 768px) {
+  .messageImage::after {
+    background: linear-gradient(
+      90deg,
+      rgba(30, 22, 18, 0.9) 0%,
+      rgba(30, 22, 18, 0.82) 40%,
+      rgba(30, 22, 18, 0.3) 100%
+    );
+  }
+}
+
+.messageInner {
+  position: relative; /* 暗幕より前面に出す */
+  z-index: var(--zBase);
+  max-width: 56.0rem;
+}
+
+/* このセクションだけ、見出し下の区切り線を白に変える */
+.messageSection .sectionTitle::after {
+  background-color: var(--colorTextOnDark);
+}
+
+.messageText {
+  font-size: var(--fs16);
+  line-height: 2.2;
+}
+
+
+/* ============================================================
+   17. 下層ページ共通：ページヘッダー
+   写真の上にページタイトルを重ねる帯。MENU / ACCESS / CONTACT で共用
+   ============================================================ */
+.pageHeader {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 28.0rem;
+  /* 固定ヘッダーの分だけ内容を下げ、写真はヘッダーの裏まで敷く */
+  padding-top: var(--headerHeight);
+  overflow: hidden;
+  color: var(--colorTextOnDark);
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .pageHeader {
+    min-height: 40.0rem;
+  }
+}
+
+.pageHeaderImage {
+  position: absolute;
+  inset: 0;
+}
+
+.pageHeaderImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pageHeaderImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--colorOverlay);
+}
+
+.pageHeaderInner {
+  position: relative;
+  z-index: var(--zBase);
+  padding-inline: var(--containerPadding);
+}
+
+.pageHeaderTitle {
+  font-size: var(--fs32);
+}
+
+@media (min-width: 1024px) {
+  .pageHeaderTitle {
+    font-size: var(--fs56);
+  }
+}
+
+.pageHeaderJa {
+  margin-top: var(--space8);
+  font-size: var(--fs16);
+  line-height: 1.6;
+  letter-spacing: 0.2em;
+}
+
+.pageHeaderJa::after {
+  content: '';
+  display: block;
+  width: 4.0rem;
+  height: 1px;
+  margin: var(--space16) auto 0;
+  background-color: var(--colorTextOnDark);
+}
+
+
+/* ============================================================
+   18. MENU：カテゴリータブ
+   ヘッダーのすぐ下に貼り付き、押すと該当カテゴリーだけを表示する
+   ============================================================ */
+.categoryTabNav {
+  position: sticky;
+  top: var(--headerHeight);
+  z-index: var(--zPageTop);
+  background-color: var(--colorBeige);
+}
+
+.categoryTabList {
+  display: flex;
+  /* SP は項目が入りきらないので横スクロールさせる */
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categoryTabList::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .categoryTabList {
+    justify-content: center;
+    overflow-x: visible;
+  }
+}
+
+.categoryTabBtn {
+  position: relative;
+  padding: var(--space16) var(--space16);
+  font-size: var(--fs12);
+  line-height: 1;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  color: var(--colorTextMuted);
+  transition: color var(--transitionBase);
+}
+
+@media (min-width: 768px) {
+  .categoryTabBtn {
+    padding-inline: var(--space32);
+    font-size: var(--fs16);
+  }
+}
+
+.categoryTabBtn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: var(--space12);
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transform: translateX(-50%);
+  transition: width var(--transitionBase);
+}
+
+.categoryTabBtn:hover {
+  color: var(--colorText);
+}
+
+.categoryTabBtn.isActive {
+  color: var(--colorText);
+}
+
+.categoryTabBtn.isActive::after,
+.categoryTabBtn:hover::after {
+  width: 2.4rem;
+}
+
+
+/* ============================================================
+   19. MENU：カテゴリー見出し・品目リスト
+   ============================================================ */
+.menuCategoryTitle {
+  font-family: var(--fontDisplay);
+  font-weight: 400;
+  font-size: var(--fs32);
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .menuCategoryTitle {
+    font-size: var(--fs40);
+  }
+}
+
+.menuCategoryTitle::after {
+  content: '';
+  display: block;
+  width: 4.0rem;
+  height: 1px;
+  margin: var(--space16) auto var(--space32);
+  background-color: var(--colorAccent);
+}
+
+/* SWEETS / DRINK の2カラム内で使う左寄せ版 */
+.menuCategoryTitleLeft {
+  font-size: var(--fs24);
+  text-align: left;
+}
+
+.menuCategoryTitleLeft::after {
+  margin-inline: 0;
+  margin-bottom: var(--space24);
+}
+
+/* --- 品目リスト（名前 …… 価格 ＋ 説明） --- */
+.menuList {
+  display: grid;
+  gap: var(--space24);
+}
+
+.menuListHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space8);
+}
+
+.menuListName {
+  font-family: var(--fontSerif);
+  font-weight: 600;
+  font-size: var(--fs16);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+/* 名前と価格をつなぐ点線。文字ではなく罫線で引く */
+.menuListLeader {
+  flex: 1 1 auto;
+  min-width: var(--space16);
+  border-bottom: 1px dotted var(--colorBorder);
+  transform: translateY(-0.4rem);
+}
+
+.menuListPrice {
+  flex: 0 0 auto;
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs16);
+  line-height: 1.5;
+  color: var(--colorAccentDark);
+}
+
+.menuListText {
+  margin-top: var(--space4);
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--colorText);
+}
+
+
+/* ============================================================
+   20. MENU：COFFEE
+   ============================================================ */
+.coffeeInner {
+  display: grid;
+  gap: var(--space32);
+}
+
+@media (min-width: 768px) {
+  .coffeeInner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space40);
+  }
+
+  /* タブレットでは「こだわり」ボックスだけ下段に回して横幅いっぱいに */
+  .coffeeNote {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .coffeeInner {
+    grid-template-columns: 0.9fr 1.3fr 0.8fr;
+  }
+
+  .coffeeNote {
+    grid-column: auto;
+  }
+}
+
+.coffeePhoto {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.coffeePhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coffeeNote {
+  padding: var(--space24);
+  background-color: var(--colorBgLight);
+  border: 1px solid var(--colorBorder);
+  border-radius: 2px;
+}
+
+.coffeeNoteTitle {
+  margin-bottom: var(--space16);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs16);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.coffeeNoteImage {
+  aspect-ratio: 3 / 2;
+  margin-bottom: var(--space16);
+  overflow: hidden;
+}
+
+.coffeeNoteImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coffeeNoteText {
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--colorText);
+}
+
+
+/* ============================================================
+   21. MENU：FOOD
+   ============================================================ */
+.foodList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space24);
+}
+
+@media (min-width: 1024px) {
+  .foodList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space32);
+  }
+}
+
+.foodImage {
+  aspect-ratio: 4 / 3;
+  margin-bottom: var(--space16);
+  overflow: hidden;
+}
+
+.foodImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.foodItem:hover .foodImage img {
+  transform: scale(1.05);
+}
+
+.foodName {
+  font-family: var(--fontSerif);
+  font-weight: 600;
+  font-size: var(--fs16);
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+.foodPrice {
+  margin-top: var(--space4);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  color: var(--colorAccentDark);
+}
+
+.foodText {
+  margin-top: var(--space12);
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--colorText);
+}
+
+
+/* ============================================================
+   22. MENU：SWEETS / DRINK（2カラム）
+   ============================================================ */
+.menuColumns {
+  display: grid;
+  gap: var(--space48);
+  padding-top: var(--space48);
+  border-top: 1px solid var(--colorBorder);
+}
+
+@media (min-width: 1024px) {
+  .menuColumns {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space64);
+  }
+
+  /* 2カラムの間に細い縦罫を1本 */
+  .menuColumn + .menuColumn {
+    padding-left: var(--space64);
+    border-left: 1px solid var(--colorBorder);
+  }
+}
+
+.menuColumnInner {
+  display: grid;
+  gap: var(--space24);
+}
+
+@media (min-width: 768px) {
+  .menuColumnInner {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+
+.menuColumnPhoto {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.menuColumnPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   23. MENU：季節限定メニュー
+   ============================================================ */
+.seasonalBox {
+  position: relative;
+  display: grid;
+  gap: var(--space24);
+  align-items: center;
+  padding: var(--space24);
+  overflow: hidden;
+  background-color: var(--colorBeige);
+}
+
+@media (min-width: 768px) {
+  .seasonalBox {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--space40);
+    padding: var(--space32);
+  }
+}
+
+.seasonalImage {
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+}
+
+.seasonalImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seasonalTitle {
+  margin-bottom: var(--space16);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.seasonalText {
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--colorText);
+}
+
+/* 右下のオリーブの枝。狭い画面では文字と重なるので出さない */
+.seasonalOrnament {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .seasonalBody {
+    padding-right: 14.0rem;
+  }
+
+  .seasonalOrnament {
+    display: block;
+    position: absolute;
+    right: var(--space32);
+    bottom: var(--space24);
+    width: 8.0rem;
+    height: auto;
+    opacity: 0.85;
+  }
+}
+
+
+/* ============================================================
+   24. ACCESS：店舗情報
+   ============================================================ */
+.shopInfoInner {
+  display: grid;
+  gap: var(--space32);
+}
+
+@media (min-width: 1024px) {
+  .shopInfoInner {
+    grid-template-columns: 1fr 1.15fr;
+    gap: var(--space48);
+    align-items: start;
+  }
+}
+
+.shopInfoRow {
+  display: grid;
+  grid-template-columns: 10.0rem 1fr;
+  gap: var(--space16);
+  align-items: start;
+  padding-block: var(--space16);
+  border-bottom: 1px solid var(--colorBorder);
+}
+
+/* 1行目の上にも罫線を引いて、表として揃って見えるようにする */
+.shopInfoRow:first-child {
+  border-top: 1px solid var(--colorBorder);
+}
+
+@media (min-width: 768px) {
+  .shopInfoRow {
+    grid-template-columns: 12.0rem 1fr;
+  }
+}
+
+.shopInfoLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space12);
+  font-size: var(--fs12);
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 768px) {
+  .shopInfoLabel {
+    font-size: var(--fs16);
+  }
+}
+
+/* アイコンは高さを揃え、幅は元の比率のまま */
+.shopInfoIcon {
+  width: auto;
+  height: 1.6rem;
+  flex: 0 0 auto;
+}
+
+.shopInfoValue {
+  font-size: var(--fs12);
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .shopInfoValue {
+    font-size: var(--fs16);
+  }
+}
+
+.shopInfoBtn {
+  width: 100%;
+  margin-top: var(--space24);
+}
+
+
+/* ============================================================
+   25. ACCESS：イラスト地図
+   Googleマップではなく、サイトの色に合わせたSVGを自前で描いている
+   ============================================================ */
+.accessMap {
+  overflow: hidden;
+  border: 1px solid var(--colorBorder);
+  border-radius: 2px;
+  background-color: var(--colorBgLight);
+}
+
+.accessMap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mapBg     { fill: #EBE4D7; }
+.mapPark   { fill: #DCE3D0; }
+.mapBlock  { fill: #E1D8C8; }
+.mapWater  { fill: none; stroke: #CBD8D8; stroke-width: 12; stroke-linecap: round; }
+.mapRoad   { fill: none; stroke: #FFFFFF; stroke-width: 10; stroke-linecap: round; }
+.mapRoadMain { fill: none; stroke: #FFFFFF; stroke-width: 24; stroke-linecap: round; }
+.mapTreeLeaf { fill: #C3CEB0; }
+.mapTreeTrunk { fill: #B08A5A; }
+
+.mapLabel {
+  font-family: var(--fontSans);
+  font-size: 15px;
+  fill: var(--colorText);
+}
+
+.mapLabelSm {
+  font-family: var(--fontSans);
+  font-size: 11px;
+  fill: var(--colorTextMuted);
+}
+
+.mapLabelPark {
+  font-family: var(--fontSans);
+  font-size: 15px;
+  fill: #6E7A5E;
+}
+
+.mapStationBox { fill: var(--colorMain); }
+.mapStationMark { fill: #FFFFFF; font-family: var(--fontSans); font-size: 13px; }
+.mapPin { fill: var(--colorMain); }
+.mapPinLeaf { fill: var(--colorAccentLight); }
+
+.mapCafeName {
+  font-family: var(--fontDisplay);
+  font-size: 22px;
+  fill: var(--colorMain);
+}
+
+.accessMapNote {
+  margin-top: var(--space8);
+  font-size: var(--fs12);
+  color: var(--colorTextMuted);
+  text-align: right;
+}
+
+.mapCompass { fill: var(--colorAccent); }
+
+
+/* ============================================================
+   26. ACCESS：アクセス方法
+   ============================================================ */
+.accessWayList {
+  display: grid;
+  gap: var(--space24);
+}
+
+@media (min-width: 768px) {
+  .accessWayList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.accessWayItem {
+  padding: var(--space24);
+  background-color: var(--colorBeige);
+}
+
+.accessWayHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space16);
+  margin-bottom: var(--space16);
+}
+
+.accessWayIcon {
+  width: auto;
+  height: 3.2rem;
+  flex: 0 0 auto;
+}
+
+.accessWayTitle {
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.accessWayText {
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--colorText);
+}
+
+
+/* ============================================================
+   27. ACCESS：周辺の雰囲気
+   ============================================================ */
+.areaPhotoList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space8);
+}
+
+@media (min-width: 768px) {
+  .areaPhotoList {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space16);
+  }
+}
+
+.areaPhotoItem {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+/* 5枚を2列で並べると最後の1枚が余るので、SPでは横幅いっぱいに使う */
+.areaPhotoItem:last-child {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .areaPhotoItem:last-child {
+    grid-column: auto;
+  }
+}
+
+.areaPhotoItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.areaPhotoItem:hover img {
+  transform: scale(1.05);
+}
+
+
+/* ============================================================
+   28. CONTACT：全体レイアウト・見出し
+   ============================================================ */
+.contactLead {
+  margin-bottom: var(--space48);
+  font-family: var(--fontSerif);
+  font-size: var(--fs16);
+  line-height: 2;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contactLead {
+    font-size: var(--fs20);
+    margin-bottom: var(--space64);
+  }
+}
+
+.contactInner {
+  display: grid;
+  gap: var(--space64);
+}
+
+@media (min-width: 1024px) {
+  .contactInner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space64);
+    align-items: start;
+  }
+}
+
+/* フォーム／電話それぞれの小見出し（アイコン＋テキスト＋下線） */
+.contactHeading {
+  display: flex;
+  align-items: center;
+  gap: var(--space12);
+  padding-bottom: var(--space16);
+  margin-bottom: var(--space32);
+  border-bottom: 1px solid var(--colorBorder);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.contactHeadingIcon {
+  width: auto;
+  height: 2.0rem;
+  flex: 0 0 auto;
+}
+
+
+/* ============================================================
+   29. CONTACT：フォーム
+   ============================================================ */
+.formRow {
+  display: grid;
+  gap: var(--space8);
+  margin-bottom: var(--space24);
+}
+
+@media (min-width: 768px) {
+  .formRow {
+    grid-template-columns: 14.0rem 1fr;
+    gap: var(--space16);
+    align-items: start;
+  }
+
+  /* ラベルを入力欄の1行目と目線が揃う位置まで下げる */
+  .formLabel {
+    padding-top: var(--space12);
+  }
+}
+
+.formLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space8);
+  font-size: var(--fs12);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 768px) {
+  .formLabel {
+    font-size: var(--fs16);
+  }
+}
+
+/* 必須／任意のバッジ */
+.formBadge {
+  flex: 0 0 auto;
+  padding: 2px var(--space8);
+  font-size: var(--fs12);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  background-color: var(--colorMain);
+  color: var(--colorTextOnDark);
+  border-radius: 2px;
+}
+
+.formBadgeOptional {
+  background-color: var(--colorBorder);
+  color: var(--colorText);
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding-inline: var(--space16);
+  font-size: var(--fs16);
+  line-height: 1.6;
+  color: var(--colorText);
+  background-color: var(--colorBgLight);
+  border: 1px solid var(--colorBorder);
+  border-radius: 2px;
+  transition: border-color var(--transitionBase), box-shadow var(--transitionBase);
+}
+
+.formInput,
+.formSelect {
+  height: 4.8rem;
+}
+
+.formTextarea {
+  height: 16.0rem;
+  padding-block: var(--space12);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--colorTextMuted);
+}
+
+/* outline を消す代わりに、深緑のリングでフォーカス位置を必ず示す */
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--colorForest);
+  box-shadow: 0 0 0 3px var(--colorForestRing);
+}
+
+/* reset.css で appearance を消しているので、矢印は自前で描く */
+.formSelect {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233A2C24' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space16) center;
+  background-size: 1.6rem;
+  padding-right: var(--space48);
+  cursor: pointer;
+}
+
+.formNote {
+  margin-bottom: var(--space24);
+  font-size: var(--fs12);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--colorTextMuted);
+}
+
+.formSubmit {
+  width: 100%;
+}
+
+
+/* ============================================================
+   30. CONTACT：電話・店舗情報
+   ============================================================ */
+.contactTel {
+  display: inline-block;
+  font-family: var(--fontSerif);
+  font-size: var(--fs32);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  transition: color var(--transitionBase);
+}
+
+@media (min-width: 768px) {
+  .contactTel {
+    font-size: var(--fs40);
+  }
+}
+
+.contactTel:hover {
+  color: var(--colorAccentDark);
+}
+
+.contactTelHours {
+  margin-top: var(--space8);
+  padding-bottom: var(--space24);
+  border-bottom: 1px solid var(--colorBorder);
+  font-size: var(--fs12);
+  color: var(--colorTextMuted);
+}
+
+.contactShopBox {
+  margin-top: var(--space24);
+  padding: var(--space24);
+  background-color: var(--colorBeige);
+}
+
+.contactShopRow {
+  display: grid;
+  grid-template-columns: 2.0rem 1fr;
+  gap: var(--space12);
+  align-items: start;
+}
+
+.contactShopRow + .contactShopRow {
+  margin-top: var(--space16);
+}
+
+.contactShopIcon {
+  width: auto;
+  height: 1.6rem;
+  margin-top: 0.3rem;
+}
+
+.contactShopLabel {
+  margin-bottom: var(--space4);
+  font-size: var(--fs12);
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+.contactShopText {
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--colorText);
+}
+
+.contactPhoto {
+  aspect-ratio: 8 / 5;
+  margin-top: var(--space24);
+  overflow: hidden;
+}
+
+.contactPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   31. CONTACT：ご予約について
+   ============================================================ */
+.reservationBox {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space24);
+  background-color: var(--colorBeige);
+}
+
+@media (min-width: 768px) {
+  .reservationBox {
+    padding: var(--space40);
+    min-height: 22.0rem;
+  }
+}
+
+/* 写真は右半分に置き、左から回り込むグラデーションで背景になじませる */
+.reservationImage {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .reservationImage {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+  }
+
+  .reservationImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .reservationImage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--colorBeige) 0%, rgba(228, 218, 202, 0) 65%);
+  }
+}
+
+.reservationBody {
+  position: relative;
+  z-index: var(--zBase);
+}
+
+@media (min-width: 768px) {
+  .reservationBody {
+    max-width: 48.0rem;
+  }
+}
+
+.reservationTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space12);
+  margin-bottom: var(--space16);
+  font-family: var(--fontSerif);
+  font-weight: 500;
+  font-size: var(--fs20);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.reservationIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 auto;
+  color: var(--colorAccent);
+}
+
+.reservationText {
+  font-size: var(--fs12);
+  font-weight: 400;
+  line-height: 2;
+  color: var(--colorText);
+}
+
+
+/* ============================================================
+   32. パララックス
+   写真を position: fixed で画面に貼り付け、入れ物側の clip-path で
+   切り抜く。こうするとスクロールしても写真はほぼ動かない
+   （background-attachment: fixed と同じ見え方を iOS でも出せる）。
+   その上に JS でごく僅かなズレ（最大4rem）を足している
+   ============================================================ */
+
+/* clip-path を持つ要素は、中の position: fixed の基準になる */
+.heroSection,
+.pageHeader,
+.parallaxBand {
+  clip-path: inset(0);
+}
+
+.parallaxImage {
+  position: fixed;
+  top: -4.0rem;
+  left: 0;
+  /* .heroImage / .pageHeaderImage の inset: 0 を打ち消しておく */
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: calc(100vh + 8.0rem);
+  height: calc(100svh + 8.0rem); /* モバイルでURLバーの伸縮に影響されないように */
+  will-change: transform;
+}
+
+.parallaxImage picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.parallaxImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* セクションの合間に挟む、写真だけの帯 */
+.parallaxBand {
+  position: relative;
+  height: 48.0rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .parallaxBand {
+    height: 64.0rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .parallaxBand {
+    height: 80.0rem;
+  }
+}
+
+/* 帯の写真は少しだけ暗くして、前後のセクションから浮かないようにする */
+.parallaxBand .parallaxImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(30, 22, 18, 0.25);
+}
+
+/* 動きを減らす設定の人には、写真を普通に流し込むだけにする */
+@media (prefers-reduced-motion: reduce) {
+  .parallaxImage {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/* ============================================================
+   reset.css — ブラウザ既定スタイルの打ち消し
+   （デザインに関わる値は一切書かない。style.css 側で指定する）
+   ============================================================ */
+
+/* すべての要素の余白をリセットし、box-sizing を border-box に統一する */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* iOS で横向きにした時に文字サイズが勝手に拡大されるのを防ぐ */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  /* 日本語フォントのアンチエイリアスを細く見せる（明朝体の線を活かすため） */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 見出しの既定の太字・サイズを解除して、CSS で明示指定する */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* リストの黒丸・番号を消す */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 画像・動画は親要素の幅を超えない。inline 由来の隙間も消す */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* リンクの下線と色は CSS 側で作る */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* フォーム部品はフォントを継承しないので、明示的に継承させる */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  border-radius: 0;
+  /* iOS Safari の独自スタイル（角丸・影）を無効化 */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* textarea は縦方向のみリサイズ可 */
+textarea {
+  resize: vertical;
+}
+
+/* テーブルのセル間の隙間を消す */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* address タグの斜体を解除（店舗情報で使うため） */
+address {
+  font-style: normal;
+}
+
+/* 長い英単語・URL がはみ出すのを防ぐ */
+p,
+li,
+dd,
+dt,
+th,
+td {
+  overflow-wrap: break-word;
+}

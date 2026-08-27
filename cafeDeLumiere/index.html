@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cafe de Lumière（カフェ・ド・ルミエール）｜光あふれる、やすらぎの時間を。</title>
+<meta name="description" content="渋谷区神宮前のカフェ「Cafe de Lumière」。厳選したスペシャルティコーヒーと、素材を活かしたお料理を、自然光の差し込む店内でお楽しみいただけます。">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cafe de Lumière（カフェ・ド・ルミエール）">
+<meta property="og:description" content="光あふれる、やすらぎの時間を。渋谷区神宮前のカフェです。">
+<meta property="og:image" content="images/common/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+
+<link rel="icon" href="images/common/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="images/common/appleTouchIcon.png">
+
+<!-- フォント：Cormorant Garamond（英字見出し）／Noto Serif JP（和文見出し）／Noto Sans JP（本文） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- JSが有効な時だけスクロール表示アニメーションを使う（保険） -->
+<script>document.documentElement.classList.add('isJsEnabled');</script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     ヘッダー（全ページ共通）
+     HOME はヒーロー写真の上に重なるため、最初は背景なし。
+     スクロールすると JS が .isFixed を付けて背景を出す。
+     下層ページでは <header class="siteHeader"> にする。
+     ============================================================ -->
+<header class="siteHeader">
+  <div class="headerInner">
+
+    <a class="siteLogo" href="index.html">
+      <img class="siteLogoImage" src="images/common/logoHeaderWhite.png" alt="Cafe de Lumière（カフェ・ド・ルミエール）" width="560" height="93">
+    </a>
+
+    <nav class="globalNav" aria-label="メインメニュー">
+      <ul class="globalNavList">
+        <li><a class="globalNavLink isActive" href="index.html" aria-current="page">HOME</a></li>
+        <li><a class="globalNavLink" href="menu.html">MENU</a></li>
+        <li><a class="globalNavLink" href="access.html">ACCESS</a></li>
+        <li><a class="globalNavLink" href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburgerBtn jsMenuToggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawerMenu">
+      <span class="hamburgerBtnLine"></span>
+      <span class="hamburgerBtnLine"></span>
+      <span class="hamburgerBtnLine"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- ドロワーメニュー（1023px 以下で使用） -->
+<div class="drawerMenu jsDrawer" id="drawerMenu">
+  <nav aria-label="モバイルメニュー">
+    <ul class="drawerNavList">
+      <li><a class="drawerNavLink" href="index.html">HOME</a></li>
+      <li><a class="drawerNavLink" href="menu.html">MENU</a></li>
+      <li><a class="drawerNavLink" href="access.html">ACCESS</a></li>
+      <li><a class="drawerNavLink" href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+  <ul class="drawerSnsList">
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="Instagram">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="Facebook">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M15 3h-2.5C10.6 3 9 4.6 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3H12V6.9c0-.5.4-.9.9-.9H15V3z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="X（旧Twitter）">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 3h4l5 6.6L17.6 3H21l-7.4 8.6L21.4 21H17l-5.3-7L5.6 21H2.2l8-9.3L3 3z"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<main>
+
+  <!-- ============================================================
+       ヒーロー
+       ============================================================ -->
+  <section class="heroSection">
+    <div class="heroImage parallaxImage jsParallax" data-speed="0.06">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/home/heroPc.webp">
+        <img src="images/home/heroSp.webp" alt="自然光が差し込む Cafe de Lumière の店内" width="1080" height="1440" fetchpriority="high">
+      </picture>
+    </div>
+
+    <div class="heroInner">
+      <h1 class="displayTitle heroTitle">Cafe de Lumière</h1>
+      <p class="heroLead">光あふれる、やすらぎの時間を。</p>
+      <p class="heroBtnWrap">
+        <a class="btnOutline heroBtn" href="#about">
+          ABOUT US
+        </a>
+      </p>
+    </div>
+
+    <a class="heroScroll" href="#about" aria-label="下へスクロール">
+      <svg class="heroScrollIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6"></path>
+      </svg>
+    </a>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT（単独ページは作らず、HOME 内のセクションとして持つ）
+       ============================================================ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="aboutInner">
+
+        <div class="aboutImage fadeIn">
+          <img src="images/home/about.webp" alt="木のテーブルに置かれたカフェラテとチーズケーキ" width="1200" height="800" loading="lazy">
+        </div>
+
+        <div class="aboutTextWrap fadeIn fadeInDelay1">
+          <div class="sectionTitleWrap sectionTitleWrapLeft">
+            <p class="sectionLabel">ABOUT</p>
+            <h2 class="sectionTitle">私たちの想い</h2>
+          </div>
+          <p class="aboutText">
+            Cafe de Lumièreは、日常の中でほっと一息つける場所を目指して、<br class="brSp">心を込めておもてなしをしています。<br>
+            こだわりのコーヒーと、素材を活かしたお料理で、<br class="brSp">皆さまに幸せな時間をお届けします。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       おすすめメニュー
+       ============================================================ -->
+  <section class="section sectionBgLight">
+    <div class="container">
+
+      <div class="sectionTitleWrap fadeIn">
+        <p class="sectionLabel">MENU</p>
+        <h2 class="sectionTitle">おすすめメニュー</h2>
+      </div>
+
+      <ul class="menuCardList">
+        <li class="menuCard fadeIn">
+          <div class="menuCardImageWrap">
+            <img class="menuCardImage" src="images/home/menuPancake.webp" alt="季節のフルーツパンケーキ" width="1200" height="900" loading="lazy">
+          </div>
+          <div class="menuCardBody">
+            <h3 class="menuCardTitle">季節のフルーツパンケーキ</h3>
+            <p class="menuCardPrice">¥1,280</p>
+            <p class="menuCardText">ふわふわのパンケーキに、季節のフルーツをたっぷりと。</p>
+          </div>
+        </li>
+
+        <li class="menuCard fadeIn fadeInDelay1">
+          <div class="menuCardImageWrap">
+            <img class="menuCardImage" src="images/home/menuPasta.webp" alt="ベーコンとほうれん草のクリームパスタ" width="1200" height="900" loading="lazy">
+          </div>
+          <div class="menuCardBody">
+            <h3 class="menuCardTitle">ベーコンとほうれん草のクリームパスタ</h3>
+            <p class="menuCardPrice">¥1,180</p>
+            <p class="menuCardText">濃厚クリームソースと相性抜群の人気パスタ。</p>
+          </div>
+        </li>
+
+        <li class="menuCard fadeIn fadeInDelay2">
+          <div class="menuCardImageWrap">
+            <img class="menuCardImage" src="images/home/menuHamburg.webp" alt="デミグラスハンバーグ" width="1200" height="900" loading="lazy">
+          </div>
+          <div class="menuCardBody">
+            <h3 class="menuCardTitle">デミグラスハンバーグ</h3>
+            <p class="menuCardPrice">¥1,380</p>
+            <p class="menuCardText">じっくり煮込んだデミグラスソースのハンバーグ。</p>
+          </div>
+        </li>
+
+        <li class="menuCard fadeIn fadeInDelay3">
+          <div class="menuCardImageWrap">
+            <img class="menuCardImage" src="images/home/menuLatte.webp" alt="カフェラテ" width="1200" height="900" loading="lazy">
+          </div>
+          <div class="menuCardBody">
+            <h3 class="menuCardTitle">カフェラテ</h3>
+            <p class="menuCardPrice">¥580</p>
+            <p class="menuCardText">厳選した豆で淹れる、まろやかでコクのある一杯。</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="menuBtnWrap fadeIn">
+        <a class="btnPrimary" href="menu.html">
+          メニューをすべて見る
+          <span class="btnArrow" aria-hidden="true">›</span>
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       パララックスの帯（ページのメイン写真を使った区切り）
+       ============================================================ -->
+  <section class="parallaxBand">
+    <div class="parallaxImage jsParallax" data-speed="0.06">
+      <img src="images/home/parallax.webp" alt="" width="1920" height="1200" loading="lazy" aria-hidden="true">
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       コンセプト
+       ============================================================ -->
+  <section class="section" id="concept">
+    <div class="container">
+      <div class="conceptInner">
+
+        <div class="conceptTextWrap fadeIn">
+          <div class="sectionTitleWrap sectionTitleWrapLeft">
+            <h2 class="sectionTitle">光あふれる、<br class="brSp">やすらぎの時間を。</h2>
+          </div>
+          <p class="conceptText">
+            Cafe de Lumière（カフェ・ド・ルミエール）は、<br>
+            フランス語で「光」を意味するLumièreにちなんで名付けられました。<br>
+            日常の中でふっと息つける場所を目指して、<br>
+            心を込めたコーヒーと、素材を活かしたお料理をお届けしています。
+          </p>
+          <p class="conceptText">
+            店内に差し込む自然の光や、香り、音楽、会話。<br>
+            そのすべてが、皆さまのやすらぎの時間になりますように。<br>
+            スタッフ一同、心よりお待ちしております。
+          </p>
+        </div>
+
+        <div class="conceptImage fadeIn fadeInDelay1">
+          <img src="images/home/concept.webp" alt="夕暮れに灯りがともる Cafe de Lumière の外観" width="1200" height="800" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       こだわり
+       ============================================================ -->
+  <section class="section sectionBgLight">
+    <div class="container">
+
+      <div class="sectionTitleWrap fadeIn">
+        <h2 class="sectionTitle">こだわり</h2>
+      </div>
+
+      <ul class="featureList">
+        <li class="featureItem fadeIn">
+          <div class="featureImage">
+            <img src="images/home/featureCoffee.webp" alt="木のボウルに入った焙煎したてのコーヒー豆" width="1200" height="800" loading="lazy">
+          </div>
+          <h3 class="featureTitle">こだわりのコーヒー</h3>
+          <p class="featureText">
+            厳選したスペシャルティコーヒー豆を、<br>
+            それぞれの豆の個性に合わせて丁寧に焙煎。<br>
+            香り高く、すっきりとした味わいを大切にしています。
+          </p>
+        </li>
+
+        <li class="featureItem fadeIn fadeInDelay1">
+          <div class="featureImage">
+            <img src="images/home/featureFood.webp" alt="焼きたてのパンと彩り野菜のサラダ" width="1200" height="800" loading="lazy">
+          </div>
+          <h3 class="featureTitle">素材を活かしたお料理</h3>
+          <p class="featureText">
+            季節の野菜や新鮮な食材を使用し、<br>
+            素材そのものの味わいを活かした<br>
+            やさしいお料理をご提供しています。
+          </p>
+        </li>
+
+        <li class="featureItem fadeIn fadeInDelay2">
+          <div class="featureImage">
+            <img src="images/home/featureSpace.webp" alt="大きな窓から光が差し込む店内" width="1200" height="800" loading="lazy">
+          </div>
+          <h3 class="featureTitle">心地よい空間づくり</h3>
+          <p class="featureText">
+            自然光が差し込む開放的な店内で、<br>
+            ゆったりとした時間をお過ごしいただけるよう、<br>
+            インテリアや音楽にもこだわっています。
+          </p>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- ============================================================
+       ギャラリー（単独ページは作らず、HOME 内のセクションとして持つ）
+       サムネイルを押すとメイン画像が差し替わる
+       ============================================================ -->
+  <section class="section" id="gallery">
+    <div class="container containerWide">
+
+      <div class="sectionTitleWrap fadeIn">
+        <p class="sectionLabel">GALLERY</p>
+        <h2 class="sectionTitle">ギャラリー</h2>
+      </div>
+
+      <div class="galleryMain fadeIn">
+        <img class="galleryMainImage jsGalleryMain" src="images/home/gallery01Large.webp" alt="ラテアートが描かれたカフェラテ" width="1440" height="960" loading="lazy">
+      </div>
+
+      <ul class="galleryThumbList fadeIn">
+        <li>
+          <button class="galleryThumbBtn jsGalleryThumb isActive" type="button"
+                  data-large="images/home/gallery01Large.webp"
+                  data-alt="ラテアートが描かれたカフェラテ"
+                  aria-current="true">
+            <img src="images/home/gallery01.webp" alt="ラテアートが描かれたカフェラテを表示" width="400" height="400" loading="lazy">
+          </button>
+        </li>
+        <li>
+          <button class="galleryThumbBtn jsGalleryThumb" type="button"
+                  data-large="images/home/gallery02Large.webp"
+                  data-alt="観葉植物の置かれた窓際の席"
+                  aria-current="false">
+            <img src="images/home/gallery02.webp" alt="観葉植物の置かれた窓際の席を表示" width="400" height="400" loading="lazy">
+          </button>
+        </li>
+        <li>
+          <button class="galleryThumbBtn jsGalleryThumb" type="button"
+                  data-large="images/home/gallery03Large.webp"
+                  data-alt="ベリーをのせたベイクドチーズケーキ"
+                  aria-current="false">
+            <img src="images/home/gallery03.webp" alt="ベリーをのせたベイクドチーズケーキを表示" width="400" height="400" loading="lazy">
+          </button>
+        </li>
+        <li>
+          <button class="galleryThumbBtn jsGalleryThumb" type="button"
+                  data-large="images/home/gallery04Large.webp"
+                  data-alt="黒板メニューの置かれた店の入口"
+                  aria-current="false">
+            <img src="images/home/gallery04.webp" alt="黒板メニューの置かれた店の入口を表示" width="400" height="400" loading="lazy">
+          </button>
+        </li>
+        <li>
+          <button class="galleryThumbBtn jsGalleryThumb" type="button"
+                  data-large="images/home/gallery05Large.webp"
+                  data-alt="花を飾ったテーブル席"
+                  aria-current="false">
+            <img src="images/home/gallery05.webp" alt="花を飾ったテーブル席を表示" width="400" height="400" loading="lazy">
+          </button>
+        </li>
+        <li>
+          <button class="galleryThumbBtn jsGalleryThumb" type="button"
+                  data-large="images/home/gallery06Large.webp"
+                  data-alt="奥まで見渡せる店内の様子"
+                  aria-current="false">
+            <img src="images/home/gallery06.webp" alt="奥まで見渡せる店内の様子を表示" width="400" height="400" loading="lazy">
+          </button>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       メッセージ
+       写真を背景に敷き、暗幕を重ねて白文字を載せる
+       ============================================================ -->
+  <section class="section messageSection">
+
+    <div class="messageImage">
+      <img src="images/home/message.webp" alt="ミルクを注いでラテアートを仕上げるバリスタ" width="1920" height="1081" loading="lazy">
+    </div>
+
+    <div class="container">
+      <div class="messageInner fadeIn">
+        <div class="sectionTitleWrap sectionTitleWrapLeft">
+          <h2 class="sectionTitle">メッセージ</h2>
+        </div>
+        <p class="messageText">
+          Cafe de Lumièreは、地域に愛されるカフェでありたいと願っています。<br>
+          お一人でのくつろぎの時間や、友人・ご家族とのひととき、<br class="brPc">
+          仕事の合間のリフレッシュなど、<br class="brPc">
+          さまざまなシーンでご利用ください。<br>
+          皆さまの毎日に、そっと寄り添うカフェであり続けます。
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- ============================================================
+     フッター（全ページ共通）
+     ============================================================ -->
+<footer class="siteFooter">
+  <div class="container">
+    <div class="footerInner">
+
+      <div class="footerCompany">
+        <a class="footerLogo" href="index.html">
+          <img class="footerLogoImage" src="images/common/logoHeaderWhite.png" alt="Cafe de Lumière（カフェ・ド・ルミエール）" width="560" height="93">
+        </a>
+
+        <p class="footerNote">※ Cafe de Lumière および当サイトは架空です。</p>
+
+        <address class="footerInfo">
+          〒150-0001 東京都渋谷区神宮前1-2-3 カフェビル1F<br>
+          <a href="tel:0312345678">03-1234-5678</a>　営業時間 10:00 - 22:00（LO 21:30）<br>
+          定休日：火曜日
+        </address>
+
+        <ul class="footerSnsList">
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="Instagram">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="Facebook">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M15 3h-2.5C10.6 3 9 4.6 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3H12V6.9c0-.5.4-.9.9-.9H15V3z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="X（旧Twitter）">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 3h4l5 6.6L17.6 3H21l-7.4 8.6L21.4 21H17l-5.3-7L5.6 21H2.2l8-9.3L3 3z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="footerNav" aria-label="フッターメニュー">
+        <p class="footerNavTitle">SITE MENU</p>
+        <ul class="footerNavList">
+          <li><a class="footerNavLink" href="index.html">HOME</a></li>
+          <li><a class="footerNavLink" href="menu.html">MENU</a></li>
+          <li><a class="footerNavLink" href="access.html">ACCESS</a></li>
+          <li><a class="footerNavLink" href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <p class="footerCopy">© 2026 Cafe de Lumière All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="pageTopBtn jsPageTop" type="button" aria-label="ページの先頭へ戻る">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+    <path d="M6 15l6-6 6 6"></path>
+  </svg>
+</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

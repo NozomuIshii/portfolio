@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CONTACT｜Cafe de Lumière（カフェ・ド・ルミエール）</title>
+<meta name="description" content="Cafe de Lumièreへのお問い合わせ・ご予約はこちら。お問い合わせフォーム、またはお電話（03-1234-5678／10:00-22:00）にてお気軽にご連絡ください。">
+
+<!-- OGP -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="CONTACT｜Cafe de Lumière（カフェ・ド・ルミエール）">
+<meta property="og:description" content="ご予約・お問い合わせは、フォームまたはお電話にてお気軽にご連絡ください。">
+<meta property="og:image" content="images/common/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+
+<link rel="icon" href="images/common/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="images/common/appleTouchIcon.png">
+
+<!-- フォント：Cormorant Garamond（英字見出し）／Noto Serif JP（和文見出し）／Noto Sans JP（本文） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- JSが有効な時だけスクロール表示アニメーションを使う（保険） -->
+<script>document.documentElement.classList.add('isJsEnabled');</script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     ヘッダー（全ページ共通）
+     写真に重なる位置では黒20%の下地。スクロールすると濃茶の背景に変わる
+     ============================================================ -->
+<header class="siteHeader">
+  <div class="headerInner">
+
+    <a class="siteLogo" href="index.html">
+      <img class="siteLogoImage" src="images/common/logoHeaderWhite.png" alt="Cafe de Lumière（カフェ・ド・ルミエール）" width="560" height="93">
+    </a>
+
+    <nav class="globalNav" aria-label="メインメニュー">
+      <ul class="globalNavList">
+        <li><a class="globalNavLink" href="index.html">HOME</a></li>
+        <li><a class="globalNavLink" href="menu.html">MENU</a></li>
+        <li><a class="globalNavLink" href="access.html">ACCESS</a></li>
+        <li><a class="globalNavLink isActive" href="contact.html" aria-current="page">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburgerBtn jsMenuToggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawerMenu">
+      <span class="hamburgerBtnLine"></span>
+      <span class="hamburgerBtnLine"></span>
+      <span class="hamburgerBtnLine"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- ドロワーメニュー（1023px 以下で使用） -->
+<div class="drawerMenu jsDrawer" id="drawerMenu">
+  <nav aria-label="モバイルメニュー">
+    <ul class="drawerNavList">
+      <li><a class="drawerNavLink" href="index.html">HOME</a></li>
+      <li><a class="drawerNavLink" href="menu.html">MENU</a></li>
+      <li><a class="drawerNavLink" href="access.html">ACCESS</a></li>
+      <li><a class="drawerNavLink" href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+  <ul class="drawerSnsList">
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="Instagram">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="Facebook">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M15 3h-2.5C10.6 3 9 4.6 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3H12V6.9c0-.5.4-.9.9-.9H15V3z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="X（旧Twitter）">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 3h4l5 6.6L17.6 3H21l-7.4 8.6L21.4 21H17l-5.3-7L5.6 21H2.2l8-9.3L3 3z"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<main>
+
+  <!-- ============================================================
+       ページヘッダー
+       ============================================================ -->
+  <section class="pageHeader">
+    <div class="pageHeaderImage parallaxImage jsParallax" data-speed="0.06">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/contact/heroPc.webp">
+        <img src="images/contact/heroSp.webp" alt="窓際のテーブルに置かれたカフェラテ" width="750" height="600" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="pageHeaderInner">
+      <h1 class="displayTitle pageHeaderTitle">CONTACT</h1>
+      <p class="pageHeaderJa">お問い合わせ</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       お問い合わせフォーム ／ お電話でのお問い合わせ
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+
+      <p class="contactLead fadeIn">
+        ご予約・お問い合わせは、<br class="brSp">以下のフォームまたはお電話にて<br class="brSp">お気軽にご連絡ください。
+      </p>
+
+      <div class="contactInner">
+
+        <!-- 左：フォーム -->
+        <div class="fadeIn">
+          <h2 class="contactHeading">
+            <img class="contactHeadingIcon" src="images/common/iconEnvelope.png" alt="" width="65" height="52">
+            お問い合わせフォーム
+          </h2>
+
+          <form class="contactForm" action="#" method="post">
+
+            <div class="formRow">
+              <label class="formLabel" for="formName">
+                お名前<span class="formBadge">必須</span>
+              </label>
+              <input class="formInput" type="text" id="formName" name="name" placeholder="例）山田 太郎" autocomplete="name" required>
+            </div>
+
+            <div class="formRow">
+              <label class="formLabel" for="formEmail">
+                メールアドレス<span class="formBadge">必須</span>
+              </label>
+              <input class="formInput" type="email" id="formEmail" name="email" placeholder="例）example@mail.com" autocomplete="email" required>
+            </div>
+
+            <div class="formRow">
+              <label class="formLabel" for="formTel">
+                電話番号<span class="formBadge formBadgeOptional">任意</span>
+              </label>
+              <input class="formInput" type="tel" id="formTel" name="tel" placeholder="例）03-1234-5678" autocomplete="tel">
+            </div>
+
+            <div class="formRow">
+              <label class="formLabel" for="formType">
+                お問い合わせ種別<span class="formBadge">必須</span>
+              </label>
+              <select class="formSelect" id="formType" name="type" required>
+                <option value="">選択してください</option>
+                <option value="reservation">ご予約について</option>
+                <option value="menu">メニューについて</option>
+                <option value="private">貸切・イベントについて</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+
+            <div class="formRow">
+              <label class="formLabel" for="formMessage">
+                お問い合わせ内容<span class="formBadge">必須</span>
+              </label>
+              <textarea class="formTextarea" id="formMessage" name="message" placeholder="お問い合わせ内容をご入力ください" required></textarea>
+            </div>
+
+            <p class="formNote">
+              ※ご入力いただいた個人情報は、お問い合わせへの回答のみに使用し、<br class="brPc">その他の目的には使用いたしません。
+            </p>
+
+            <button class="btnPrimary formSubmit" type="submit">
+              送信する
+              <span class="btnArrow" aria-hidden="true">›</span>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- 右：電話・店舗情報 -->
+        <div class="fadeIn fadeInDelay1">
+          <h2 class="contactHeading">
+            <img class="contactHeadingIcon" src="images/common/iconPhone.png" alt="" width="47" height="47">
+            お電話でのお問い合わせ
+          </h2>
+
+          <p><a class="contactTel" href="tel:0312345678">03-1234-5678</a></p>
+          <p class="contactTelHours">受付時間　10:00 - 22:00（LO 21:30）</p>
+
+          <div class="contactShopBox">
+            <div class="contactShopRow">
+              <img class="contactShopIcon" src="images/common/iconPin.png" alt="" width="40" height="52">
+              <div>
+                <p class="contactShopLabel">店舗情報</p>
+                <p class="contactShopText">
+                  Cafe de Lumière（カフェ・ド・ルミエール）<br>
+                  〒150-0001<br>
+                  東京都渋谷区神宮前1-2-3 カフェビル1F
+                </p>
+              </div>
+            </div>
+
+            <div class="contactShopRow">
+              <img class="contactShopIcon" src="images/common/iconClock.png" alt="" width="51" height="51">
+              <div>
+                <p class="contactShopLabel">営業時間</p>
+                <p class="contactShopText">10:00 - 22:00（LO 21:30）</p>
+              </div>
+            </div>
+
+            <div class="contactShopRow">
+              <img class="contactShopIcon" src="images/common/iconCalendar.png" alt="" width="50" height="50">
+              <div>
+                <p class="contactShopLabel">定休日</p>
+                <p class="contactShopText">火曜日</p>
+              </div>
+            </div>
+
+            <div class="contactShopRow">
+              <img class="contactShopIcon" src="images/common/iconCar.png" alt="" width="53" height="42">
+              <div>
+                <p class="contactShopLabel">駐車場</p>
+                <p class="contactShopText">近隣のコインパーキングをご利用ください。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contactPhoto">
+            <img src="images/contact/storefront.webp" alt="黒板サインが置かれた Cafe de Lumière の店先" width="800" height="500" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       パララックスの帯（ページのメイン写真を使った区切り）
+       ============================================================ -->
+  <section class="parallaxBand">
+    <div class="parallaxImage jsParallax" data-speed="0.06">
+      <img src="images/contact/parallax.webp" alt="" width="1920" height="1200" loading="lazy" aria-hidden="true">
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ご予約について
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="reservationBox fadeIn">
+
+        <div class="reservationImage">
+          <img src="images/contact/reservation.webp" alt="" width="1200" height="540" loading="lazy" aria-hidden="true">
+        </div>
+
+        <div class="reservationBody">
+          <h2 class="reservationTitle">
+            <svg class="reservationIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 10h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-5z"></path>
+              <path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"></path>
+              <path d="M8 3c-.6 1 -.6 2 0 3"></path>
+              <path d="M12 3c-.6 1 -.6 2 0 3"></path>
+            </svg>
+            ご予約について
+          </h2>
+          <p class="reservationText">
+            当店ではお席のご予約を承っております。<br>
+            週末や混み合う時間帯は、事前のご予約をおすすめしております。<br>
+            人数やご希望のお時間など、お気軽にご相談ください。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ============================================================
+     フッター（全ページ共通）
+     ============================================================ -->
+<footer class="siteFooter">
+  <div class="container">
+    <div class="footerInner">
+
+      <div class="footerCompany">
+        <a class="footerLogo" href="index.html">
+          <img class="footerLogoImage" src="images/common/logoHeaderWhite.png" alt="Cafe de Lumière（カフェ・ド・ルミエール）" width="560" height="93">
+        </a>
+
+        <p class="footerNote">※ Cafe de Lumière および当サイトは架空です。</p>
+
+        <address class="footerInfo">
+          〒150-0001 東京都渋谷区神宮前1-2-3 カフェビル1F<br>
+          <a href="tel:0312345678">03-1234-5678</a>　営業時間 10:00 - 22:00（LO 21:30）<br>
+          定休日：火曜日
+        </address>
+
+        <ul class="footerSnsList">
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="Instagram">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="Facebook">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M15 3h-2.5C10.6 3 9 4.6 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3H12V6.9c0-.5.4-.9.9-.9H15V3z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="X（旧Twitter）">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 3h4l5 6.6L17.6 3H21l-7.4 8.6L21.4 21H17l-5.3-7L5.6 21H2.2l8-9.3L3 3z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="footerNav" aria-label="フッターメニュー">
+        <p class="footerNavTitle">SITE MENU</p>
+        <ul class="footerNavList">
+          <li><a class="footerNavLink" href="index.html">HOME</a></li>
+          <li><a class="footerNavLink" href="menu.html">MENU</a></li>
+          <li><a class="footerNavLink" href="access.html">ACCESS</a></li>
+          <li><a class="footerNavLink" href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <p class="footerCopy">© 2026 Cafe de Lumière All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="pageTopBtn jsPageTop" type="button" aria-label="ページの先頭へ戻る">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+    <path d="M6 15l6-6 6 6"></path>
+  </svg>
+</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

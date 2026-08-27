@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MENU｜Cafe de Lumière（カフェ・ド・ルミエール）</title>
+<meta name="description" content="Cafe de Lumièreのメニュー一覧。ハンドドリップのコーヒー、パスタやハンバーグなどのフード、季節のスイーツ、自家製レモネードなどのドリンクをご用意しています。">
+
+<!-- OGP -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="MENU｜Cafe de Lumière（カフェ・ド・ルミエール）">
+<meta property="og:description" content="こだわりのコーヒーと、素材を活かしたお料理。Cafe de Lumièreのメニューをご紹介します。">
+<meta property="og:image" content="images/common/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+
+<link rel="icon" href="images/common/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="images/common/appleTouchIcon.png">
+
+<!-- フォント：Cormorant Garamond（英字見出し）／Noto Serif JP（和文見出し）／Noto Sans JP（本文） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- JSが有効な時だけスクロール表示アニメーションを使う（保険） -->
+<script>document.documentElement.classList.add('isJsEnabled');</script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     ヘッダー（全ページ共通）
+     写真に重なる位置では黒20%の下地。スクロールすると濃茶の背景に変わる
+     ============================================================ -->
+<header class="siteHeader">
+  <div class="headerInner">
+
+    <a class="siteLogo" href="index.html">
+      <img class="siteLogoImage" src="images/common/logoHeaderWhite.png" alt="Cafe de Lumière（カフェ・ド・ルミエール）" width="560" height="93">
+    </a>
+
+    <nav class="globalNav" aria-label="メインメニュー">
+      <ul class="globalNavList">
+        <li><a class="globalNavLink" href="index.html">HOME</a></li>
+        <li><a class="globalNavLink isActive" href="menu.html" aria-current="page">MENU</a></li>
+        <li><a class="globalNavLink" href="access.html">ACCESS</a></li>
+        <li><a class="globalNavLink" href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburgerBtn jsMenuToggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawerMenu">
+      <span class="hamburgerBtnLine"></span>
+      <span class="hamburgerBtnLine"></span>
+      <span class="hamburgerBtnLine"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- ドロワーメニュー（1023px 以下で使用） -->
+<div class="drawerMenu jsDrawer" id="drawerMenu">
+  <nav aria-label="モバイルメニュー">
+    <ul class="drawerNavList">
+      <li><a class="drawerNavLink" href="index.html">HOME</a></li>
+      <li><a class="drawerNavLink" href="menu.html">MENU</a></li>
+      <li><a class="drawerNavLink" href="access.html">ACCESS</a></li>
+      <li><a class="drawerNavLink" href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+  <ul class="drawerSnsList">
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="Instagram">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="Facebook">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M15 3h-2.5C10.6 3 9 4.6 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3H12V6.9c0-.5.4-.9.9-.9H15V3z"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="drawerSnsLink" href="#" aria-label="X（旧Twitter）">
+        <svg class="drawerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 3h4l5 6.6L17.6 3H21l-7.4 8.6L21.4 21H17l-5.3-7L5.6 21H2.2l8-9.3L3 3z"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<main>
+
+  <!-- ============================================================
+       ページヘッダー
+       ============================================================ -->
+  <section class="pageHeader">
+    <div class="pageHeaderImage parallaxImage jsParallax" data-speed="0.06">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/menu/heroPc.webp">
+        <img src="images/menu/heroSp.webp" alt="窓際のテーブルに置かれたカフェラテ" width="750" height="600" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="pageHeaderInner">
+      <h1 class="displayTitle pageHeaderTitle">MENU</h1>
+      <p class="pageHeaderJa">こだわりのメニュー</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       カテゴリータブ
+       押すと該当セクションだけを表示する（JSで制御）
+       ============================================================ -->
+  <nav class="categoryTabNav" aria-label="メニューのカテゴリー">
+    <div class="categoryTabList" role="tablist">
+      <button class="categoryTabBtn jsCategoryTab isActive" type="button" role="tab" data-category="all" aria-selected="true">ALL</button>
+      <button class="categoryTabBtn jsCategoryTab" type="button" role="tab" data-category="coffee" aria-selected="false">COFFEE</button>
+      <button class="categoryTabBtn jsCategoryTab" type="button" role="tab" data-category="food" aria-selected="false">FOOD</button>
+      <button class="categoryTabBtn jsCategoryTab" type="button" role="tab" data-category="sweets" aria-selected="false">SWEETS</button>
+      <button class="categoryTabBtn jsCategoryTab" type="button" role="tab" data-category="drink" aria-selected="false">DRINK</button>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       COFFEE
+       ============================================================ -->
+  <section class="section jsCategoryPanel" id="coffee" data-category="coffee">
+    <div class="container">
+
+      <h2 class="menuCategoryTitle fadeIn">COFFEE</h2>
+
+      <div class="coffeeInner">
+
+        <div class="coffeePhoto fadeIn">
+          <img src="images/menu/coffeeLatte.webp" alt="ラテアートが描かれたカフェラテ" width="1000" height="1000" loading="lazy">
+        </div>
+
+        <ul class="menuList fadeIn fadeInDelay1">
+          <li class="menuListItem">
+            <div class="menuListHead">
+              <h3 class="menuListName">ブレンドコーヒー</h3>
+              <span class="menuListLeader" aria-hidden="true"></span>
+              <p class="menuListPrice">¥580</p>
+            </div>
+            <p class="menuListText">バランスの良い、やさしい味わいのオリジナルブレンド。</p>
+          </li>
+          <li class="menuListItem">
+            <div class="menuListHead">
+              <h3 class="menuListName">カフェラテ</h3>
+              <span class="menuListLeader" aria-hidden="true"></span>
+              <p class="menuListPrice">¥580</p>
+            </div>
+            <p class="menuListText">ふんわりミルクのやさしい口当たり。</p>
+          </li>
+          <li class="menuListItem">
+            <div class="menuListHead">
+              <h3 class="menuListName">カプチーノ</h3>
+              <span class="menuListLeader" aria-hidden="true"></span>
+              <p class="menuListPrice">¥600</p>
+            </div>
+            <p class="menuListText">エスプレッソのコクとミルクの泡のハーモニー。</p>
+          </li>
+          <li class="menuListItem">
+            <div class="menuListHead">
+              <h3 class="menuListName">キャラメルラテ</h3>
+              <span class="menuListLeader" aria-hidden="true"></span>
+              <p class="menuListPrice">¥630</p>
+            </div>
+            <p class="menuListText">甘く香ばしいキャラメルのラテ。</p>
+          </li>
+          <li class="menuListItem">
+            <div class="menuListHead">
+              <h3 class="menuListName">コーヒー（アイス）</h3>
+              <span class="menuListLeader" aria-hidden="true"></span>
+              <p class="menuListPrice">¥580</p>
+            </div>
+            <p class="menuListText">すっきりとした後味のアイスコーヒー。</p>
+          </li>
+        </ul>
+
+        <div class="coffeeNote fadeIn fadeInDelay2">
+          <h3 class="coffeeNoteTitle">コーヒーへのこだわり</h3>
+          <div class="coffeeNoteImage">
+            <img src="images/menu/coffeeBeans.webp" alt="木のボウルに入った焙煎したてのコーヒー豆" width="700" height="466" loading="lazy">
+          </div>
+          <p class="coffeeNoteText">
+            Lumièreでは、世界各地から厳選した豆を使用し、注文ごとに丁寧にハンドドリップでお淹れしています。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOD
+       ============================================================ -->
+  <section class="section jsCategoryPanel" id="food" data-category="food">
+    <div class="container">
+
+      <h2 class="menuCategoryTitle fadeIn">FOOD</h2>
+
+      <ul class="foodList">
+        <li class="foodItem fadeIn">
+          <div class="foodImage">
+            <img src="images/menu/foodPasta.webp" alt="ベーコンとほうれん草のクリームパスタ" width="1000" height="750" loading="lazy">
+          </div>
+          <h3 class="foodName">ベーコンとほうれん草の<br>クリームパスタ</h3>
+          <p class="foodPrice">¥1,180</p>
+          <p class="foodText">濃厚クリームソースと相性抜群の人気パスタ。</p>
+        </li>
+
+        <li class="foodItem fadeIn fadeInDelay1">
+          <div class="foodImage">
+            <img src="images/menu/foodHamburg.webp" alt="デミグラスハンバーグ" width="1000" height="750" loading="lazy">
+          </div>
+          <h3 class="foodName">デミグラスハンバーグ</h3>
+          <p class="foodPrice">¥1,380</p>
+          <p class="foodText">じっくり煮込んだデミグラスソースのハンバーグ。</p>
+        </li>
+
+        <li class="foodItem fadeIn fadeInDelay2">
+          <div class="foodImage">
+            <img src="images/menu/foodHotSandwich.webp" alt="ハムとチーズのホットサンド" width="1000" height="750" loading="lazy">
+          </div>
+          <h3 class="foodName">ハムとチーズのホットサンド</h3>
+          <p class="foodPrice">¥980</p>
+          <p class="foodText">香ばしく焼き上げた定番のホットサンド。</p>
+        </li>
+
+        <li class="foodItem fadeIn fadeInDelay3">
+          <div class="foodImage">
+            <img src="images/menu/foodQuiche.webp" alt="季節のキッシュプレート" width="1000" height="750" loading="lazy">
+          </div>
+          <h3 class="foodName">季節のキッシュプレート</h3>
+          <p class="foodPrice">¥1,100</p>
+          <p class="foodText">季節の野菜をたっぷり使ったキッシュプレート。</p>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       パララックスの帯（ページのメイン写真を使った区切り）
+       ============================================================ -->
+  <section class="parallaxBand">
+    <div class="parallaxImage jsParallax" data-speed="0.06">
+      <img src="images/menu/parallax.webp" alt="" width="1920" height="1200" loading="lazy" aria-hidden="true">
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SWEETS / DRINK（PC は2カラム）
+       セクション自体と、中の各カラムの両方をタブの対象にしている
+       ============================================================ -->
+  <section class="section jsCategoryPanel" data-category="sweets drink">
+    <div class="container">
+      <div class="menuColumns">
+
+        <div class="menuColumn jsCategoryPanel" id="sweets" data-category="sweets">
+          <h2 class="menuCategoryTitle menuCategoryTitleLeft fadeIn">SWEETS</h2>
+          <div class="menuColumnInner">
+            <ul class="menuList fadeIn">
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">季節のフルーツパンケーキ</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥1,280</p>
+                </div>
+                <p class="menuListText">ふわふわのパンケーキに、季節のフルーツをたっぷりと。</p>
+              </li>
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">ガトーショコラ</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥680</p>
+                </div>
+                <p class="menuListText">濃厚なチョコレートの味わい。</p>
+              </li>
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">ベイクドチーズケーキ</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥680</p>
+                </div>
+                <p class="menuListText">しっとりなめらかなチーズケーキ。</p>
+              </li>
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">アフォガート</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥680</p>
+                </div>
+                <p class="menuListText">バニラアイスにエスプレッソをかけて。</p>
+              </li>
+            </ul>
+            <div class="menuColumnPhoto fadeIn fadeInDelay1">
+              <img src="images/menu/sweetsPancake.webp" alt="季節のフルーツパンケーキ" width="800" height="800" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="menuColumn jsCategoryPanel" id="drink" data-category="drink">
+          <h2 class="menuCategoryTitle menuCategoryTitleLeft fadeIn">DRINK</h2>
+          <div class="menuColumnInner">
+            <ul class="menuList fadeIn">
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">紅茶（ホット／アイス）</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥580</p>
+                </div>
+                <p class="menuListText">香り豊かな茶葉を使用した紅茶。</p>
+              </li>
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">抹茶ラテ（ホット／アイス）</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥630</p>
+                </div>
+                <p class="menuListText">宇治抹茶の香りとミルクのまろやかさ。</p>
+              </li>
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">自家製レモネード（ホット／アイス）</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥630</p>
+                </div>
+                <p class="menuListText">瀬戸内レモンの爽やかなレモネード。</p>
+              </li>
+              <li class="menuListItem">
+                <div class="menuListHead">
+                  <h3 class="menuListName">100%オレンジジュース</h3>
+                  <span class="menuListLeader" aria-hidden="true"></span>
+                  <p class="menuListPrice">¥580</p>
+                </div>
+                <p class="menuListText">果実そのままのフレッシュジュース。</p>
+              </li>
+            </ul>
+            <div class="menuColumnPhoto fadeIn fadeInDelay1">
+              <img src="images/menu/drinkLemonade.webp" alt="レモンとミントを添えた自家製レモネード" width="800" height="800" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- ============================================================
+       季節限定メニュー（タブで絞り込んでも常に表示する）
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="seasonalBox fadeIn">
+
+        <div class="seasonalImage">
+          <img src="images/menu/seasonalInterior.webp" alt="大きな窓から光が差し込む店内" width="1000" height="600" loading="lazy">
+        </div>
+
+        <div class="seasonalBody">
+          <h2 class="seasonalTitle">季節限定メニュー</h2>
+          <p class="seasonalText">
+            旬の食材を使った季節限定メニューもご用意しております。<br>
+            詳しくは店内の黒板またはスタッフまでお尋ねください。
+          </p>
+        </div>
+
+        <img class="seasonalOrnament" src="images/common/ornamentLeafBranch.png" alt="" width="206" height="259" loading="lazy" aria-hidden="true">
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ============================================================
+     フッター（全ページ共通）
+     ============================================================ -->
+<footer class="siteFooter">
+  <div class="container">
+    <div class="footerInner">
+
+      <div class="footerCompany">
+        <a class="footerLogo" href="index.html">
+          <img class="footerLogoImage" src="images/common/logoHeaderWhite.png" alt="Cafe de Lumière（カフェ・ド・ルミエール）" width="560" height="93">
+        </a>
+
+        <p class="footerNote">※ Cafe de Lumière および当サイトは架空です。</p>
+
+        <address class="footerInfo">
+          〒150-0001 東京都渋谷区神宮前1-2-3 カフェビル1F<br>
+          <a href="tel:0312345678">03-1234-5678</a>　営業時間 10:00 - 22:00（LO 21:30）<br>
+          定休日：火曜日
+        </address>
+
+        <ul class="footerSnsList">
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="Instagram">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="Facebook">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M15 3h-2.5C10.6 3 9 4.6 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3H12V6.9c0-.5.4-.9.9-.9H15V3z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="footerSnsLink" href="#" aria-label="X（旧Twitter）">
+              <svg class="footerSnsIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 3h4l5 6.6L17.6 3H21l-7.4 8.6L21.4 21H17l-5.3-7L5.6 21H2.2l8-9.3L3 3z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="footerNav" aria-label="フッターメニュー">
+        <p class="footerNavTitle">SITE MENU</p>
+        <ul class="footerNavList">
+          <li><a class="footerNavLink" href="index.html">HOME</a></li>
+          <li><a class="footerNavLink" href="menu.html">MENU</a></li>
+          <li><a class="footerNavLink" href="access.html">ACCESS</a></li>
+          <li><a class="footerNavLink" href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <p class="footerCopy">© 2026 Cafe de Lumière All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="pageTopBtn jsPageTop" type="button" aria-label="ページの先頭へ戻る">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+    <path d="M6 15l6-6 6 6"></path>
+  </svg>
+</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
