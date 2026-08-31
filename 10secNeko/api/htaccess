@@ -1,23 +1,30 @@
 # ===========================================
 # api/.htaccess
 #
-# config.php への直接アクセスを拒否する。
+# config.php などへの直接アクセスを拒否する。
 #
 # 通常は PHP として実行されるので中身は表示されないが、
 # サーバーの設定変更や不具合で PHP が実行されなくなると、
-# ソースがそのまま見えてしまう。
-# その「もしも」を塞ぐための多重防御。
+# ソースがそのまま見えてしまう。その「もしも」を塞ぐ多重防御。
+#
+# ★書き方について★
+# アクセス制御の書式は Apache 2.2 と 2.4 で違う。
+#   2.4 … Require all denied
+#   2.2 … Order allow,deny / Deny from all
+# 対応していない書き方をすると、その場で 500 エラーになり
+# api ディレクトリ全体が動かなくなる。
+# mod_authz_core（2.4 から入ったモジュール）の有無で切り替えて、
+# どちらのサーバーでも動くようにしてある。
 # ===========================================
 
-<Files "config.php">
-  Require all denied
-</Files>
-
-<Files "config.php.sample">
-  Require all denied
-</Files>
-
-# .sql も公開する必要がない
-<Files "*.sql">
-  Require all denied
-</Files>
+<FilesMatch "^(config\.php|config\.php\.sample|.*\.sql)$">
+  <IfModule mod_authz_core.c>
+    # Apache 2.4 以降
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    # Apache 2.2 以前
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
