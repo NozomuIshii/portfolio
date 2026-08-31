@@ -1,0 +1,350 @@
+/* ===========================================
+   10秒ねこ  style.css
+   モノクロ調・ドット表現を崩さないことを最優先にしている
+   =========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #222222;
+  font-family: 'DotGothic16', sans-serif;
+
+  /*
+    ★ body は display: flex にしないこと ★
+
+    サーバー（XREA）の広告スクリプトが、body の直下に
+    <div id="vdbanner"> を差し込んでくる。
+    body をフレックスコンテナにしていると、その広告とゲーム画面が
+    「横並びの要素」として扱われ、真横に並んでしまう。
+
+    自分が書いていない要素が差し込まれる場所では、
+    レイアウト用のコンテナにしない。ふつうのブロック配置にしておけば、
+    広告は上に、ゲームはその下に、素直に積まれる。
+  */
+  min-height: 100vh;
+  padding: 8px 0;
+
+  /* ゲーム中に文字が選択されてしまうのを防ぐ */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 入力欄だけは選択できないと困る */
+input {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* -------------------------------------------
+   ゲーム画面
+   ------------------------------------------- */
+
+/* canvas とオーバーレイを重ねるための基準。position: relative がその役割 */
+.gameWrapper {
+  position: relative;
+  width: 100%;
+  line-height: 0;      /* canvas の下に余白ができるのを防ぐ */
+  margin: 0 auto;
+
+  /*
+    ブラウザの横幅いっぱいまで広げる。
+
+    ただし比率が 4:1 固定なので、超ワイドな画面だと縦が伸びすぎる。
+    ここに書いてある値は「広告が無いとき」の目安。
+    実際の上限は main.js の fitGameToViewport() が、
+    広告の高さを測ったうえで毎回計算し直す。
+  */
+  max-width: calc(80vh * 4);
+
+  /*
+    ゲーム画面の上でだけ、スワイプによるスクロールを止める。
+  */
+  touch-action: none;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+
+  /* 内部解像度 600x150 の比率を保ったまま伸縮させる */
+  aspect-ratio: 600 / 150;
+
+  /*
+    拡大時にブラウザがぼかし処理をするのを止めて、ドットの角を残す。
+    -webkit- 付きは Safari 用。
+  */
+  image-rendering: pixelated;
+  image-rendering: -webkit-optimize-contrast;
+
+  background-color: #ffffff;
+}
+
+/* -------------------------------------------
+   オーバーレイ（スタート画面・ゲームオーバー画面）
+   ------------------------------------------- */
+.overlay {
+  position: absolute;
+  inset: 0;                   /* top/right/bottom/left をまとめて 0 にする書き方 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  background-color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.overlay.hidden,
+.gameOverView.hidden {
+  display: none;
+}
+
+/*
+  スタート画面は文字を出しているだけ。
+  タップを受け止めず、下の gameWrapper に通す。
+  ゲームオーバー画面はボタンがあるので、こちらは通さない。
+*/
+#startOverlay {
+  pointer-events: none;
+}
+
+.overlayTitle {
+  font-size: clamp(20px, 5vw, 56px);
+  letter-spacing: 0.1em;
+}
+
+.overlayText {
+  font-size: clamp(11px, 2.4vw, 24px);
+}
+
+/* 暗転版。ゲームオーバーで使う */
+.overlay--dark {
+  background-color: rgba(0, 0, 0, 0.82);
+  color: #ffffff;
+  padding: 8px;
+  overflow-y: auto;   /* 収まらない端末のための保険 */
+}
+
+/* 中身の切り替え。入力とランキングを入れ替えて表示する */
+.gameOverView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4px, 1.2vw, 14px);
+  width: 100%;
+  max-width: 560px;
+}
+
+.gameOverTitle {
+  font-size: clamp(18px, 4.2vw, 40px);
+  letter-spacing: 0.08em;
+}
+
+.gameOverScore {
+  font-size: clamp(11px, 2.4vw, 22px);
+}
+
+.nameRow,
+.buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nameRow label {
+  font-size: clamp(10px, 2vw, 18px);
+}
+
+/*
+  入力欄。フォントは継承されないので明示的に指定する。
+  16px 未満だと iOS がフォーカス時に勝手にズームするため、
+  最小サイズを 16px にしてある。
+*/
+.nameRow input {
+  font-family: 'DotGothic16', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  width: clamp(120px, 22vw, 220px);
+  padding: 4px 8px;
+  color: #222222;
+  background-color: #ffffff;
+  border: 2px solid #222222;
+  border-radius: 0;
+}
+
+.buttonRow button {
+  font-family: 'DotGothic16', sans-serif;
+  font-size: clamp(11px, 2.2vw, 20px);
+  padding: 6px 14px;
+  color: #222222;
+  background-color: #ffffff;
+  border: 2px solid #222222;
+  border-radius: 0;
+  cursor: pointer;
+
+  /* 指で押せる大きさを確保する */
+  min-height: 32px;
+}
+
+.buttonRow button:hover:not(:disabled) {
+  color: #ffffff;
+  background-color: #222222;
+  border-color: #ffffff;
+}
+
+.buttonRow button:disabled {
+  color: #888888;
+  border-color: #888888;
+  cursor: default;
+}
+
+/* キーボード操作の人にフォーカス位置が分かるようにする */
+.nameRow input:focus-visible,
+.buttonRow button:focus-visible {
+  outline: 3px solid #888888;
+  outline-offset: 2px;
+}
+
+/*
+  名前入力の注意書き。
+  読み飛ばされない程度には目立たせつつ、
+  ボタンより前に出ないよう色を落としてある。
+*/
+.noteText {
+  font-size: clamp(9px, 1.7vw, 15px);
+  line-height: 1.5;
+  color: #dddddd;
+}
+
+.statusText {
+  font-size: clamp(9px, 1.8vw, 16px);
+  min-height: 1em;   /* 文字が出たり消えたりしてもレイアウトが動かないように */
+  color: #cccccc;
+}
+
+/* -------------------------------------------
+   ランキング（ゲームオーバー画面の中に表示する）
+   ------------------------------------------- */
+.rankingTitle {
+  font-size: clamp(13px, 2.6vw, 24px);
+  letter-spacing: 0.1em;
+}
+
+.rankingTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(10px, 1.9vw, 18px);
+  line-height: 1.2;
+}
+
+.rankingTable th,
+.rankingTable td {
+  padding: clamp(1px, 0.4vw, 5px) 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: left;
+}
+
+.rankingTable th {
+  font-weight: normal;
+  color: #aaaaaa;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* 順位とスコアは数字なので、桁をそろえて右寄せにする */
+.rankingTable th:first-child,
+.rankingTable td:first-child {
+  width: 3em;
+  text-align: right;
+}
+
+.rankingTable th:last-child,
+.rankingTable td:last-child {
+  width: 5em;
+  text-align: right;
+}
+
+/* 今回登録した行を目立たせる */
+.rankingTable tr.isMine td {
+  color: #ffffff;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.rankingEmpty {
+  color: #aaaaaa;
+  text-align: center !important;
+}
+
+/* -------------------------------------------
+   縦向きの案内
+   ------------------------------------------- */
+.rotateNotice {
+  display: none;
+}
+
+/*
+  「画面が狭い」かつ「縦長」のときだけ表示する。
+  PC のブラウザを縦に細くしたときに誤爆しないよう max-width も条件に入れている。
+*/
+@media (max-width: 900px) and (orientation: portrait) {
+  .rotateNotice {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    color: #ffffff;
+    font-size: 20px;
+  }
+
+  .rotateNotice p {
+    padding: 24px;
+    text-align: center;
+    line-height: 1.8;
+  }
+}
+
+/*
+  横画面のスマホは縦が短い。
+  端末名ではなく画面の形で条件を書くほうが、機種が増えても壊れない。
+*/
+@media (max-height: 520px) {
+  .overlay--dark {
+    padding: 4px;
+  }
+
+  .gameOverView {
+    gap: 3px;
+  }
+
+  .buttonRow button {
+    min-height: 28px;
+    padding: 4px 10px;
+  }
+
+  .statusText {
+    min-height: 0;
+  }
+
+  /* 縦が短いときは注意書きも詰める */
+  .noteText {
+    line-height: 1.3;
+  }
+}
+
+/* アニメーションを減らす設定の人への配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

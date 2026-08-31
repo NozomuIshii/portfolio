@@ -1,0 +1,35 @@
+<?php
+/* ===========================================
+   config.php.sample
+   データベースの接続情報のひな形。
+
+   このファイルをコピーして api/config.php という名前で保存し、
+   自分の環境の値に書き換えて使う。
+
+   config.php 本体は .gitignore に入れてあり、リポジトリには含めない。
+   =========================================== */
+
+return [
+
+  /*
+    DSN（接続先の指定）。
+
+    「キー=値」を ; でつないだ1本の文字列。
+    キー名（host / dbname / charset）は決まった名前なので変えてはいけない。
+    書き換えるのは = の右側だけ。
+
+      mysql:host=(サーバー);dbname=(データベース名);charset=utf8mb4
+                 ~~~~~~~~~~        ~~~~~~~~~~~~~~~~
+                 ここを直す        ここを直す
+
+    charset=utf8mb4 は必ず付ける。
+    書かないと接続の文字コードが揃わず、日本語が化ける。
+  */
+  'dsn'  => 'mysql:host=localhost;dbname=your_dbname;charset=utf8mb4',
+
+  'user' => 'your_username',
+  'pass' => 'your_password',
+
+  // 一度に返す件数
+  'limit' => 10,
+];

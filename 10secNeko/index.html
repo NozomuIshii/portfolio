@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>10秒で力尽きるねこ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ゲーム全体の入れ物。canvas と オーバーレイ をここに重ねていく -->
+<div class="gameWrapper">
+
+  <!--
+    canvas の width / height 属性は「内部解像度」。
+    Chrome Dino に合わせて 600 x 150 に固定する。
+    画面上の表示サイズは CSS 側で拡大するので、ここは絶対に変えない。
+    ここを広げると画面に映る範囲が増え、障害物への反応時間が延びて
+    難易度が変わってしまう。
+  -->
+  <canvas id="gameCanvas" width="600" height="150"></canvas>
+
+  <!-- スタート前の案内 -->
+  <div class="overlay" id="startOverlay">
+    <p class="overlayTitle">10秒で力尽きるねこ</p>
+    <p class="overlayText">スペースキー / タップでスタート</p>
+  </div>
+
+  <!-- ゲームオーバー画面。最初は隠しておく -->
+  <div class="overlay overlay--dark hidden" id="gameOverOverlay">
+
+    <!-- 表示1: スコアと名前の入力 -->
+    <div class="gameOverView" id="submitView">
+      <p class="gameOverTitle">力尽きてしまった</p>
+      <p class="gameOverScore">SCORE <span id="finalScore">0</span></p>
+
+      <div class="nameRow">
+        <label for="playerName">なまえ</label>
+        <input type="text"
+               id="playerName"
+               maxlength="10"
+               value="野良ねこ"
+               placeholder="野良ねこ"
+               autocomplete="off">
+      </div>
+
+      <p class="noteText">
+        ※ 名前は だれでも 見られる ランキングに のります。<br>
+        本名や 個人情報は 書かないで ください。
+      </p>
+
+      <div class="buttonRow">
+        <button type="button" id="submitButton">ランキングに のこす</button>
+        <button type="button" data-retry>もういちど</button>
+      </div>
+
+      <p class="statusText" id="submitStatus"></p>
+    </div>
+
+    <!-- 表示2: 登録後のランキング。ボタンを押すとこちらに切り替わる -->
+    <div class="gameOverView hidden" id="rankingView">
+      <p class="rankingTitle">ランキング TOP10</p>
+
+      <table class="rankingTable">
+        <thead>
+          <tr>
+            <th scope="col">位</th>
+            <th scope="col">なまえ</th>
+            <th scope="col">スコア</th>
+          </tr>
+        </thead>
+        <tbody id="rankingBody"></tbody>
+      </table>
+
+      <div class="buttonRow">
+        <button type="button" data-retry>もういちど</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- スマホが縦向きのときだけ出る案内 -->
+<div class="rotateNotice">
+  <p>よこ画面で あそんでね<br>スマホを よこに むけてください</p>
+</div>
+
+<script src="js/assets.js"></script>
+<script src="js/ground.js"></script>
+<script src="js/cat.js"></script>
+<script src="js/obstacle.js"></script>
+<script src="js/item.js"></script>
+<script src="js/ranking.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

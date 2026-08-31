@@ -1,0 +1,23 @@
+# ===========================================
+# api/.htaccess
+#
+# config.php への直接アクセスを拒否する。
+#
+# 通常は PHP として実行されるので中身は表示されないが、
+# サーバーの設定変更や不具合で PHP が実行されなくなると、
+# ソースがそのまま見えてしまう。
+# その「もしも」を塞ぐための多重防御。
+# ===========================================
+
+<Files "config.php">
+  Require all denied
+</Files>
+
+<Files "config.php.sample">
+  Require all denied
+</Files>
+
+# .sql も公開する必要がない
+<Files "*.sql">
+  Require all denied
+</Files>
